@@ -1,0 +1,11 @@
+--languages=-html
+--languages=-javascript
+
+--python-kinds=-iv
+
+--exclude=.git
+--exclude=.hg
+--exclude=.eggs
+--exclude=build
+--exclude=*.egg-info
+--exclude=dist

@@ -1,0 +1,15 @@
+[alias]
+	pl = log --oneline --graph --decorate
+	l = log --stat --graph --decorate --abbrev-commit --date=relative
+[color]
+	ui = never
+[log]
+	decorate = auto
+[push]
+	default = simple
+[status]
+	showuntrackedfiles = all
+[transfer]
+	fsckobjects = true
+[include]
+	path = .gitconfig.local    

@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+import os
+import SimpleHTTPServer
+import SocketServer
+
+SERVER_ADDRESS = '127.0.0.1'
+PORT = 8000
+
+Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
+
+httpd = SocketServer.TCPServer((SERVER_ADDRESS, PORT), Handler)
+
+try:
+    print("Listening on {0}:{1}. Serving {2}".format(SERVER_ADDRESS,
+                                                     PORT, os.getcwd()))
+    httpd.serve_forever()
+except KeyboardInterrupt:
+    httpd.shutdown()
+    print("\nDone")
+

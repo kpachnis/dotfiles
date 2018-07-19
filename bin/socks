@@ -1,0 +1,89 @@
+#!/bin/sh
+
+if [ "$SH_DEBUG" ]; then
+    set -e
+    set -x
+fi
+
+PATH="$(getconf PATH)"
+
+command() {
+    SSH_COMMAND="ssh -fN $SSH_PROFILE -E $HOME/Library/Logs/socks.log"
+}
+
+status() {
+    if [ $(pgrep -f "$SSH_COMMAND") ]; then
+        printf "Connection is active\n"
+    else
+        printf "Connection is not active\n"
+    fi
+
+    exit 0
+}
+
+connect() {
+    if [ $(pgrep -f "$SSH_COMMAND") ]; then
+        printf "Connection is active\n"
+    else
+        $SSH_COMMAND
+    fi
+
+    exit 0
+}
+
+disconnect() {
+    if [ $(pgrep -f "$SSH_COMMAND") ]; then
+        pkill -TERM -f "$SSH_COMMAND"
+    else
+        printf "Connection is not active\n"
+    fi
+
+    exit 0
+}
+
+usage() {
+  cat <<-END >&2
+
+USAGE:  socks [-p profile] [-c] [-d] [-s]
+
+        -p profile  # SSH profile
+        -c          # Start a SSH tunnel
+        -d          # Stop a SSH tunnel
+        -s          # Status of the SSH tunnel
+
+Examples:
+        socks -p preprod -c
+
+END
+    
+    exit 0
+}
+
+main() {
+    while getopts p:cdsh opt; do
+        case $opt in
+            p)
+                SSH_PROFILE="$OPTARG"
+                command
+                ;;
+            d)
+                disconnect
+                ;;
+            c)
+                connect
+                ;;
+            s)
+                status
+                ;;
+            h)
+                usage
+                ;;
+        esac
+    done
+
+    shift $(( OPTIND - 1 ))
+
+    [ $# = 0 ] && usage
+}
+
+main "$@"
