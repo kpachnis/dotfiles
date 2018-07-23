@@ -63,6 +63,9 @@ else
 endif
 set modelines=5
 set mouse=a
+if !has('nvim')
+    set ttymouse=xterm2
+endif
 set nowrap
 set pastetoggle=<C-p>
 set report=0
