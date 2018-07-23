@@ -26,6 +26,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -240,6 +241,7 @@ nnoremap <silent><leader>c :call StripTrailingWhitespace()<CR>
 nnoremap <leader>l :setlocal list!<CR>
 nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>s :setlocal spell!<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 " }}}
 
