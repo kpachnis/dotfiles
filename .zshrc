@@ -59,9 +59,6 @@ export VISUAL=$EDITOR
 export GPG_TTY=$(tty)
 
 export PAGER=less
-export LESS=-i
-
-export NO_COLOR=1
 
 export PYTHONDONTWRITEBYTECODE=1
 
@@ -131,7 +128,7 @@ if [[ $EDITOR == vim ]]; then
     alias view="$EDITOR -R"
 fi
 
-alias ls='ls -aF'
+alias ls='ls -G'
 alias l='ls -chlt'
 alias cp='cp -i'
 alias ctmp='find $TMP -ctime +10 -delete'
