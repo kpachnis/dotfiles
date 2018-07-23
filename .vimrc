@@ -40,6 +40,7 @@ filetype plugin indent on
 set autoread
 set autowrite
 set backspace=2
+set background=dark
 set belloff=all
 set clipboard=unnamed
 set conceallevel=2
