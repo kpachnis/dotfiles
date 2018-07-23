@@ -50,11 +50,7 @@ path=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-if [[ -x $(command -v vim) ]]; then
-  export EDITOR=vim
-else
-  export EDITOR=vi
-fi
+EDITOR=$(command -v nvim || command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
@@ -124,7 +120,7 @@ autoload -U add-zsh-hook
 
 # Aliases {{{
 
-if [[ $EDITOR == vim ]]; then
+if [[ $EDITOR =~ vi ]]; then
     alias vi=$EDITOR
     alias view="$EDITOR -R"
 fi
