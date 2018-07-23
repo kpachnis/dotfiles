@@ -129,7 +129,17 @@ if [[ $EDITOR == vim ]]; then
     alias view="$EDITOR -R"
 fi
 
-alias ls='ls -G'
+case $(uname -s) in
+    Darwin)
+        alias ls='ls -G'
+        ;;
+    Linux)
+        alias ls='ls --color=auto'
+        ;;
+    *)
+        alias ls='ls -F'
+        ;;
+esac
 alias l='ls -chlt'
 alias cp='cp -i'
 alias ctmp='find $TMP -ctime +10 -delete'
@@ -138,6 +148,7 @@ alias du1='du -h -d 1'
 alias mv='mv -i'
 alias rm='rm -i'
 alias reload='source ~/.zshrc'
+alias tree='tree -C'
 alias update_dotfiles='curl https://raw.githubusercontent.com/kpachnis/dotfiles/master/install.sh | sh -x -'
 
 # }}}
