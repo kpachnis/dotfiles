@@ -37,6 +37,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
+    ~/homebrew/{bin,sbin}
     /usr/local/MacGPG2/bin
     /usr/local/{bin,sbin}
     /bin
