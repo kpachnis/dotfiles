@@ -29,7 +29,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 
 Plug 'kpachnis/vim-mako'
-Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -40,8 +40,6 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
-
-colorscheme solarized
 
 set autoread
 set autowrite
@@ -105,11 +103,15 @@ set wildignore+=build,dist
 set wildmenu
 set wildmode=longest:full,full
 
-if has("gui_running")
+if has('gui_running')
     set background=light
     set lines=25
     set columns=80
     set guioptions=egmt
+endif
+
+if has('nvim')
+    set termguicolors
 endif
 
 " }}}
@@ -288,3 +290,9 @@ endfunction
 
 " }}}
 
+" Colors {{{
+
+let base16colorspace=256
+colorscheme base16-default-dark
+
+" }}}
