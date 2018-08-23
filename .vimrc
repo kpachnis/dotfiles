@@ -28,6 +28,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 
+Plug 'kpachnis/vim-mako'
+Plug 'altercation/vim-colors-solarized'
+
 call plug#end()
 
 " }}}
@@ -37,6 +40,8 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme solarized
 
 set autoread
 set autowrite
