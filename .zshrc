@@ -241,7 +241,9 @@ PERIOD=3600
 periodic() { rehash }
 bindkey -e
 
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+if [[ -f ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+fi
 
 # }}}
 
