@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=`getconf PATH`
+PATH="/usr/local/bin:/bin:/usr/bin"
 
 readonly archive_url="https://github.com/kpachnis/dotfiles/tarball/master"
 readonly tmp_dir=`mktemp -d`
