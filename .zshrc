@@ -125,7 +125,7 @@ if [[ $EDITOR =~ vi ]]; then
 fi
 
 case $(uname -s) in
-    Darwin)
+    Darwin|FreeBSD)
         alias ls='ls -G'
         ;;
     Linux)
