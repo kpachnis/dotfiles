@@ -29,7 +29,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 
 Plug 'kpachnis/vim-mako'
-Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -66,9 +65,6 @@ else
 endif
 set modelines=5
 set mouse=a
-if !has('nvim')
-    set ttymouse=xterm2
-endif
 set nowrap
 set pastetoggle=<C-p>
 set report=0
@@ -92,6 +88,7 @@ set t_ti= t_te= " Don't use alternate screen
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
+set ttymouse=xterm2
 set viminfo='100,\"1000
 set wildignore+=.git,.hg,.svn,tmp,log
 set wildignore+=*.o,*.pyc,*.pyo,*.so
@@ -108,10 +105,6 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
-endif
-
-if has('nvim')
-    set termguicolors
 endif
 
 " }}}
@@ -290,9 +283,3 @@ endfunction
 
 " }}}
 
-" Colors {{{
-
-let base16colorspace=256
-colorscheme base16-default-dark
-
-" }}}

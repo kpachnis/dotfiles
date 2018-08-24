@@ -37,7 +37,6 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    ~/homebrew/{bin,sbin}
     /usr/local/MacGPG2/bin
     /usr/local/{bin,sbin}
     /bin
@@ -50,7 +49,7 @@ path=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=$(command -v nvim || command -v vim || command -v vi)
+EDITOR=$(command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
