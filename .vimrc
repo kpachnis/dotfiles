@@ -30,6 +30,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'kpachnis/vim-mako'
 
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
 " }}}
@@ -88,7 +90,6 @@ set t_ti= t_te= " Don't use alternate screen
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
-set ttymouse=xterm2
 set viminfo='100,\"1000
 set wildignore+=.git,.hg,.svn,tmp,log
 set wildignore+=*.o,*.pyc,*.pyo,*.so
@@ -96,7 +97,7 @@ set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=.DS_Store
 set wildignore+=*.orig
 set wildignore+=*.egg-info
-set wildignore+=build,dist
+set wildignore+=build,dist,__pycache__
 set wildmenu
 set wildmode=longest:full,full
 
@@ -252,7 +253,8 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 
 let python_highlight_all=1
 let ruby_space_errors=1
-let g:vim_markdown_autowrite = 1
+let g:vim_markdown_autowrite=1
+let g:NERDTreeRespectWildIgnore=1
 
 " }}}
 
@@ -283,3 +285,13 @@ endfunction
 
 " }}}
 
+" Colors {{{
+
+if has("termguicolors")
+    set termguicolors
+    let g:base16colorspace=256
+endif
+
+colorscheme base16-ocean
+
+" }}}
