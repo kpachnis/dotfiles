@@ -58,6 +58,7 @@ export GPG_TTY=$(tty)
 export PAGER=less
 
 export PYTHONDONTWRITEBYTECODE=1
+export PYTHONSTARTUP=~/.pythonrc
 export VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
 
 # }}}
