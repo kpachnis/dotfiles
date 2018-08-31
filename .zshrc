@@ -37,6 +37,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
+    ~/homebrew/{bin,sbin}
     /usr/local/MacGPG2/bin
     /usr/local/{bin,sbin}
     /bin
@@ -49,7 +50,7 @@ path=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=$(command -v vim || command -v vi)
+EDITOR=$(command -v nvim || command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
@@ -57,6 +58,7 @@ export GPG_TTY=$(tty)
 export PAGER=less
 
 export PYTHONDONTWRITEBYTECODE=1
+export VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
 
 # }}}
 
@@ -242,6 +244,26 @@ bindkey -e
 
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
+fi
+
+# }}}
+
+# Tools {{{
+
+if [[ -d ~/.rbenv ]]; then
+    path+=(~/.rbenv/bin)
+    eval "$(rbenv init -)"
+fi
+
+if [[ -d ~/.pyenv ]]; then
+    path+=(~/.pyenv/bin)
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+if [[ -d /usr/local/go ]]; then
+    export GOPATH=~/go
+    path+=(/usr/local/go/bin $GOPATH/bin)
 fi
 
 # }}}
