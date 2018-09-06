@@ -31,6 +31,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'kpachnis/vim-mako'
 
 Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -289,9 +290,10 @@ endfunction
 
 if has("termguicolors")
     set termguicolors
-    let g:base16colorspace=256
+    colorscheme dracula
+else
+    colorscheme base16-ocean
 endif
 
-colorscheme base16-ocean
 
 " }}}
