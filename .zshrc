@@ -60,6 +60,11 @@ export PAGER=less
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP=~/.pythonrc
 
+if [[ $(command -v brew) ]]; then
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_INSECURE_REDIRECT=1
+fi
+
 # }}}
 
 # Prompt {{{
@@ -145,6 +150,7 @@ alias du1='du -h -d 1'
 alias mv='mv -i'
 alias rm='rm -i'
 alias reload='source ~/.zshrc'
+alias tree='tree -C'
 alias update_dotfiles='curl https://raw.githubusercontent.com/kpachnis/dotfiles/master/install.sh | sh -x -'
 
 # }}}
