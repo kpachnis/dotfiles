@@ -37,7 +37,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    ~/homebrew/{bin,sbin}
+    /Applications/MacVim.app/Contents/bin
     /usr/local/MacGPG2/bin
     /usr/local/{bin,sbin}
     /bin
@@ -50,7 +50,7 @@ path=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=$(command -v nvim || command -v vim || command -v vi)
+EDITOR=$(command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
@@ -59,11 +59,6 @@ export PAGER=less
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP=~/.pythonrc
-
-if [[ $(command -v brew) ]]; then
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_INSECURE_REDIRECT=1
-fi
 
 # }}}
 
@@ -150,7 +145,6 @@ alias du1='du -h -d 1'
 alias mv='mv -i'
 alias rm='rm -i'
 alias reload='source ~/.zshrc'
-alias tree='tree -C'
 alias update_dotfiles='curl https://raw.githubusercontent.com/kpachnis/dotfiles/master/install.sh | sh -x -'
 
 # }}}
@@ -254,17 +248,6 @@ fi
 # }}}
 
 # Tools {{{
-
-if [[ -d ~/.rbenv ]]; then
-    path+=(~/.rbenv/bin)
-    eval "$(rbenv init -)"
-fi
-
-if [[ -d ~/.pyenv ]]; then
-    path+=(~/.pyenv/bin)
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
 
 if [[ -d /usr/local/go ]]; then
     export GOPATH=~/go
