@@ -1,0 +1,14 @@
+#!/bin/sh
+
+readonly CURL_OPTS="-#LO"
+
+case $OSTYPE in
+  darwin*)
+    exec curl $CURL_OPTS "$@" $(pbpaste)
+    ;;
+  linux*)
+    exec curl $CURL_OPTS "$@" $(xclip -o)
+    ;;
+  *)
+    ;;
+esac

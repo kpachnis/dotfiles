@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+from __future__ import print_function
+
+import os
+import os.path
+import re
+import sys
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    print("Beautiful Soup not found", file=sys.stderr)
+    exit(1)
+
+try:
+    import requests
+except ImportError:
+    print("requests not found", file=sys.stderr)
+    exit(1)
+
+
+RFC_URL = 'https://tools.ietf.org/'
+DNS_FAQ_PAGE = 'http://www.faqs.org/rfcs/dns-rfcs.html'
+
+
+def find_dns_rfc(dns_faq_page_content):
+    """ Find RFC numbers in FAQ page """
+    rfc_list = []
+    print("Looking for DNS RFCs links...")
+    for link in dns_faq_page_content.find_all('a'):
+        if link.get('name') is not None:
+            if re.findall('\d{3,4}', link.get('name')):
+                rfc_no = re.sub('^0', '', link.get('name'))
+                rfc_list.append(rfc_no)
+    print("Found {} RFCs".format(len(rfc_list)))
+
+    return rfc_list
+
+
+def fetch_dns_rfc(rfc_list):
+    """ Fetch all DNS related RFCs """
+    rfc_list.sort()
+
+    for rfc in rfc_list:
+        r = requests.get("{}/rfc/rfc{}.txt".format(RFC_URL, rfc))
+        print("Fetching RFC {}".format(rfc))
+        with open(os.path.join(os.getenv("HOME"), "Documents/RFCs/rfc{}.txt".format(rfc)), "w") as rfc_file:
+            rfc_file.write(r.text)
+
+
+def generate_dns_rfc_index(rfc_list):
+    """ Generate RFC index """
+    print("Generating index...")
+    with open(os.path.join(os.getenv("HOME"), "Documents/RFCs/index.txt"), "w") as rfc_index:
+        for rfc in rfc_list:
+            rfc_html_page = requests.get("{}/html/rfc{}".format(RFC_URL, rfc))
+            rfc_html_page_content = BeautifulSoup(rfc_html_page.text)
+            rfc_index.write("{} \t {}\n".format(rfc, rfc_html_page_content.body.pre.span.string))
+
+
+def main():
+    dns_faq_page = requests.get(DNS_FAQ_PAGE)
+    dns_faq_page_content = BeautifulSoup(dns_faq_page.text)
+    rfc_list = find_dns_rfc(dns_faq_page_content)
+    fetch_dns_rfc(rfc_list)
+    generate_dns_rfc_index(rfc_list)
+
+
+if __name__ == '__main__':
+    main()

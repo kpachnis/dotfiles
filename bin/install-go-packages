@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Install go third party tools and libraries
+
+if [ ! -x $(command -v go) ]; then
+	 printf "go not found.\n"
+fi
+
+repos="
+golang.org/x/tools/cmd/goimports
+golang.org/x/tools/cmd/oracle
+github.com/golang/lint/golint
+github.com/jstemmer/gotags
+github.com/rakyll/boom
+"
+
+for repo in $repos; do
+	printf "Installing ${repo##*/}\n"
+	go get -u $repo
+done
+

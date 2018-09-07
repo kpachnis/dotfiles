@@ -1,0 +1,4 @@
+#!/bin/sh
+
+open "https://tools.ietf.org/html/rfc$1"
+

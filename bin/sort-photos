@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import os
+import shutil
+import sys
+from datetime import datetime
+from pathlib import Path
+
+from gi.repository import GExiv2
+
+PHOTOS_DIR = Path(os.getenv('HOME'), 'Photos')
+c_path = Path.cwd()
+photos = list(c_path.glob('**/*.*'))
+
+if not Path(PHOTOS_DIR).exists():
+    PHOTOS_DIR.mkdir(mode=0o700)
+
+for photo in photos:
+    try:
+        if photo.suffix == '.NEF':
+            exif = GExiv2.Metadata(str(photo))
+            p_datetime = datetime.strptime(
+                exif.get_tag_string('Exif.Image.DateTimeOriginal'),
+                "%Y:%m:%d %H:%M:%S")
+
+            photo_dir = Path(PHOTOS_DIR, p_datetime.strftime("%Y%m%d"),
+                             'master')
+
+            if not photo_dir.exists():
+                photo_dir.mkdir(mode=0o700, parents=True)
+
+            print("Copying {0} to dir {1}\n".format(photo, photo_dir))
+            shutil.copy2(str(photo), str(photo_dir))
+    except:
+        print("Unable to process {}".format(photo))
+        print("Unexpected error:", sys.exc_info()[0])
+        pass

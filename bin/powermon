@@ -1,0 +1,59 @@
+#!/bin/sh
+
+if [ $DEBUG ]; then
+	set -e
+	set -x
+fi
+
+PATH=$(getconf PATH)
+
+readonly BAT_NOW=/sys/class/power_supply/BAT0/current_now
+readonly BAT_FULL=/sys/class/power_supply/BAT0/charge_full
+readonly BAT_STATUS=/sys/class/power_supply/BAT0/status
+
+readonly BAT_CRITICAL=3
+readonly BAT_WARNING=10
+
+powermon() {
+	exec 4< $BAT_NOW
+	read NOW <&4
+	exec 4<&-
+
+	exec 5< $BAT_FULL
+	read FULL <&5
+	exec 5<&-
+
+	exec 6< $BAT_STATUS
+	read STATUS <&6
+	exec 6<&-
+
+	BAT_REMAINING=$(( NOW / (FULL / 100) ))
+
+	if [ $BAT_REMAINING -le $BAT_WARNING -a $BAT_REMAINING -gt $BAT_CRITICAL -a $STATUS != Charging ]; then
+		notify-send --urgency=normal "Powermon" "$(acpi -b)"
+
+	elif [ $BAT_REMAINING -le $BAT_CRITICAL -a $STATUS != Charging ]; then
+		notify-send --urgency=critical "Powermon" "The system will hibernate in 1min"
+		sleep 60
+
+		exec 6< $BAT_STATUS
+		read STATUS <&6
+		exec 6<&-
+
+		if [ $STATUS = Charging ]; then
+			notify-send --urgency=normal "Powermon" "Battery charging"
+		else
+			systemctl hibernate
+		fi
+	fi
+}
+
+main() {
+	trap "logger --id -p user.notice -t powermon 'Exiting...'" TERM
+	while true; do
+		powermon
+		sleep 60
+	done
+}
+
+main

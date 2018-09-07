@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+# Search for undelivered mail
+
+import re
+
+try:
+    with open('.msmtp.log') as f:
+        for line in f:
+            tabular = line.split(' ')
+            for t in tabular:
+                smtpstatus = re.search('^smtpstatus=\d+', t)
+                if smtpstatus:
+                    s = smtpstatus.group(0).split('=')
+                    print(s)
+                    if s[1] is not '250':
+                        print('There was an error sending your email')
+except IOError as e:
+    print(e)

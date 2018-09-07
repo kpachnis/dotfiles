@@ -1,0 +1,84 @@
+#!/usr/bin/env python
+
+from os import walk, remove, getcwd
+from os.path import join
+from argparse import ArgumentParser
+
+
+def cmd_options():
+    parser = ArgumentParser(prog='scm-kep')
+    parser.add_argument('-c', '--create', dest='create', action='store_true', default=False)
+    parser.add_argument('-r', '--remove', dest='remove', action='store_true', default=False)
+    parser.add_argument('-d', '--directory-name', dest='directory', default=getcwd())
+    parser.add_argument('-f', '--file-name', dest='filename', default='.keep')
+    parser.add_argument('-t', '--text', dest='text', default=" ")
+
+    return parser.parse_args()
+
+
+def create_files(directory, filename, text):
+    """Create file(s) in the empty directories of the given directory tree
+
+    Keyword arguments:
+        directory -- The directory name to walk throught
+        filename -- The name of the new file
+        text -- The text to insert in new files (default '')
+    """
+
+    filelist = []
+
+    for root, dirs, filenames in walk(directory):
+        if not dirs and not filenames:
+            with open(join(root, filename), 'w+') as f:
+                f.write(text)
+                filelist.append(f.name)
+        else:
+            pass
+
+    return filelist
+
+
+def remove_files(directory, filename):
+    """Remove file(s) from the given directory tree
+
+    Keyword arguments:
+        directory -- The directory name to walk throught
+        filename -- The name of the file to be removed
+    """
+
+    filelist = []
+
+    for root, dirs, filenames in walk(directory):
+        f = next((ffile for ffile in filenames if ffile == filename), None)
+        if f:
+            try:
+                remove(join(root, filename))
+                filelist.append(join(root, filename))
+            except OSError:
+                pass
+        else:
+             pass
+
+    return filelist
+
+
+def main():
+    args = cmd_options()
+
+    if args.create and args.remove:
+        print "You need to specify one of the"
+
+    if args.create:
+        filelist = create_files(args.directory, args.filename, args.text)
+        for filename in filelist:
+            print 'Created file %s' % filename
+    elif args.remove:
+        filelist = remove_files(args.directory, args.filename)
+        for filename in filelist:
+            print "Removed file %s" % filename
+    else:
+        print "No action specfied"
+        exit(0)
+
+if __name__ == "__main__":
+    main()

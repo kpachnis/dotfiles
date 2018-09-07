@@ -1,0 +1,15 @@
+#!/bin/sh
+
+EXT_MONITOR="$(xrandr | grep DP-1 | awk '{ print $2; }')"
+
+if [ -n "$DISPLAY" ] && [ "$EXT_MONITOR" = "connected" ]; then
+  xrandr --output DP-1 --auto --primary --right-of LVDS-0
+
+  setxkbmap -layout 'us,gr' \
+    -option \
+    -option 'grp:alt_space_toggle,lv3:ralt_switch,terminate:ctrl_alt_bksp' \
+    -variant nodeadkeys \
+    -model pc105
+
+  xmodmap "$HOME/.xmodmap"
+fi

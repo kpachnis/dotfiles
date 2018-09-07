@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+import os
+import json
+import shutil
+import subprocess
+import sys
+
+from datetime import datetime
+from pathlib import Path
+
+
+VIDEOS_DIR = Path(os.getenv('HOME'), 'Videos')
+p = Path.cwd()
+videos = list(p.glob('**/*.*'))
+
+for video in videos:
+    try:
+        res = subprocess.check_output(["avprobe", "-loglevel", "quiet", "-of",
+                                       "json", "-show_format", str(video)],
+                                      universal_newlines=True)
+        creation_time = json.loads(res)['format']['tags']['creation_time']
+
+        v_datetime = datetime.strptime(creation_time, "%Y-%m-%d %H:%M:%S")
+
+        video_dir = Path(VIDEOS_DIR, v_datetime.strftime("%Y%m%d"))
+        if not video_dir.exists():
+            video_dir.mkdir(mode=0o700, parents=True)
+
+        print("Copying {0} to dir {1}".format(video, video_dir))
+        shutil.copy2(str(video), str(video_dir))
+    except:
+        print("Unable to process video {}".format(video))
+        print("Unexpected error:", sys.exc_info()[0])
+        pass

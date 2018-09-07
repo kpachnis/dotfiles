@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case $OSTYPE in
+    darwin*)
+        sudo dscacheutil -flushcache
+        sudo killall -HUP mDNSResponder
+        ;;
+    *)
+        printf "Unknown system\n"
+        ;;
+esac

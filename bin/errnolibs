@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+
+"""
+Copyright (c) 2014, Konstantinos Pachnis.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+"""
+
+import errno
+import os
+import pathlib
+import re
+
+def license():
+    license = """
+# Copyright (c) 2014, Konstantinos Pachnis.
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice,
+# this list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+# this list of conditions and the following disclaimer in the documentation
+# and/or other materials provided with the distribution.
+#
+# 3. Neither the name of the copyright holder nor the names of its contributors
+# may be used to endorse or promote products derived from this software
+# without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+"""
+
+    return u"{}\n".format(license)
+
+
+def errno_c_header():
+    """
+    Create errno by parsing the C header file
+    """
+
+    ERRNO_H='/usr/include/x86_64-linux-gnu/bits/errno.h'
+
+    shells = {
+        'bash': {
+            'file': str(pathlib.PurePath(os.getenv('BTL_HOME'), 'lib/bash/errno.bash')),
+            'keyword': 'declare -ri'
+        },
+        'ksh': {
+            'file': str(pathlib.PurePath(os.getenv('BTL_HOME'), 'lib/ksh/errno.ksh')),
+            'keyword': 'typeset -ri'
+        },
+        'sh': {
+            'file': str(pathlib.PurePath(os.getenv('BTL_HOME'), 'lib/sh/errno.sh')),
+            'keyword': 'readonly'
+        },
+        'zsh': {
+            'file': str(pathlib.PurePath(os.getenv('BTL_HOME'), 'lib/zsh/errno.zsh')),
+            'keyword': 'typeset -ri'
+        },
+
+    }
+
+    c_definition = re.compile('^#define')
+    err_definition = re.compile(r'^#(\w+)(\s+)(\w+)(\s+)(\d*)(\s*)(\S*)([\w /]*)')
+    #err_definition = re.compile(r'^#(\w+)(\s+)(\w+)(\s+)(\d*)')
+
+    try:
+        for k, v in shells.items():
+            with open(ERRNO_H, 'r') as errno_h:
+                try:
+                    with open(v.get('file'), 'w') as errno_sh:
+                        errno_sh.write(u"# {} - error codes\n#".format(k))
+                        errno_sh.write(license())
+
+                        for line in errno_h:
+                            if c_definition.match(line):
+                                res = err_definition.match(line)
+
+                                # Only the error names and numbers are required
+                                if not (re.match('^errno', res.group(3)) or
+                                        (re.match('^_SYS', res.group(3)))):
+                                    if res.group(3) == 'EWOULDBLOCK':
+                                        errno_sh.write(u"{0} {1}=$EAGAIN\n".format(
+                                            v.get('keyword'), res.group(3)))
+                                    elif res.group(3) == 'EOPNOTSUPP' and res.group(5) == '':
+                                        pass
+                                    else:
+                                        errno_sh.write(u"{0} {1}={2}\t#{3}\n".format(
+                                            v.get('keyword'), res.group(3), res.group(5),
+                                            res.group(8)).expandtabs(8))
+                except IOError as e:
+                    print(e)
+    except IOError as e:
+        print(e)
+
+
+def errno_python():
+    ERRNO_SH=os.path.expanduser('~/lib/errno.sh')
+
+    with open(ERRNO_SH, 'w') as errno_sh:
+        errno_sh.write(u"# Error codes\n#\n")
+        for errno_val, errno_str in errno.errorcode.iteritems():
+            errno_sh.write("readonly {0}={1}\n".format(errno_str, errno_val))
+
+
+if __name__ == '__main__':
+    if not os.getenv('BTL_HOME'):
+        print('You need to set BTL_HOME environment variable')
+        exit(errno.EPERM)
+    else:
+        errno_c_header()

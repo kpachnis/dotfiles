@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import os.path
+import tarfile
+
+from datetime import datetime
+
+dotfiles = (
+    '.gitconfig',
+    '.tmux.conf',
+    '.vim/autoload/pathogen.vim',
+    '.vim/bundles.txt',
+    '.vim/spell/el.utf-8.spl',
+    '.vimrc',
+    '.zshrc',
+    'bin/dotfiles',
+    'bin/git-wtf',
+    'bin/grs',
+    'bin/ivb',
+    'bin/py-httpd',
+    'Library/Spelling/el_GR.aff',
+    'Library/Spelling/el_GR.dic',
+    'Library/Spelling/hyph_el_GR.dic'
+)
+
+archive = "dotfiles_{0}.tar".format(datetime.now().strftime("%Y%m%d%H%M"))
+
+with tarfile.open(os.path.expanduser(archive), "w") as f:
+    for file in dotfiles:
+        f.add(file)
