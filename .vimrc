@@ -46,7 +46,6 @@ filetype plugin indent on
 set autoread
 set autowrite
 set backspace=2
-set background=dark
 set belloff=all
 set clipboard=unnamed
 set conceallevel=2
@@ -103,10 +102,11 @@ set wildmenu
 set wildmode=longest:full,full
 
 if has('gui_running')
-    set background=light
+    colorscheme dracula
     set lines=25
     set columns=80
     set guioptions=egmt
+    set guifont=Noto\ Sans\ Mono\ Regular:h12
 endif
 
 " }}}
@@ -292,7 +292,8 @@ if has("termguicolors")
     set termguicolors
     colorscheme dracula
 else
-    colorscheme base16-ocean
+    set background=dark
+    colorscheme default
 endif
 
 
