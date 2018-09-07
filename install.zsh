@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 PATH="/usr/local/bin:/bin:/usr/bin"
 
@@ -7,12 +7,12 @@ readonly tmp_dir=`mktemp -d`
 
 tar_options="--exclude install.sh --exclude .gitignore --strip-components 1"
 
-if [ ! -x `which curl` ]; then
+if [[ ! -x $(command -v curl) ]]; then
     printf "Can't find curl\n"
     exit 1
 fi
 
-if [ ! `uname -s` = "Darwin" ]; then
+if [[ ! $(uname -s) == Darwin ]]; then
     tar_options="--exclude Library $tar_options"
 fi
 
@@ -20,10 +20,11 @@ curl -Ls $archive_url -o $tmp_dir/dotfiles.tar.gz
 
 tar -zxf $tmp_dir/dotfiles.tar.gz $tar_options -C $HOME
 
-if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 rm -fr $tmp_dir
 
+vi +PlugInstall +qall
