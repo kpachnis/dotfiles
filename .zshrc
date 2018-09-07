@@ -60,11 +60,6 @@ export PAGER=less
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP=~/.pythonrc
 
-if [[ $(command -v brew) ]]; then
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_INSECURE_REDIRECT=1
-fi
-
 # }}}
 
 # Prompt {{{
