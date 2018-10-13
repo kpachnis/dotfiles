@@ -37,8 +37,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    /Applications/MacVim.app/Contents/bin
-    /usr/local/MacGPG2/bin
+    /usr/pkg/{bin,games,X11R7/bin}
     /usr/local/{bin,sbin}
     /bin
     /sbin
@@ -50,7 +49,7 @@ path=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=$(command -v vim || command -v vi)
+EDITOR=$(command -v nvim || command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
@@ -90,6 +89,7 @@ compdef '_files -g "*.yml"' ansible-playbook
 compdef '_hosts' ansible
 compdef '_hosts' dig
 compdef '_hosts' fping
+compdef '_hosts' socks
 
 compdef gpg2=gpg
 
@@ -244,15 +244,6 @@ bindkey -e
 
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
-fi
-
-# }}}
-
-# Tools {{{
-
-if [[ -d /usr/local/go ]]; then
-    export GOPATH=~/go
-    path+=(/usr/local/go/bin $GOPATH/bin)
 fi
 
 # }}}
