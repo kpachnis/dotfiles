@@ -26,6 +26,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'kpachnis/vim-mako'
 
@@ -91,6 +92,7 @@ endif
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
+set updatetime=100
 set viminfo='100,\"1000
 set wildignore+=.git,.hg,.svn,tmp,log
 set wildignore+=*.o,*.pyc,*.pyo,*.so
