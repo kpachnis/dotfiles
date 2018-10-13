@@ -29,9 +29,6 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'kpachnis/vim-mako'
 
-Plug 'chriskempson/base16-vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-
 call plug#end()
 
 " }}}
@@ -41,6 +38,8 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme wombat256mod
 
 set autoread
 set autowrite
@@ -86,6 +85,9 @@ set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
 set t_ti= t_te= " Don't use alternate screen
+if has("termguicolors")
+    set termguicolors
+endif
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -101,11 +103,9 @@ set wildmenu
 set wildmode=longest:full,full
 
 if has('gui_running')
-    colorscheme dracula
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Noto\ Sans\ Mono\ Regular:h12
 endif
 
 " }}}
@@ -285,15 +285,3 @@ endfunction
 
 " }}}
 
-" Colors {{{
-
-if has("termguicolors")
-    set termguicolors
-    colorscheme dracula
-else
-    set background=dark
-    colorscheme default
-endif
-
-
-" }}}
