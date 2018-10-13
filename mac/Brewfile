@@ -1,0 +1,29 @@
+# vim: set ft=ruby
+
+cask_args appdir: "/Applications"
+tap "homebrew/cask"
+
+brew "aria2"
+brew "git"
+brew "gpg2"
+brew "heroku"
+brew "neovim"
+brew "pinentry-mac"
+brew "tig"
+brew "wiggle"
+brew "zsh"
+
+cask "1Password"
+cask "balsamiq-mockups"
+cask "firefox"
+cask "iterm2"
+cask "kindle"
+cask "launchbar"
+cask "libreoffice"
+cask "nordvpn"
+cask "thunderbird"
+cask "vlc"
+
+mas "Amphetamine", id: 937984704
+mas "Pixelmator", id: 407963104
+mas "Affinity Photo", id: 824183456
