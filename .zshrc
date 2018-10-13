@@ -38,6 +38,7 @@ path=(
     ~/bin
     ~/.local/bin
     /usr/pkg/{bin,games,X11R7/bin}
+    /opt/local/{bin.sbin}
     /usr/local/{bin,sbin}
     /bin
     /sbin
