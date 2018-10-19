@@ -13,6 +13,8 @@ Plug 'elzr/vim-json'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-python/python-syntax'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 
 Plug 'Raimondi/delimitMate'
 Plug 'dhruvasagar/vim-table-mode'
@@ -40,10 +42,9 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
-colorscheme wombat256mod
-
 set autoread
 set autowrite
+set background=dark
 set backspace=2
 set belloff=all
 set clipboard=unnamed
@@ -178,6 +179,11 @@ augroup ft_yaml
     autocmd!
     autocmd BufNewFile,BufRead *.yml.sample setlocal ft=yaml
     autocmd FileType yaml setlocal et sts=2 sw=2 ts=2
+augroup END
+
+augroup ft_html
+    autocmd!
+    autocmd FileType html setlocal et sts=2 sw=2 ts=2
 augroup END
 
 " http://vim.wikia.com/wiki/Encryption#GPG
