@@ -13,7 +13,7 @@ if [[ ! -x $(command -v curl) ]]; then
 fi
 
 if [[ ! $(uname -s) == Darwin ]]; then
-    tar_options="--exclude Library $tar_options"
+    tar_options="--exclude Library --exclude mac $tar_options"
 fi
 
 curl -Ls $archive_url -o $tmp_dir/dotfiles.tar.gz
