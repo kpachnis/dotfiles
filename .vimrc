@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
+Plug 'vimwiki/vimwiki'
 
 Plug 'kpachnis/vim-mako'
 
@@ -41,6 +42,8 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme wombat
 
 set autoread
 set autowrite
