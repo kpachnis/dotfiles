@@ -30,7 +30,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 
 Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
 Plug 'mbbill/undotree'
 Plug 'chrisbra/csv.vim'
