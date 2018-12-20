@@ -149,7 +149,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias reload='source ~/.zshrc'
 alias tree='tree -C'
-alias update_dotfiles='curl https://raw.githubusercontent.com/kpachnis/dotfiles/master/install.sh | sh -x -'
+alias update_dotfiles='curl https://raw.githubusercontent.com/kpachnis/dotfiles/master/install.zsh | zsh -x -'
 
 # }}}
 
