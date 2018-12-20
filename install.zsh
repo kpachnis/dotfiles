@@ -3,7 +3,7 @@
 path=(/usr/local/bin /bin /usr/bin)
 
 readonly archive_url="https://github.com/kpachnis/dotfiles/tarball/master"
-readonly tmp_dir=`mktemp -d`
+readonly tmp_dir=$(mktemp -d)
 
 tar_options=(--exclude install.sh --exclude .gitignore --strip-components 1)
 
