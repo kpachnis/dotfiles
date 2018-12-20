@@ -27,4 +27,4 @@ fi
 
 rm -fr $tmp_dir
 
-vi +PlugInstall +PluginUpdate +qall
+vi +PlugInstall +PlugUpdate +qall
