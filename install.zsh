@@ -5,15 +5,15 @@ path=(/usr/local/bin /bin /usr/bin)
 readonly archive_url="https://github.com/kpachnis/dotfiles/tarball/master"
 readonly tmp_dir=`mktemp -d`
 
-tar_options="--exclude install.sh --exclude .gitignore --strip-components 1"
+tar_options=(--exclude install.sh --exclude .gitignore --strip-components 1)
 
 if [[ ! -x $(command -v curl) ]]; then
     print "Can't find curl\n"
     exit 1
 fi
 
-if [[ ! $(uname -s) == Darwin ]]; then
-    tar_options="--exclude Library --exclude mac $tar_options"
+if [[ ! $OSTYPE =~ darwin ]]; then
+    tar_options=(--exclude Library --exclude mac $tar_options)
 fi
 
 curl -Ls $archive_url -o $tmp_dir/dotfiles.tar.gz
