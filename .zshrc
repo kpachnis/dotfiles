@@ -37,8 +37,10 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
+    ~/homebrew/bin
+    ~/Developer/Frameworks/jdk-11.0.1.jdk/Contents/Home/bin
+    /Applications/MacVim.app/Contents/bin
     /usr/pkg/{bin,games,X11R7/bin}
-    /opt/local/{bin.sbin}
     /usr/local/{bin,sbin}
     /bin
     /sbin
