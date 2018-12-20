@@ -15,6 +15,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'vim-python/python-syntax'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'lervag/vimtex'
 
 Plug 'Raimondi/delimitMate'
 Plug 'dhruvasagar/vim-table-mode'
@@ -24,14 +25,20 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
-Plug 'vimwiki/vimwiki'
+Plug 'flazz/vim-colorschemes'
+Plug 'mbbill/undotree'
+Plug 'chrisbra/csv.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-Plug 'kpachnis/vim-mako'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -43,11 +50,10 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
-colorscheme wombat
+colorscheme molokai
 
 set autoread
 set autowrite
-set background=dark
 set backspace=2
 set belloff=all
 set clipboard=unnamed
@@ -90,9 +96,6 @@ set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
 set t_ti= t_te= " Don't use alternate screen
-if has("termguicolors")
-    set termguicolors
-endif
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -103,8 +106,9 @@ set wildignore+=*.o,*.pyc,*.pyo,*.so
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=.DS_Store
 set wildignore+=*.orig
+set wildignore+=tags
 set wildignore+=*.egg-info
-set wildignore+=build,dist,__pycache__
+set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage
 set wildmenu
 set wildmode=longest:full,full
 
@@ -112,6 +116,8 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
+    set guifont=Consolas:h13
+    colorscheme dracula
 endif
 
 " }}}
@@ -143,8 +149,8 @@ augroup END
 
 augroup ft_prog
     autocmd!
-    autocmd FileType python,ruby setlocal cc=80
-    autocmd FileType c,cpp,java,go setlocal cc=80
+    autocmd FileType python,ruby setlocal cc=120
+    autocmd FileType c,cpp,java,go setlocal cc=120
     autocmd FileType javascript,python,ruby,sh,zsh,go setlocal ai
     autocmd FileType c,cpp,java setlocal ci
     autocmd FileType c,cpp,java,go,javascript,python,ruby,sh,zsh autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
@@ -265,7 +271,10 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 let python_highlight_all=1
 let ruby_space_errors=1
 let g:vim_markdown_autowrite=1
-let g:NERDTreeRespectWildIgnore=1
+
+let NERDTreeChDirMode=2
+let NERDTreeRespectWildIgnore=1
+let NERDTreeShowHidden=1
 
 " }}}
 
