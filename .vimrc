@@ -30,14 +30,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 
 Plug 'scrooloose/nerdtree'
-Plug 'flazz/vim-colorschemes'
 Plug 'mbbill/undotree'
 Plug 'chrisbra/csv.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -48,8 +43,6 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
-
-colorscheme molokai
 
 set autoread
 set autowrite
@@ -115,8 +108,7 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Consolas:h13
-    colorscheme dracula
+    set guifont=Menlo:h12
 endif
 
 " }}}
@@ -139,6 +131,7 @@ augroup ft_text
                 \   set ft=text |
                 \ endif
     autocmd FileType text setlocal spell fo=tcwan1 tw=78
+    autocmd FileType text map <leader>f :%!fmt<CR>
 augroup END
 
 augroup ft_mail
