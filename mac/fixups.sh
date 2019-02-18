@@ -33,3 +33,6 @@ defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen 1
 
 # Show Library folder
 chflags nohidden ~/Library
+
+# Fix key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
