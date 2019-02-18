@@ -1,6 +1,10 @@
 [alias]
 	pl = log --oneline --graph --decorate
 	l = log --stat --graph --decorate --abbrev-commit --date=relative
+[core]
+	excludesfile = ~/.gitignore_global
+[commit]
+    gpgSign = true
 [color]
 	ui = true
 [log]
@@ -13,3 +17,9 @@
 	fsckobjects = true
 [include]
 	path = .gitconfig.local    
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
