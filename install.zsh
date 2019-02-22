@@ -31,7 +31,7 @@ if [[ -n $editor ]]; then
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
 
-    $editor +PlugInstall +PlugUpdate +qall
+    $editor --not-a-term +PlugInstall +PlugUpdate +qall
 else
     print "Vim/NeoVim is not installed"
 fi
