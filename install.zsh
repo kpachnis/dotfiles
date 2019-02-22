@@ -20,6 +20,8 @@ curl -Ls $archive_url -o $tmp_dir/dotfiles.tar.gz
 
 tar -zxf $tmp_dir/dotfiles.tar.gz $tar_options -C $HOME
 
+mv ~/.gitignore_global ~/.gitignore
+
 if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
