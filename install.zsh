@@ -7,7 +7,7 @@ path=(/usr/local/bin /bin /usr/bin)
 readonly archive_url="https://github.com/kpachnis/dotfiles/tarball/master"
 readonly tmp_dir=$(mktemp -d)
 
-tar_options=(--exclude install.sh --exclude .gitignore --strip-components 1)
+tar_options=(--exclude install.zsh --exclude .gitignore --strip-components 1)
 
 if [[ ! -x $(command -v curl) ]]; then
     print "$fg[red]Can't find curl$reset_color\n"
