@@ -32,7 +32,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'chrisbra/csv.vim'
-Plug 'airblade/vim-gitgutter'
 
 Plug 'altercation/vim-colors-solarized'
 
