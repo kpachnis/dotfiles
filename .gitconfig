@@ -1,25 +1,29 @@
+[init]
+    templatedir = ~/.git_template
 [alias]
-	pl = log --oneline --graph --decorate
-	l = log --stat --graph --decorate --abbrev-commit --date=relative
+    pl = log --oneline --graph --decorate
+    l = log --stat --graph --decorate --abbrev-commit --date=relative
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore
+    autocrlf = input
 [commit]
     gpgSign = true
+    template = ~/.gitmessage
 [color]
-	ui = true
+    ui = true
 [log]
-	decorate = auto
+    decorate = auto
 [push]
-	default = simple
+    default = current
 [status]
-	showuntrackedfiles = all
+    showuntrackedfiles = all
 [transfer]
-	fsckobjects = true
+    fsckobjects = true
 [include]
-	path = .gitconfig.local    
+    path = ~/.gitconfig.local
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
