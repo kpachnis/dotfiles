@@ -194,6 +194,13 @@ augroup ft_html
     autocmd FileType html setlocal et sts=2 sw=2 ts=2
 augroup END
 
+augroup ft_local_config
+    autocmd BufRead,BufNewFile .zshrc.local set filetype=zsh
+    autocmd BufRead,BufNewFile .gitconfig.local set filetype=gitconfig
+    autocmd BufRead,BufNewFile .tmux.conf.local set filetype=tmux
+    autocmd BufRead,BufNewFile .vimrc.local set filetype=vim
+augroup END
+
 " http://vim.wikia.com/wiki/Encryption#GPG
 augroup encrypted
     au!
