@@ -119,9 +119,11 @@ set wildmenu
 set wildmode=longest:full,full
 
 if has('gui_running')
+    set cursorline
     set lines=25
     set columns=80
     set guioptions=egmt
+    set guifont=Monaco:h13
 endif
 
 " }}}
