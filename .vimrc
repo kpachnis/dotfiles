@@ -28,12 +28,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
-
 Plug 'scrooloose/nerdtree'
-Plug 'mbbill/undotree'
 Plug 'chrisbra/csv.vim'
-
-Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'pbrisbin/vim-mkdir'
 
 Plug 'vimwiki/vimwiki'
 
@@ -52,13 +50,17 @@ set autowrite
 set backspace=2
 set belloff=all
 set clipboard=unnamed
+set colorcolumn=+1
+set complete+=kspell
 set conceallevel=2
 set cmdheight=2
-set cursorline
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos
-
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 set history=1000
 set hlsearch
 set incsearch
@@ -73,7 +75,8 @@ endif
 set modelines=5
 set mouse=a
 set nowrap
-set pastetoggle=<C-p>
+set number
+set numberwidth=5
 set report=0
 set ruler
 set scrolloff=1
@@ -97,12 +100,14 @@ set title
 set ttyfast
 set updatetime=100
 set viminfo='100,\"1000
-set wildignore+=.git,.hg,.svn,tmp,log
+set wildignore+=.git,.hg,.svn,
+set wildignore+=*/tmp/*,*/log/*
 set wildignore+=*.o,*.pyc,*.pyo,*.so
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=.DS_Store
 set wildignore+=*.orig
 set wildignore+=tags
+set wildignore+=*.zip,*.rpm
 set wildignore+=*.egg-info
 set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage
 set wildmenu
@@ -112,7 +117,6 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Ubuntu\ Mono:h14
 endif
 
 " }}}
@@ -250,7 +254,7 @@ endif
 
 " Key bindings {{{
 
-let mapleader=','
+let mapleader=' '
 
 " Remove trailing white space http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent><leader>c :call StripTrailingWhitespace()<CR>
@@ -259,6 +263,11 @@ nnoremap <leader>l :setlocal list!<CR>
 nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>s :setlocal spell!<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
+
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " }}}
 
@@ -272,6 +281,10 @@ let NERDTreeChDirMode=2
 let NERDTreeRespectWildIgnore=1
 let NERDTreeShowHidden=1
 
+if executable("ag")
+  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
+  let g:ctrlp_use_caching = 0
+endif
 " }}}
 
 " Printing {{{
@@ -301,11 +314,10 @@ endfunction
 
 " }}}
 
-" Colors {{{
+" Misc {{{
 
-set background=light
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
 
 " }}}
