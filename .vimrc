@@ -34,6 +34,10 @@ Plug 'mbbill/undotree'
 Plug 'chrisbra/csv.vim'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 " }}}
@@ -51,6 +55,7 @@ set belloff=all
 set clipboard=unnamed
 set conceallevel=2
 set cmdheight=2
+set cursorline
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos
@@ -108,7 +113,7 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Menlo:h12
+    set guifont=Ubuntu\ Mono:h14
 endif
 
 " }}}
@@ -297,3 +302,11 @@ endfunction
 
 " }}}
 
+" Colors {{{
+
+set background=light
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
+
+" }}}
