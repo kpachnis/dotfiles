@@ -21,6 +21,13 @@ setopt pushd_to_home
 
 # }}}
 
+# Colors {{{
+
+autoload -zU colors
+colors
+
+# }}}
+
 # Environment {{{
 
 export LC_ALL=en_US.UTF-8
@@ -66,7 +73,7 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # Prompt {{{
 
-PROMPT='%m%(?.. %??)%(1j. %j&.) $(git_prompt) %(!..)%# '
+PROMPT='%(?.. %??)%(1j. %j&.)$(git_prompt) %(!..)%# '
 
 # }}}
 
@@ -104,11 +111,11 @@ if [[ -x $(command -v git) ]]; then
   autoload -Uz vcs_info
 
   zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' actionformats '%r@%b|%a% %S'
-  zstyle ':vcs_info:*' formats '%r@%b%c%u %S'
+  zstyle ':vcs_info:*' actionformats "%{$fg_bold[blue]%}%r %{$fg_bold[green]%}%b|%{$fg_bold[magenta]%}%a% %S%{$reset_color%}"
+  zstyle ':vcs_info:*' formats "%{$fg_bold[blue]%}%r %{$fg_bold[green]%}%b%{$fg_bold[magenta]%}%c%u %S%{$reset_color%}"
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr '+'
-  zstyle ':vcs_info:*' unstagedstr '-'
+  zstyle ':vcs_info:*' stagedstr "%{$fg_bold[red]%}+%{$reset_color%}"
+  zstyle ':vcs_info:*' unstagedstr "%{$fg_bold[red]%}+%{$reset_color%}"
 
   precmd() { vcs_info }
 fi
@@ -159,6 +166,13 @@ today() { date +%Y%m%d }
 timestamp() { date +%Y%m%d_%H%M%S }
 xterm_title() { print -Pn "\e]0; %n@%m:%~ \a" }
 
+m() {
+    cmd=$(command -v mutt || command -v neomutt)
+    # https://github.com/neomutt/neomutt/issues/1195#issuecomment-388016804
+    stty discard undef
+    $cmd
+}
+
 path() {
     for dir in $path; do
         print $dir
@@ -175,9 +189,9 @@ dec() {
 
 git_prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then
-        print ":: ${vcs_info_msg_0_}"
+        print "${vcs_info_msg_0_}"
     else
-        print '%3~'
+        print "%{$fg_bold[blue]%}%3~%{$reset_color%}"
     fi
 
 }
@@ -186,7 +200,8 @@ proxy() {
     if [[ -f ~/.proxy ]]; then
         source ~/.proxy
     else
-        print "Proxy settings not found"
+        print "$fg[red]Proxy settings not found$reset_color"
+        return
     fi
 
     typeset -a proxies
@@ -214,10 +229,10 @@ proxy() {
                 ;;
             s)
                 for proxy in $proxies; do
-                    printf "%s \t-> %s\n" $proxy $(printenv $proxy)
+                    printf "%s: %s\n" $proxy $(printenv $proxy)
                 done
-                printf "%s \t-> %s\n" NO_PROXY $(printenv NO_PROXY)
-                printf "%s \t-> %s\n" no_proxy $(printenv no_proxy)
+                printf "%s: %s\n" NO_PROXY $(printenv NO_PROXY)
+                printf "%s: %s\n" no_proxy $(printenv no_proxy)
 
                 break
                 ;;
