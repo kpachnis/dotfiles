@@ -10,7 +10,10 @@ readonly tmp_dir=$(mktemp -d)
 tar_options=(--exclude install.zsh --exclude .gitignore --strip-components 1)
 
 if [[ ! -x $(command -v curl) ]]; then
-    print "$fg[red]Can't find curl$reset_color\n"
+    print "$fg[red]ERROR: Can't find curl in path: $reset_color"
+    for d in $path; do
+        print "$d"
+    done
     exit 1
 fi
 
@@ -18,14 +21,17 @@ if [[ ! $OSTYPE =~ darwin ]]; then
     tar_options=(--exclude Library --exclude mac $tar_options)
 fi
 
+print "Downloading dotfiles archive..."
 curl -Ls $archive_url -o $tmp_dir/dotfiles.tar.gz
 
+print "Extracting dotfiles archivein $HOME..."
 tar -zxf $tmp_dir/dotfiles.tar.gz $tar_options -C $HOME
 
 mv ~/.gitignore_global ~/.gitignore
 
 editor=$(command -v nvim || command -v vim)
 if [[ -n $editor ]]; then
+    print "Installing Vim plugins..."
     if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -33,8 +39,11 @@ if [[ -n $editor ]]; then
 
     $editor --not-a-term +PlugInstall +PlugUpdate +qall
 else
-    print "Vim/NeoVim is not installed"
+    print "$fg[red]WARNING: Can't find Vim/NeoVim in path:$reset_color"
+    for d in $path; do
+        print "$d"
+    done
 fi
 
-print "$fg[red]Cleaning up...$reset_color\n"
+print "Cleaning up..."
 rm -fr $tmp_dir
