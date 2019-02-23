@@ -18,7 +18,7 @@ if [[ ! -x $(command -v curl) ]]; then
 fi
 
 if [[ ! $OSTYPE =~ darwin ]]; then
-    tar_options=(--exclude Library --exclude mac $tar_options)
+    tar_options=(--exclude Library --exclude .phoenix.js --exclude mac $tar_options)
 fi
 
 print "Downloading dotfiles archive..."
