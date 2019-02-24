@@ -4,7 +4,7 @@ colors
 
 path=(/usr/local/bin /bin /usr/bin)
 
-readonly archive_url="https://github.com/kpachnis/dotfiles/tarball/master"
+readonly archive_url="https://git.bugeffect.com/konstantinos/dotfiles/archive/master.tar.gz"
 readonly tmp_dir=$(mktemp -d)
 
 tar_options=(--exclude install.zsh --exclude .gitignore --strip-components 1)
