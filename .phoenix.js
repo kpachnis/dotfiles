@@ -150,12 +150,12 @@ var quarterScreen = function (position) {
 }
 
 Key.on('c', mash, center);
-Key.on('l', mash, lefthalf);
-Key.on('r', mash, righthalf);
+Key.on('h', mash, lefthalf);
+Key.on('l', mash, righthalf);
 Key.on('f', mash, fullscreen);
-Key.on('q', mash, function() { quarterScreen('lefttop'); });
-Key.on('w', mash, function() { quarterScreen('righttop'); });
-Key.on('a', mash, function() { quarterScreen('leftbottom'); });
-Key.on('s', mash, function() { quarterScreen('rightbottom'); });
-Key.on('e', mash, tophalf);
-Key.on('d', mash, bottomhalf);
+Key.on('up', mash, function() { quarterScreen('lefttop'); });
+Key.on('right', mash, function() { quarterScreen('righttop'); });
+Key.on('left', mash, function() { quarterScreen('leftbottom'); });
+Key.on('down', mash, function() { quarterScreen('rightbottom'); });
+Key.on('k', mash, tophalf);
+Key.on('j', mash, bottomhalf);
