@@ -123,7 +123,7 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Monaco:h13
+    set guifont=Source\ Code\ Pro:h13
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
