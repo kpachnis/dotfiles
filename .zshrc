@@ -73,7 +73,7 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # Prompt {{{
 
-PROMPT='%(?.. %??)%(1j. %j&.)$(git_prompt) %(!..)%# '
+PROMPT='%{$fg_bold[red]%}%(?.. %??)%(1j. %j&.)%{$reset_color%} $(git_prompt) %(!..)%# '
 
 # }}}
 
@@ -156,7 +156,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias reload='source ~/.zshrc'
 alias tree='tree -C'
-alias update_dotfiles='curl --progress-bar  https://git.bugeffect.com/konstantinos/dotfiles/raw/branch/master/install.zsh | zsh -'
+alias update_dotfiles='curl --progress-bar https://raw.githubusercontent.com/kpachnis/dotfiles/master/install.zsh | zsh -'
 
 # }}}
 
