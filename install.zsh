@@ -4,7 +4,7 @@ colors
 
 path=(/usr/local/bin /bin /usr/bin)
 
-readonly archive_url="https://git.bugeffect.com/konstantinos/dotfiles/archive/master.tar.gz"
+readonly archive_url="https://github.com/kpachnis/dotfiles/archive/master.tar.gz"
 readonly tmp_dir=$(mktemp -d)
 
 tar_options=(--exclude install.zsh --exclude .gitignore --strip-components 1)
@@ -18,7 +18,7 @@ if [[ ! -x $(command -v curl) ]]; then
 fi
 
 if [[ ! $OSTYPE =~ darwin ]]; then
-    tar_options=(--exclude Library --exclude .phoenix.js --exclude mac $tar_options)
+    tar_options=(--exclude Library $tar_options)
 fi
 
 print "Downloading dotfiles archive..."
