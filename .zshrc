@@ -73,7 +73,7 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # Prompt {{{
 
-PROMPT='%{$fg_bold[red]%}%(?.. %??)%(1j. %j&.)%{$reset_color%} $(git_prompt) %(!..)%# '
+PROMPT='$(__prompt) %(!.#.>) '
 
 # }}}
 
@@ -166,13 +166,6 @@ today() { date +%Y%m%d }
 timestamp() { date +%Y%m%d_%H%M%S }
 xterm_title() { print -Pn "\e]0; %n@%m:%~ \a" }
 
-m() {
-    cmd=$(command -v mutt || command -v neomutt)
-    # https://github.com/neomutt/neomutt/issues/1195#issuecomment-388016804
-    stty discard undef
-    $cmd
-}
-
 path() {
     for dir in $path; do
         print $dir
@@ -187,11 +180,11 @@ dec() {
     openssl aes-256-cbc -a -d -in $1 -out ${1:r}
 }
 
-git_prompt() {
+__prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then
         print "${vcs_info_msg_0_}"
     else
-        print "%{$fg_bold[blue]%}%3~%{$reset_color%}"
+        print "%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%3~%{$reset_color%}"
     fi
 
 }
