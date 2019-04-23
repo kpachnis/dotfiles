@@ -18,7 +18,6 @@ Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
 Plug 'pangloss/vim-javascript'
-Plug 'elixir-editors/vim-elixir'
 Plug 'slim-template/slim'
 
 Plug 'Raimondi/delimitMate'
@@ -257,15 +256,7 @@ set undodir=~/.vim/tmp/undo
 set backupdir=~/.vim/tmp/backup
 set directory=~/.vim/tmp/swap
 
-if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), "p")
-endif
-if !isdirectory(expand(&backupdir))
-    call mkdir(expand(&backupdir), "p")
-endif
-if !isdirectory(expand(&directory))
-    call mkdir(expand(&directory), "p")
-endif
+silent !mkdir -p ~/.vim/tmp/{undo,backup,swap}/
 
 " }}}
 
