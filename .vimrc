@@ -33,12 +33,13 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/csv.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'janko/vim-test'
 Plug 'christoomey/vim-run-interactive'
 
 Plug 'vimwiki/vimwiki'
+
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -99,6 +100,7 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
+set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -118,11 +120,12 @@ set wildmenu
 set wildmode=longest:full,full
 
 if has('gui_running')
+    colorscheme wombat
     set cursorline
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Source\ Code\ Pro:h13
+    set guifont=Hack\ Regular\ 11
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
@@ -327,5 +330,12 @@ endfunction
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" }}}
+
+" Colors {{{
+
+let base16colorspace=256
+colorscheme base16-ocean
 
 " }}}
