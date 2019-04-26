@@ -50,6 +50,8 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
+colorscheme wombat256mod
+
 set autoread
 set autowrite
 set backspace=2
@@ -118,11 +120,12 @@ set wildmenu
 set wildmode=longest:full,full
 
 if has('gui_running')
+    colorscheme wombat
     set cursorline
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Source\ Code\ Pro:h13
+    set guifont=Ubuntu\ Mono\ 11
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
