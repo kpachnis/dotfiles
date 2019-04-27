@@ -124,7 +124,7 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Ubuntu\ Mono\ 11
+    set guifont=Ubuntu\ Mono\ 13
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
