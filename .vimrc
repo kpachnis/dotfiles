@@ -39,6 +39,8 @@ Plug 'christoomey/vim-run-interactive'
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
 " }}}
@@ -100,6 +102,7 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
+set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -124,7 +127,6 @@ if has('gui_running')
     set lines=25
     set columns=80
     set guioptions=egmt
-    set guifont=Ubuntu\ Mono\ 13
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
@@ -329,5 +331,12 @@ endfunction
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" }}}
+
+" Colors {{{
+
+let base16colorspace=256
+colorscheme base16-ocean
 
 " }}}
