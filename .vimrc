@@ -36,6 +36,11 @@ Plug 'chrisbra/csv.vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'janko/vim-test'
 Plug 'christoomey/vim-run-interactive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/Colorizer'
 
 Plug 'vimwiki/vimwiki'
 
