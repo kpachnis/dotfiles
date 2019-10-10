@@ -113,7 +113,6 @@ set wildmenu
 set wildmode=longest:full,full
 
 if has('gui_running')
-    colorscheme wombat
     set cursorline
     set lines=25
     set columns=80
