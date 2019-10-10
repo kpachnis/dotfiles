@@ -10,15 +10,10 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'chr4/nginx.vim'
 Plug 'chrisbra/vim-zsh'
 Plug 'elzr/vim-json'
-Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-python/python-syntax'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
-Plug 'pangloss/vim-javascript'
-Plug 'slim-template/slim'
 
 Plug 'Raimondi/delimitMate'
 Plug 'dhruvasagar/vim-table-mode'
@@ -31,20 +26,13 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/csv.vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'janko/vim-test'
 Plug 'christoomey/vim-run-interactive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 
 Plug 'vimwiki/vimwiki'
-
-Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -55,8 +43,6 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
-
-colorscheme wombat256mod
 
 set autoread
 set autowrite
@@ -336,12 +322,5 @@ endfunction
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
-
-" }}}
-
-" Colors {{{
-
-let base16colorspace=256
-colorscheme base16-ocean
 
 " }}}

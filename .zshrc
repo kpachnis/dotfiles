@@ -44,9 +44,6 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    ~/homebrew/bin
-    ~/Developer/Frameworks/jdk-11.0.1.jdk/Contents/Home/bin
-    /Applications/MacVim.app/Contents/bin
     /usr/pkg/{bin,games,X11R7/bin}
     /usr/local/{bin,sbin}
     /bin
@@ -96,11 +93,6 @@ compinit
 compdef '_files -g "*.(asciidoc|md|mkd|markdown)"' pandoc
 compdef '_files -g "*.yml"' ansible-playbook
 
-compdef '_hosts' ansible
-compdef '_hosts' dig
-compdef '_hosts' fping
-compdef '_hosts' socks
-
 compdef gpg2=gpg
 
 # }}}
@@ -111,11 +103,11 @@ if [[ -x $(command -v git) ]]; then
   autoload -Uz vcs_info
 
   zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' actionformats "%{$fg_bold[blue]%}%r %{$fg_bold[green]%}%b|%{$fg_bold[magenta]%}%a% %S%{$reset_color%}"
-  zstyle ':vcs_info:*' formats "%{$fg_bold[blue]%}%r %{$fg_bold[green]%}%b%{$fg_bold[magenta]%}%c%u %S%{$reset_color%}"
+  zstyle ':vcs_info:*' actionformats "%{$fg[blue]%}%r %{$fg[green]%}%b|%{$fg[magenta]%}%a% %S%{$reset_color%}"
+  zstyle ':vcs_info:*' formats "%{$fg[blue]%}%r %{$fg[green]%}%b%{$fg[magenta]%}%c%u %S%{$reset_color%}"
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr "%{$fg_bold[red]%}+%{$reset_color%}"
-  zstyle ':vcs_info:*' unstagedstr "%{$fg_bold[red]%}+%{$reset_color%}"
+  zstyle ':vcs_info:*' stagedstr "%{$fg[red]%}+%{$reset_color%}"
+  zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}+%{$reset_color%}"
 
   precmd() { vcs_info }
 fi
@@ -184,7 +176,7 @@ __prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then
         print "${vcs_info_msg_0_}"
     else
-        print "%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%3~%{$reset_color%}"
+        print "%{$fg[green]%}%n@%m:%{$fg[blue]%}%3~%{$reset_color%}"
     fi
 
 }
