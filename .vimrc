@@ -5,34 +5,16 @@ filetype off
 
 call plug#begin()
 
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'chr4/nginx.vim'
-Plug 'chrisbra/vim-zsh'
-Plug 'elzr/vim-json'
-Plug 'plasticboy/vim-markdown'
-Plug 'vim-python/python-syntax'
 Plug 'lervag/vimtex'
-Plug 'fatih/vim-go'
+Plug 'ledger/vim-ledger'
 
 Plug 'Raimondi/delimitMate'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'godlygeek/tabular'
-Plug 'qpkorr/vim-bufkill'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-fugitive'
-Plug 'chrisbra/csv.vim'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'janko/vim-test'
-Plug 'christoomey/vim-run-interactive'
-Plug 'chrisbra/Colorizer'
-
-Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -56,8 +38,8 @@ set cmdheight=2
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos
-if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --smart-case
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 set history=1000
@@ -277,16 +259,7 @@ nnoremap <C-l> <C-w>l
 
 let python_highlight_all=1
 let ruby_space_errors=1
-let g:vim_markdown_autowrite=1
 
-let NERDTreeChDirMode=2
-let NERDTreeRespectWildIgnore=1
-let NERDTreeShowHidden=1
-
-if executable("ag")
-  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-  let g:ctrlp_use_caching = 0
-endif
 " }}}
 
 " Printing {{{
