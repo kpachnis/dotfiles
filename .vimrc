@@ -246,7 +246,6 @@ nnoremap <silent><leader>c :call StripTrailingWhitespace()<CR>
 nnoremap <leader>l :setlocal list!<CR>
 nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>s :setlocal spell!<CR>
-nnoremap <leader>t :NERDTreeToggle<CR>
 
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
