@@ -138,13 +138,15 @@ augroup ft_prog
     autocmd FileType c,cpp,java,go setlocal cc=120
     autocmd FileType javascript,python,ruby,sh,zsh,go setlocal ai
     autocmd FileType c,cpp,java setlocal ci
-    autocmd FileType c,cpp,java,go,javascript,python,ruby,sh,zsh autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
+    autocmd FileType c,cpp,java,go,javascript,python,ruby,sh,zsh
+                \ autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
 augroup END
 
 augroup ft_python
     autocmd!
     autocmd FileType python setlocal makeprg=prospector\ %:S
-    autocmd BufNewFile,BufRead *requirements.txt,**/requirements/*.txt setlocal nospell
+    autocmd BufNewFile,BufRead *requirements.txt,**/requirements/*.txt
+                \ setlocal nospell
 augroup END
 
 augroup ft_ruby
