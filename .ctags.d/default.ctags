@@ -1,13 +1,8 @@
---languages=-html
---languages=-javascript
-
 --python-kinds=-iv
 
 --exclude=bower_components
 --exclude=node_modules
 --exclude=vendor
---exclude=.git
---exclude=.hg
 --exclude=.eggs
 --exclude=build
 --exclude=*.egg-info
