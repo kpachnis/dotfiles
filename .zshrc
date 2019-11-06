@@ -44,6 +44,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
+    ~/homebrew/{bin,sbin}
     /usr/pkg/{bin,games,X11R7/bin}
     /usr/local/{bin,sbin}
     /bin
