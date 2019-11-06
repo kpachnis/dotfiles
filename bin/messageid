@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 date=$(date +%Y%m%d%H%M%S)
-id_1=$(dd if=/dev/urandom bs=500 count=1 2>/dev/null | openssl md5 | awk '{ print $1 }' | dd if=/dev/stdin bs=10 count=1 2>/dev/null)
-id_2=$(dd if=/dev/urandom bs=500 count=1 2>/dev/null | openssl md5 | awk '{ print $1 }' | dd if=/dev/stdin bs=15 count=1 2>/dev/null)
+id_1=$(dd if=/dev/urandom bs=500 count=1 2>/dev/null | openssl md5 -r | awk '{ print $1 }' | dd if=/dev/stdin bs=10 count=1 2>/dev/null)
+id_2=$(dd if=/dev/urandom bs=500 count=1 2>/dev/null | openssl md5 -r | awk '{ print $1 }' | dd if=/dev/stdin bs=15 count=1 2>/dev/null)
 
 printf "$date.$id_1@$id_2"
