@@ -74,6 +74,7 @@ set softtabstop=4
 set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
+set t_Co=256
 set tabstop=4
 set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
@@ -134,7 +135,7 @@ augroup END
 
 augroup ft_prog
     autocmd!
-    autocmd FileType python,ruby setlocal cc=120
+    autocmd FileType python,ruby setlocal cc=80
     autocmd FileType c,cpp,java,go setlocal cc=120
     autocmd FileType javascript,python,ruby,sh,zsh,go setlocal ai
     autocmd FileType c,cpp,java setlocal ci
@@ -146,7 +147,7 @@ augroup ft_python
     autocmd!
     autocmd FileType python setlocal makeprg=prospector\ %:S
     autocmd BufNewFile,BufRead *requirements.txt,**/requirements/*.txt
-                \ setlocal nospell
+                \ setlocal nospell tw=200
 augroup END
 
 augroup ft_ruby
