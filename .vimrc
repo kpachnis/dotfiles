@@ -135,7 +135,8 @@ augroup END
 
 augroup ft_prog
     autocmd!
-    autocmd FileType python,ruby setlocal cc=80
+    autocmd FileType ruby setlocal cc=80
+    autocmd FileType python setlocal cc=88
     autocmd FileType c,cpp,java,go setlocal cc=120
     autocmd FileType javascript,python,ruby,sh,zsh,go setlocal ai
     autocmd FileType c,cpp,java setlocal ci
