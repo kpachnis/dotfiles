@@ -30,7 +30,7 @@ set autoread
 set autowrite
 set backspace=2
 set belloff=all
-set clipboard=unnamed
+set clipboard=autoselect
 set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
@@ -91,7 +91,7 @@ set wildignore+=*.orig
 set wildignore+=tags
 set wildignore+=*.zip,*.rpm
 set wildignore+=*.egg-info
-set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage
+set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache
 set wildmenu
 set wildmode=longest:full,full
 
