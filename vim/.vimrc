@@ -5,8 +5,13 @@ filetype off
 
 call plug#begin()
 
+Plug 'vim-python/python-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
+Plug 'plasticboy/vim-markdown'
 
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'
@@ -15,6 +20,11 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim'
+Plug 'godlygeek/tabular'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
