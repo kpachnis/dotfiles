@@ -26,6 +26,8 @@ Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'altercation/vim-colors-solarized'
+
 call plug#end()
 
 " }}}
@@ -86,7 +88,6 @@ set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set t_Co=256
 set tabstop=4
-set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -299,6 +300,13 @@ function! StripTrailingWhitespace()
     normal `z
   endif
 endfunction
+
+" }}}
+
+" Colors {{{
+
+set background=light
+colorscheme solarized
 
 " }}}
 
