@@ -26,6 +26,8 @@ setopt pushd_to_home
 autoload -zU colors
 colors
 
+[[ -f ~/.dir_colors  ]] && eval "$(dircolors ~/.dir_colors)"
+
 # }}}
 
 # Environment {{{
