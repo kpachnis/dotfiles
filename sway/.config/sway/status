@@ -1,0 +1,7 @@
+#!/bin/sh
+
+datetime="$(date +'%Y-%m-%d %H:%M')"
+battery_level="$(acpi -b | awk -F ', ' '{print $2}')"
+keyboard_layout="$(swaymsg -t get_inputs | jq -r '.[2].xkb_active_layout_name')"
+
+printf '\u2328 %s | \U1F50B%s | %s' "$keyboard_layout" "$battery_level" "$datetime"

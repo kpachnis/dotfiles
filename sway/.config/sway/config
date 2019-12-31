@@ -47,6 +47,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec /usr/bin/redshift
+exec /usr/bin/mako
 
 ### Input configuration
 #
@@ -222,7 +223,8 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
+    status_command while ~/.config/sway/status; do sleep 1; done
+    tray_output primary
 
     colors {
         statusline #ffffff
