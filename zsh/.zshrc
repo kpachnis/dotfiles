@@ -26,8 +26,6 @@ setopt pushd_to_home
 autoload -zU colors
 colors
 
-[[ -f ~/.dir_colors  ]] && eval "$(dircolors ~/.dir_colors)"
-
 # }}}
 
 # Environment {{{
@@ -46,7 +44,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    ~/homebrew/{bin,sbin}
+    ~/homebrew/{bin,sbin,opt/coreutils/libexec/gnubin}
     /usr/pkg/{bin,games,X11R7/bin}
     /usr/local/{bin,sbin}
     /bin
@@ -131,17 +129,7 @@ if [[ $EDITOR =~ vi ]]; then
     alias view="$EDITOR -R"
 fi
 
-case $(uname -s) in
-    Darwin|FreeBSD)
-        alias ls='ls -G'
-        ;;
-    Linux)
-        alias ls='ls --color=auto'
-        ;;
-    *)
-        alias ls='ls -F'
-        ;;
-esac
+alias ls='ls --color=auto'
 alias l='ls -chlt'
 alias cp='cp -i'
 alias ctmp='find $TMP -ctime +10 -delete'
@@ -252,5 +240,6 @@ if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
 
-# }}}
+[[ -f ~/.dir_colors  ]] && eval "$(dircolors ~/.dir_colors)"
 
+# }}}
