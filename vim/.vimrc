@@ -87,6 +87,7 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set t_Co=256
+set t_Cs= "Fix bad spell issue in solarized theme"
 set tabstop=4
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
