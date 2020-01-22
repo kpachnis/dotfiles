@@ -25,6 +25,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'qpkorr/vim-bufkill'
+Plug 'preservim/nerdtree'
 
 Plug 'altercation/vim-colors-solarized'
 
@@ -42,7 +45,7 @@ set autoread
 set autowrite
 set backspace=2
 set belloff=all
-set clipboard=autoselect
+set clipboard=unnamed
 set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
@@ -262,6 +265,7 @@ nnoremap <silent><leader>c :call StripTrailingWhitespace()<CR>
 nnoremap <leader>l :setlocal list!<CR>
 nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>s :setlocal spell!<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -301,6 +305,12 @@ function! StripTrailingWhitespace()
     normal `z
   endif
 endfunction
+
+function! Today()
+    let today = strftime("%A %d\/%m\/%Y")
+    exe "normal a". today
+endfunction
+command! Today :call Today()
 
 " }}}
 
