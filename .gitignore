@@ -2,6 +2,8 @@
 /vim/.vim/plugged
 /vim/.vim/tmp
 /vim/.vim/backup
+/vim/.vim/spell
+/vim/.vim/.netrwhist
 /neovim/.config/nvim/tmp
 /neovim/.config/nvim/backup
 /neovim/.config/nvim/plugged
