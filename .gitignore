@@ -5,3 +5,4 @@
 /neovim/.config/nvim/tmp
 /neovim/.config/nvim/backup
 /neovim/.config/nvim/plugged
+.uuid

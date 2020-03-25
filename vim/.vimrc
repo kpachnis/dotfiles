@@ -29,8 +29,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 
-Plug 'altercation/vim-colors-solarized'
-
 call plug#end()
 
 " }}}
@@ -311,13 +309,6 @@ function! Today()
     exe "normal a". today
 endfunction
 command! Today :call Today()
-
-" }}}
-
-" Colors {{{
-
-set background=light
-colorscheme solarized
 
 " }}}
 
