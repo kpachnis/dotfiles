@@ -15,6 +15,7 @@ Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'
@@ -32,6 +33,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()
 
 " }}}
@@ -41,6 +44,8 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme dracula
 
 set autoread
 set autowrite
@@ -159,6 +164,12 @@ augroup ft_prog
     autocmd FileType c,cpp,java setlocal ci
     autocmd FileType c,cpp,java,go,javascript,python,ruby,sh,zsh
                 \ autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
+augroup END
+
+augroup ft_golang
+    autocmd!
+    autocmd BufNewFile,BufRead *.mod set ft=go
+    autocmd FileType go setlocal noet ts=8 sw=8 sts=8
 augroup END
 
 augroup ft_python
