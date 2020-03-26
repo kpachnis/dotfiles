@@ -6,5 +6,6 @@
 /vim/.vim/.netrwhist
 /neovim/.config/nvim/tmp
 /neovim/.config/nvim/backup
+/neovim/.config/nvim/undo
 /neovim/.config/nvim/plugged
 .uuid
