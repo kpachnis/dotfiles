@@ -44,8 +44,8 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    ~/homebrew/{bin,sbin,opt/coreutils/libexec/gnubin}
-    /usr/pkg/{bin,games,X11R7/bin}
+    ~/go/bin
+    /usr/local/go/bin
     /usr/local/{bin,sbin}
     /bin
     /sbin
@@ -60,7 +60,7 @@ fpath=(${(u)^fpath:A}(N-/))
 EDITOR=$(command -v nvim || command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
 
 export PAGER=less
 
