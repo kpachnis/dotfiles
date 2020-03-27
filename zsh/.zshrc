@@ -63,6 +63,7 @@ export VISUAL=$EDITOR
 # export GPG_TTY=$(tty)
 
 export PAGER=less
+export LESS="-r"
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP=~/.pythonrc
