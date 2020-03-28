@@ -8,4 +8,5 @@
 /neovim/.config/nvim/backup
 /neovim/.config/nvim/undo
 /neovim/.config/nvim/plugged
+/git/.config/git/local
 .uuid
