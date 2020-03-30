@@ -45,7 +45,6 @@ path=(
     ~/bin
     ~/.local/bin
     ~/go/bin
-    /usr/local/go/bin
     /usr/local/{bin,sbin}
     /bin
     /sbin
