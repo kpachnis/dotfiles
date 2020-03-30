@@ -45,6 +45,7 @@ path=(
     ~/bin
     ~/.local/bin
     ~/go/bin
+    ~/homebrew/{bin,sbin,opt/coreutils/libexec/gnubin}
     /usr/local/{bin,sbin}
     /bin
     /sbin
