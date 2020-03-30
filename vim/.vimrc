@@ -5,13 +5,10 @@ filetype off
 
 call plug#begin()
 
-Plug 'vim-python/python-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'vim-ruby/vim-ruby'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
-Plug 'plasticboy/vim-markdown'
 
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'
@@ -28,6 +25,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
+Plug 'vimwiki/vimwiki'
+
+Plug 'rafi/awesome-vim-colorschemes'
 
 call plug#end()
 
@@ -87,9 +87,10 @@ set softtabstop=4
 set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
-set t_Co=256
-set t_Cs= "Fix bad spell issue in solarized theme"
 set tabstop=4
+if $TERM == "xterm-256color"
+    set termguicolors
+endif
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -107,16 +108,6 @@ set wildignore+=*.egg-info
 set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache
 set wildmenu
 set wildmode=longest:full,full
-
-if has('gui_running')
-    set cursorline
-    set lines=25
-    set columns=80
-    set guioptions=egmt
-    " Only use cursorline for current window
-    autocmd WinEnter,FocusGained * setlocal cursorline
-    autocmd WinLeave,FocusLost   * setlocal nocursorline
-endif
 
 " }}}
 
@@ -155,6 +146,12 @@ augroup ft_prog
     autocmd FileType c,cpp,java setlocal ci
     autocmd FileType c,cpp,java,go,javascript,python,ruby,sh,zsh
                 \ autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
+augroup END
+
+augroup ft_golang
+    autocmd!
+    autocmd BufNewFile,BufRead *.mod set ft=go
+    autocmd FileType go setlocal noet ts=8 sw=8 sts=8
 augroup END
 
 augroup ft_python
@@ -245,11 +242,13 @@ set backup
 set undofile
 set undoreload=10000
 
-set undodir=~/.vim/tmp/undo
-set backupdir=~/.vim/tmp/backup
-set directory=~/.vim/tmp/swap
+setglobal undodir=~/.cache/vim/undo
+setglobal backupdir=~/.cache/vim/backup
+setglobal directory=~/.cache/vim/swap
 
-silent !mkdir -p ~/.vim/tmp/{undo,backup,swap}/
+call mkdir(&undodir, 'p')
+call mkdir(&backupdir, 'p')
+call mkdir(&directory, 'p')
 
 " }}}
 
@@ -309,6 +308,29 @@ function! Today()
     exe "normal a". today
 endfunction
 command! Today :call Today()
+
+" }}}
+
+" GUI {{{
+
+if has('gui_running')
+    colorscheme jellybeans
+
+    set cursorline
+    set lines=25
+    set columns=80
+    set guioptions=egmt
+    " Only use cursorline for current window
+    autocmd WinEnter,FocusGained * setlocal cursorline
+    autocmd WinLeave,FocusLost   * setlocal nocursorline
+
+    if has('mac')
+        set guifont=Fantasque\ Sans\ Mono:h14
+        set macligatures
+    else
+        set guifont=Fantasque\ Sans\ Mono\ 13
+    endif
+endif
 
 " }}}
 
