@@ -8,14 +8,10 @@ filetype off
 
 call plug#begin()
 
-Plug 'vim-python/python-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'vim-ruby/vim-ruby'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
-Plug 'plasticboy/vim-markdown'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'
@@ -32,8 +28,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
+Plug 'vimwiki/vimwiki'
 
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rafi/awesome-vim-colorschemes'
 
 call plug#end()
 
