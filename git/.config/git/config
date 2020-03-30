@@ -1,14 +1,14 @@
 [init]
-    templatedir = template
+    templatedir = ~/.config/git/template
 [alias]
     pl = log --oneline --graph --decorate
     l = log --stat --graph --decorate --abbrev-commit --date=relative
 [core]
-    excludesfile = ignore_global
+    excludesfile = ~/.config/git/ignore_global
     autocrlf = input
 [commit]
     gpgSign = true
-    template = message
+    template = ~/.config/git/message
 [color]
     ui = true
 [log]
@@ -20,5 +20,5 @@
 [transfer]
     fsckobjects = true
 [include]
-    path = local
+    path = ~/.config/git/local
 
