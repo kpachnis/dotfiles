@@ -27,8 +27,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 Plug 'vimwiki/vimwiki'
 
-Plug 'rafi/awesome-vim-colorschemes'
-
 call plug#end()
 
 " }}}
@@ -41,6 +39,7 @@ filetype plugin indent on
 
 set autoread
 set autowrite
+set background=dark
 set backspace=2
 set belloff=all
 set clipboard=unnamed
@@ -144,7 +143,7 @@ augroup ft_prog
     autocmd FileType c,cpp,java,go setlocal cc=120
     autocmd FileType javascript,python,ruby,sh,zsh,go setlocal ai
     autocmd FileType c,cpp,java setlocal ci
-    autocmd FileType c,cpp,java,go,javascript,python,ruby,sh,zsh
+    autocmd FileType c,cpp,java,javascript,python,ruby,sh,zsh
                 \ autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
 augroup END
 
@@ -314,8 +313,7 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
-    colorscheme jellybeans
-
+    set background=light
     set cursorline
     set lines=25
     set columns=80
