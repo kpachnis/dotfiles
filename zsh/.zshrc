@@ -60,6 +60,8 @@ fpath=(${(u)^fpath:A}(N-/))
 EDITOR=$(command -v nvim || command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
+export GPG_TTY=$(tty)
+
 export PAGER=less
 export LESS="-r"
 
