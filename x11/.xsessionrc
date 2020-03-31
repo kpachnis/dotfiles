@@ -1,0 +1,10 @@
+setxkbmap -layout 'us,gr' \
+    -option 'grp:alt_space_toggle,lv3:ralt_switch,terminate:ctrl_alt_bksp' \
+    -variant nodeadkeys \
+    -model pc105
+
+
+xset b off
+
+xsetroot -solid black
+
