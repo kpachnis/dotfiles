@@ -155,7 +155,6 @@ myStartupHook :: X()
 myStartupHook = do
   setDefaultCursor xC_left_ptr
   safeSpawnProg "xmobar"
-  -- safeSpawnProg "xfce4-power-manager"
   setWMName "LG3D"
 
 myLogHook :: X()
