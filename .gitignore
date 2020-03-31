@@ -2,4 +2,7 @@
 /vim/.vim/spell
 /vim/.vim/.netrwhist
 /git/.config/git/local
+/xmonad/.xmonad/*
+!/xmonad/.xmonad/xmonad.hs
 .uuid
+
