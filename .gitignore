@@ -4,5 +4,7 @@
 /git/.config/git/local
 /xmonad/.xmonad/*
 !/xmonad/.xmonad/xmonad.hs
+/emacs/.emacs.d/*
+!/emacs/.emacs.d/init.el
 .uuid
 

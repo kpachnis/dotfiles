@@ -1,0 +1,112 @@
+(require 'package)
+
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+;; keep the installed packages in .emacs.d
+(setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
+(package-initialize)
+;; update the package metadata is the local cache is missing
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(setq-default truncate-lines t
+              indent-tabs-mode nil)
+
+(setq inhibit-startup-message t
+      ring-bell-function 'ignore
+      line-number-mode t
+      column-number-mode t
+      require-final-newline t
+      uniquify-buffer-name-style 'forward
+      interprogram-paste-before-kill t
+      backup-inhibited t
+      auto-save-default nil)
+
+(set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; (menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tooltip-mode -1)
+(tool-bar-mode -1)
+
+(global-auto-revert-mode t)
+
+(show-paren-mode)
+(electric-pair-mode)
+
+(ido-mode t)
+(setq ido-enable-flex-matching t)
+
+(put 'dired-find-alternate-file 'disabled nil)
+
+(setq lpr-command "lp"
+      lpr-printer-switch "-d "
+      lpr-add-switches nil
+      ps-paper-type 'a4
+      pr-gv-command "zathura")
+
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (concat user-emacs-directory "places"))
+
+
+;; Use shift <arrow> to navigate between open windows
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
+(defalias 'list-buffers 'ibuffer)
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+(add-to-list 'default-frame-alist
+             '(font . "Monospace 11"))
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-verbose t)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)))
+
+(use-package whitespace
+  :init
+  (dolist (hook '(prog-mode-hook text-mode-hook))
+    (add-hook hook #'whitespace-mode))
+  (add-hook 'before-save-hook #'whitespace-cleanup)
+  :config
+  (setq whitespace-line-column 80) ;; limit line length
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package ledger-mode
+  :ensure t)
+
+(use-package flyspell
+  :config
+  (setq ispell-program-name "aspell" ; use aspell instead of ispell
+        ispell-extra-args '("--sug-mode=ultra"))
+  (add-hook 'text-mode-hook #'flyspell-mode)
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
