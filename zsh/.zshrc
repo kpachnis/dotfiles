@@ -45,7 +45,7 @@ path=(
     ~/bin
     ~/.local/bin
     ~/go/bin
-    ~/homebrew/{bin,sbin,opt/coreutils/libexec/gnubin}
+    ~/homebrew/{bin,sbin}
     /usr/local/{bin,sbin}
     /bin
     /sbin
@@ -130,7 +130,17 @@ if [[ $EDITOR =~ vi ]]; then
     alias view="$EDITOR -R"
 fi
 
-alias ls='ls --color=auto'
+case "$(uname -s)" in
+    Linux)
+        alias ls='ls --color=auto'
+        ;;
+    Darwin)
+        alias ls='ls -G'
+        ;;
+    *)
+        alias ls='ls -F'
+esac
+
 alias l='ls -chlt'
 alias cp='cp -i'
 alias ctmp='find $TMP -ctime +10 -delete'
@@ -239,7 +249,5 @@ bindkey -e
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
-
-[[ -f ~/.dir_colors  ]] && eval "$(dircolors ~/.dir_colors)"
 
 # }}}
