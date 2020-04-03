@@ -5,8 +5,6 @@ filetype off
 
 call plug#begin()
 
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
 
@@ -17,15 +15,11 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
-Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -39,10 +33,9 @@ filetype plugin indent on
 
 set autoread
 set autowrite
-set background=dark
 set backspace=2
 set belloff=all
-set clipboard=unnamedplus
+set clipboard=unnamed
 set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
@@ -96,7 +89,6 @@ set ttyfast
 set updatetime=100
 set viminfo='100,\"1000
 set wildignore+=.git,.hg,.svn,
-set wildignore+=*/tmp/*,*/log/*
 set wildignore+=*.o,*.pyc,*.pyo,*.so
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=.DS_Store
@@ -321,13 +313,6 @@ if has('gui_running')
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
-
-    if has('mac')
-        set guifont=Fantasque\ Sans\ Mono:h14
-        set macligatures
-    else
-        set guifont=Fantasque\ Sans\ Mono\ 13
-    endif
 endif
 
 " }}}
