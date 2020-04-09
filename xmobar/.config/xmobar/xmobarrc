@@ -1,0 +1,29 @@
+Config { font             = "xft:Cascadia Mono:size=11"
+       , bgColor          = "#222222"
+       , fgColor          = "#d3d7cf"
+       , border           = FullB
+       , borderColor      = "#222222"
+       , position         = TopSize L 100 20
+       , lowerOnStart     = True
+       , pickBroadest     = True
+       , persistent       = False
+       , hideOnStart      = False
+       , allDesktops      = True
+       , overrideRedirect = False
+       , commands         = [ Run Date     "%a %b %_d %Y %H:%M" "date" 10
+                            , Run BatteryP [ "BAT0" ]
+                                           [ "-t" , "<acstatus>"
+                                           , "-p" , "3"
+                                           , "-L" , "10"
+                                           , "-H" , "80"
+                                           , "-l" , "#ef2929"
+                                           , "--"
+                                           , "-o" , "<left>% (<timeleft>)"
+                                           ] 50
+                            , Run Kbd      [("gr", "Gr"), ("us", "En")]
+                            , Run XMonadLog
+                            ]
+       , sepChar          = "%"
+       , alignSep         = "}{"
+       , template         = "%XMonadLog% }{  %battery% | %kbd% | %date%"
+}
