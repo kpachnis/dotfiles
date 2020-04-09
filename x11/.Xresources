@@ -6,8 +6,8 @@
 .xterm*Scrollbar.background  :#000000
 .xterm*Scrollbar.minimumThumb:50
 
-.xterm*faceName              :Fantasque Sans Mono
-.xterm*faceSize              :13
+.xterm*faceName              :Cascadia Mono
+.xterm*faceSize              :11
 
 .xterm*saveLines             :10000
 .xterm*scrollBar             :true

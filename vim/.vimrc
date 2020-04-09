@@ -89,6 +89,7 @@ set ttyfast
 set updatetime=100
 set viminfo='100,\"1000
 set wildignore+=.git,.hg,.svn,
+set wildignore+=*/tmp/*,*/log/*
 set wildignore+=*.o,*.pyc,*.pyo,*.so
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=.DS_Store
@@ -313,6 +314,13 @@ if has('gui_running')
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
+
+    if has('mac')
+        set macligatures
+        set guifont=Cascadia\ Code\ PL:h12
+    else
+        set guifont=Cascadia\ Code\ PL\ 11
+    endif
 endif
 
 " }}}
