@@ -21,6 +21,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 
+Plug 'jnurmine/Zenburn'
+
 call plug#end()
 
 " }}}
@@ -321,6 +323,8 @@ if has('gui_running')
     else
         set guifont=Cascadia\ Code\ PL\ 11
     endif
+    let g:zenburn_high_Contrast=1
+    colorscheme zenburn
 endif
 
 " }}}
