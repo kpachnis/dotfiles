@@ -21,7 +21,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 
-Plug 'jnurmine/Zenburn'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -316,15 +316,6 @@ if has('gui_running')
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
-
-    if has('mac')
-        set macligatures
-        set guifont=Cascadia\ Code\ PL:h12
-    else
-        set guifont=Cascadia\ Code\ PL\ 11
-    endif
-    let g:zenburn_high_Contrast=1
-    colorscheme zenburn
 endif
 
 " }}}
