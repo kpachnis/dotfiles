@@ -30,10 +30,12 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; (menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tooltip-mode -1)
-(tool-bar-mode -1)
+(if window-system
+    (progn
+      (menu-bar-mode -1)
+      (scroll-bar-mode -1)
+      (tool-bar-mode -1)
+      (tooltip-mode -1)))
 
 (global-auto-revert-mode t)
 
@@ -60,7 +62,6 @@
 (setq-default save-place t)
 (setq save-place-file (concat user-emacs-directory "places"))
 
-
 ;; Use shift <arrow> to navigate between open windows
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
@@ -69,10 +70,6 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
-
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
 
 (add-to-list 'default-frame-alist
              '(font . "Monospace 11"))
@@ -110,3 +107,7 @@
         ispell-extra-args '("--sug-mode=ultra"))
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
