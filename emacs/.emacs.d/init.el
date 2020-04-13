@@ -32,7 +32,6 @@
 
 (if window-system
     (progn
-      (menu-bar-mode -1)
       (scroll-bar-mode -1)
       (tool-bar-mode -1)
       (tooltip-mode -1)))
@@ -72,7 +71,7 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (add-to-list 'default-frame-alist
-             '(font . "Monospace 11"))
+             '(font . "Cascadia Code PL 12"))
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
