@@ -23,8 +23,6 @@ Plug 'preservim/nerdtree'
 
 Plug 'vimwiki/vimwiki'
 
-Plug 'morhetz/gruvbox'
-
 call plug#end()
 
 " }}}
@@ -34,8 +32,6 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
-
-colorscheme gruvbox
 
 set autoread
 set autowrite
