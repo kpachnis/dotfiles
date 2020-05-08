@@ -81,8 +81,8 @@ myKeymap XConfig {XMonad.modMask = modm} = M.fromList $
     , ((0,                    xF86XK_AudioMicMute     ), safeSpawn "pactl" ["set-source-mute", "@DEFAULT_SOURCE@", "toggle"])
     , ((0,                    xF86XK_AudioLowerVolume ), safeSpawn "pactl" ["set-sink-volume", "@DEFAULT_SINK@", "-2%"])
     , ((0,                    xF86XK_AudioRaiseVolume ), safeSpawn "pactl" ["set-sink-volume", "@DEFAULT_SINK@", "+2%"])
-    , ((0,                    xF86XK_MonBrightnessDown), safeSpawn "brightnessctl" ["set", "2%-"])
-    , ((0,                    xF86XK_MonBrightnessUp  ), safeSpawn "brightnessctl" ["set", "+2%"])
+    , ((0,                    xF86XK_MonBrightnessDown), safeSpawn "brightnessctl" ["set", "5%-"])
+    , ((0,                    xF86XK_MonBrightnessUp  ), safeSpawn "brightnessctl" ["set", "+5%"])
 
     , ((modm, xK_r), submap . M.fromList $
                      [ ((0, xK_j), rotUnfocusedUp)
