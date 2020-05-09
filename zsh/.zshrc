@@ -44,7 +44,6 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    ~/go/bin
     ~/homebrew/{bin,sbin}
     /usr/local/{bin,sbin}
     /bin
