@@ -2,16 +2,10 @@
 .xterm*borderColor           :#000000
 .xterm*internalBorder        :4
 
-.xterm*Scrollbar.foreground  :gray50
-.xterm*Scrollbar.background  :#000000
-.xterm*Scrollbar.minimumThumb:50
-
 .xterm*faceName              :Cascadia Mono
 .xterm*faceSize              :11
 
 .xterm*saveLines             :10000
-.xterm*scrollBar             :true
-.xterm*scrollbar*width       :10
 
 .xterm*selectToClipboard     :true
 .xterm*utmpInhibit           :true
@@ -25,6 +19,8 @@
 .xterm*Translations          :#override \
         Ctrl Shift <Key>V    :insert-selection(CLIPBOARD) \n\
         Ctrl Shift <Key>C    :copy-selection(CLIPBOARD)
+
+.xterm*metaSendsEscape       :true
 
 
 !IR_Black colorscheme
