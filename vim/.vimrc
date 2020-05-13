@@ -7,6 +7,7 @@ call plug#begin()
 
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'
@@ -20,6 +21,7 @@ Plug 'godlygeek/tabular'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
+Plug 'cespare/vim-toml'
 
 Plug 'vimwiki/vimwiki'
 
