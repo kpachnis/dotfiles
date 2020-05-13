@@ -7,7 +7,6 @@ call plug#begin()
 
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'Raimondi/delimitMate'
 Plug 'terryma/vim-multiple-cursors'

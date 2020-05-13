@@ -44,9 +44,6 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    /usr/local/go/bin
-    ~/go/bin
-    ~/homebrew/{bin,sbin}
     /usr/local/{bin,sbin}
     /bin
     /sbin
@@ -247,8 +244,8 @@ PERIOD=3600
 periodic() { rehash }
 bindkey -e
 
-if [[ -f ~/.zshrc.local ]]; then
-    source ~/.zshrc.local
-fi
+[[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # }}}
