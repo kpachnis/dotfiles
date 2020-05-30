@@ -22,6 +22,8 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 Plug 'cespare/vim-toml'
 
+Plug 'chriskempson/base16-vim'
+
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
@@ -34,11 +36,13 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
+colorscheme base16-tomorrow-night
+
 set autoread
 set autowrite
 set backspace=2
 set belloff=all
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
