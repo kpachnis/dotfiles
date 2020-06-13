@@ -22,8 +22,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 Plug 'cespare/vim-toml'
 
-Plug 'chriskempson/base16-vim'
-
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
@@ -35,8 +33,6 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
-
-colorscheme base16-tomorrow-night
 
 set autoread
 set autowrite
