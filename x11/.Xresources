@@ -2,7 +2,7 @@
 .xterm*borderColor           :#000000
 .xterm*internalBorder        :4
 
-.xterm*faceName              :Cascadia Mono
+.xterm*faceName              :monospace
 .xterm*faceSize              :11
 
 .xterm*saveLines             :10000
@@ -21,10 +21,6 @@
         Ctrl Shift <Key>C    :copy-selection(CLIPBOARD)
 
 .xterm*metaSendsEscape       :true
-
-.xterm*background            :black
-.xterm*foreground            :gray80
-
 
 ! XScreenSaver
 xscreensaver.splash          :false

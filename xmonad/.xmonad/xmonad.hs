@@ -40,7 +40,7 @@ myTerminal :: String
 myTerminal = "x-terminal-emulator"
 
 myFont :: String
-myFont = "xft:Cascadia Mono:size=11"
+myFont = "xft:monospace:size=11"
 
 myFocusedBorderColor, myNormalBorderColor :: String
 myFocusedBorderColor = "#3465a4"
