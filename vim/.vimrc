@@ -37,6 +37,7 @@ filetype plugin indent on
 set autoread
 set autowrite
 set backspace=2
+set background=light
 set belloff=all
 set clipboard+=unnamedplus
 set colorcolumn=+1
