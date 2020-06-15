@@ -1,7 +1,14 @@
 #!/bin/sh
 
+cleanup() {
+	pkill dunst redshift
+	rm -f ~/.Xauthority
+}
+trap cleanup INT TERM QUIT
+
 export MOZ_WEBRENDER=1
-export MOZ_ACCELERATED=1
+# export MOZ_ACCELERATED=1
+
 
 xrdb ~/.Xresources
 
@@ -20,4 +27,5 @@ xsetroot -solid black
 
 xidle -timeout 300 -ne -program ~/bin/lock &
 redshift -t 6500:3250 -l geoclue2 -m randr &
+dunst -fn "Monospace 9" &
 
