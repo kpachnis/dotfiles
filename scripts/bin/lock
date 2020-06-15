@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sudo -K
+ssh-add -D
+
+slock

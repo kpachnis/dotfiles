@@ -1,10 +1,23 @@
+#!/bin/sh
+
+export MOZ_WEBRENDER=1
+export MOZ_ACCELERATED=1
+
+xrdb ~/.Xresources
+
 setxkbmap -layout 'us,gr' \
     -option 'grp:alt_space_toggle,lv3:ralt_switch,terminate:ctrl_alt_bksp' \
     -variant nodeadkeys \
     -model pc105
 
 
-xset b off
+xset b 0 0 0
+xset r rate 350 35
+xset dpms 0 0 0
+xset s off
 
 xsetroot -solid black
+
+xidle -timeout 300 -ne -program ~/bin/lock &
+redshift -t 6500:3250 -l geoclue2 -m randr &
 
