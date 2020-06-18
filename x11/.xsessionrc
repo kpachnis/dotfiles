@@ -1,8 +1,9 @@
 #!/bin/sh
 
 cleanup() {
-	pkill dunst redshift
-	rm -f ~/.Xauthority
+    pkill -TERM dunst
+    pkill -TERM redshift
+    rm -f ~/.Xauthority
 }
 trap cleanup INT TERM QUIT
 
