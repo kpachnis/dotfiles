@@ -21,6 +21,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'preservim/nerdtree'
 Plug 'cespare/vim-toml'
+Plug 'lifepillar/pgsql.vim'
 
 Plug 'vimwiki/vimwiki'
 
