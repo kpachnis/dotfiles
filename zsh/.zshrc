@@ -39,6 +39,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
+    ~/.pyenv/bin
     /usr/local/{bin,sbin}
     /bin
     /sbin
@@ -231,5 +232,7 @@ bindkey -e
 [[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+[[ -d ~/.pyenv ]] && eval "$(pyenv init -)"
 
 # }}}
