@@ -71,7 +71,7 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (add-to-list 'default-frame-alist
-             '(font . "Cascadia Code PL 12"))
+             '(font . "Cascadia Code 10"))
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
