@@ -310,22 +310,30 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
-    set background=light
+    set background=dark
+    colorscheme iceberg
+
     set cursorline
     set lines=25
     set columns=80
     set guioptions=egmt
+
     " Only use cursorline for current window
     autocmd WinEnter,FocusGained * setlocal cursorline
     autocmd WinLeave,FocusLost   * setlocal nocursorline
+
+    if has('gui_macvim')
+        set guifont=SF\ Mono:h11
+    elseif has('gui_win32')
+        set guifont=Consolas:h11
+    else
+        set guifont=Monospace\ 11
+    endif
 endif
 
 " }}}
 
 " Colors {{{
-
-set background=dark
-colorscheme iceberg
 
 " }}}
 
