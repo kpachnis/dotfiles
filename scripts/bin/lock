@@ -3,4 +3,4 @@
 sudo -K
 ssh-add -D
 
-slock
+xsecurelock
