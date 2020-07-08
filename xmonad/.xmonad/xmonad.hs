@@ -40,7 +40,7 @@ myTerminal :: String
 myTerminal = "x-terminal-emulator"
 
 myFont :: String
-myFont = "xft:monospace:size=10"
+myFont = "xft:monospace:size=11"
 
 myFocusedBorderColor, myNormalBorderColor :: String
 myFocusedBorderColor = "#3465a4"
@@ -71,7 +71,7 @@ myKeymap XConfig {XMonad.modMask = modm} = M.fromList $
     , ((modm .|. shiftMask,   xK_v                   ), selectWorkspace myXPConfig)
     , ((modm,                 xK_m                   ), withWorkspace myXPConfig (windows . W.shift))
 
-    , ((modm .|. controlMask, xK_BackSpace           ), unsafeSpawn "ssh-add -D; xscreensaver-command -lock; systemctl hibernate")
+    , ((modm .|. controlMask, xK_BackSpace           ), unsafeSpawn "~/bin/lock; systemctl hibernate")
 
     -- multimedia keys
     , ((0,                    xF86XK_AudioPrev        ), safeSpawn "mpc" ["-q", "prev"])
@@ -99,7 +99,7 @@ myKeymap XConfig {XMonad.modMask = modm} = M.fromList $
     , ((modm, xK_x), submap . M.fromList $
                      [ ((0, xK_b), safeSpawnProg "x-www-browser")
                      , ((0, xK_t), safeSpawn myTerminal ["-name", "dark"])
-                     , ((0, xK_l), unsafeSpawn "ssh-add -D; xscreensaver-command -lock")
+                     , ((0, xK_l), unsafeSpawn "~/bin/lock")
                      ])
 
     -- scratchpads
