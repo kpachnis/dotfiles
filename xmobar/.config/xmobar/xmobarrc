@@ -1,4 +1,4 @@
-Config { font             = "xft:Monospace:size=10"
+Config { font             = "xft:Monospace:size=11"
        , bgColor          = "#222222"
        , fgColor          = "#d3d7cf"
        , border           = FullB
