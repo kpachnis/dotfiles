@@ -333,10 +333,6 @@ endif
 
 " }}}
 
-" Colors {{{
-
-" }}}
-
 " Misc {{{
 
 if filereadable($HOME . "/.vimrc.local")
