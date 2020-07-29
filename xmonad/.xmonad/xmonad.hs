@@ -144,7 +144,7 @@ windowsManageHook = composeAll . concat
                       , [title     =? t --> doCenterFloat | t <- myTitleFloats]
                       ]
     where
-      myClassFloats = ["feh", "mpv", "XCalc", "Xfce4-power-manager-settings", "Xmessage", "Virt-viewer"]
+      myClassFloats = ["feh", "mpv", "XCalc", "Xfce4-power-manager-settings", "Xmessage", "Virt-viewer" ,"Pavucontrol"]
       myTitleFloats = ["Print", "Preferences"]
 
 myManageHook :: ManageHook
