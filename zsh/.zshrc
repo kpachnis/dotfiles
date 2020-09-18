@@ -246,6 +246,10 @@ PERIOD=3600
 periodic() { rehash }
 bindkey -e
 
+if [[ -x /usr/bin/dircolors ]]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
 [[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
