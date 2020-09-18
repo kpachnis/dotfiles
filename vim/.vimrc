@@ -27,6 +27,8 @@ Plug 'lifepillar/pgsql.vim'
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'altercation/vim-colors-solarized'
+
 call plug#end()
 
 " }}}
