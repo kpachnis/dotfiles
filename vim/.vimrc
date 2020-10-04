@@ -5,8 +5,6 @@ filetype off
 
 call plug#begin()
 
-Plug 'cocopon/iceberg.vim'
-
 Plug 'lervag/vimtex'
 Plug 'ledger/vim-ledger'
 
@@ -26,8 +24,6 @@ Plug 'cespare/vim-toml'
 Plug 'lifepillar/pgsql.vim'
 
 Plug 'vimwiki/vimwiki'
-
-Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -311,9 +307,6 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
-    set background=dark
-    colorscheme iceberg
-
     set cursorline
     set lines=25
     set columns=80
@@ -324,11 +317,11 @@ if has('gui_running')
     autocmd WinLeave,FocusLost   * setlocal nocursorline
 
     if has('gui_macvim')
-        set guifont=SF\ Mono:h11
+        set guifont=SF\ Mono:h13
     elseif has('gui_win32')
-        set guifont=Consolas:h11
+        set guifont=Consolas:h13
     else
-        set guifont=Monospace\ 11
+        set guifont=Monospace\ 13
     endif
 endif
 
