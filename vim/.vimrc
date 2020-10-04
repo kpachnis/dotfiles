@@ -39,7 +39,7 @@ set autoread
 set autowrite
 set backspace=2
 set belloff=all
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
@@ -307,6 +307,7 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
+    set background=light
     set cursorline
     set lines=25
     set columns=80
