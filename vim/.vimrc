@@ -1,34 +1,3 @@
-" Plugins {{{
-
-set nocompatible
-filetype off
-
-call plug#begin()
-
-Plug 'lervag/vimtex'
-Plug 'ledger/vim-ledger'
-
-Plug 'Raimondi/delimitMate'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'airblade/vim-gitgutter'
-Plug 'godlygeek/tabular'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'qpkorr/vim-bufkill'
-Plug 'preservim/nerdtree'
-Plug 'cespare/vim-toml'
-Plug 'lifepillar/pgsql.vim'
-
-Plug 'vimwiki/vimwiki'
-
-call plug#end()
-
-" }}}
-
 " Options {{{
 
 set nocompatible
@@ -47,10 +16,6 @@ set cmdheight=2
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos
-if executable("rg")
-    set grepprg=rg\ --vimgrep\ --smart-case
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
 set history=1000
 set hlsearch
 set incsearch
