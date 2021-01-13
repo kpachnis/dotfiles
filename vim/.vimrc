@@ -275,11 +275,11 @@ if has('gui_running')
     autocmd WinLeave,FocusLost   * setlocal nocursorline
 
     if has('gui_macvim')
-        set guifont=SF\ Mono:h11
+        set guifont=JuliaMono:h12
     elseif has('gui_win32')
         set guifont=Consolas:h12
     else
-        set guifont=Monospace\ 11
+        set guifont=JuliaMono\ 12
     endif
 endif
 
