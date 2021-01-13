@@ -1,3 +1,26 @@
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+PLug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'ledger/vim-ledger'
+Plug 'vimwiki/vimwiki'
+Plug 'plasticboy/vim-markdown'
+Plug 'cespare/vim-toml'
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'rust-lang/rust.vim'
+Plug 'ziglang/zig.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'vim-python/python-syntax'
+
+call plug#end()
+
+" }}}
+
 " Options {{{
 
 set nocompatible
@@ -21,12 +44,8 @@ set hlsearch
 set incsearch
 set laststatus=2
 set lazyredraw
-if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
-    let &listchars = "space:\u00b7,tab:\u21e5\u00b7,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
-    let &fillchars = "vert:\u259a,fold:\u00b7"
-else
-    set listchars=space:.,tab:>\ ,trail:-,extends:>,precedes:<
-endif
+set listchars = "space:\u00b7,tab:\u21e5\u00b7,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+set fillchars = "vert:\u259a,fold:\u00b7"
 set modelines=5
 set mouse=a
 set nowrap
@@ -49,6 +68,7 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
+set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -212,12 +232,15 @@ call mkdir(&directory, 'p')
 
 " Key bindings {{{
 
+let mapleader='\<space>'
+
 " Remove trailing white space http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent><leader>c :call StripTrailingWhitespace()<CR>
 
 nnoremap <leader>l :setlocal list!<CR>
 nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>s :setlocal spell!<CR>
+nnoremap <leader>t :setlocal NERDTreeToggle<CR>
 
 " }}}
 
@@ -225,6 +248,12 @@ nnoremap <leader>s :setlocal spell!<CR>
 
 let python_highlight_all=1
 let ruby_space_errors=1
+
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_frontmatter=1
+
+let g:NERDTreeRespectWildIgnore=1
+let g:NERDTreeHijackNetrw=1
 
 " }}}
 
