@@ -294,7 +294,6 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
-    set background=light
     set cursorline
     set lines=25
     set columns=80
