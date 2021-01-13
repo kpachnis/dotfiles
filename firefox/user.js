@@ -1,0 +1,22 @@
+// https://privacytools.io/browsers/#about_config
+
+user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true)
+user_pref("privacy.trackingprotection.cryptomining.enabled", true)
+user_pref("privacy.trackingprotection.enabled", true)
+user_pref("browser.send_pings", false)
+user_pref("browser.urlbar.speculativeConnect.enabled", false)
+user_pref("dom.event.clipboardevents.enabled", false)
+user_pref("media.navigator.enabled", false)
+user_pref("network.cookie.cookieBehavior", 1)
+user_pref("network.http.referer.XOriginPolicy", 2)
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2)
+user_pref("browser.sessionstore.privacy_level", 2)
+user_pref("beacon.enabled", false)
+user_pref("browser.safebrowsing.downloads.remote.enabled", false)
+user_pref("network.dns.disablePrefetch", true)
+user_pref("network.dns.disablePrefetchFromHTTPS", true)
+user_pref("network.predictor.enabled", false)
+user_pref("network.predictor.enable-prefetch", false)
+user_pref("network.prefetch-next", false)
+user_pref("network.IDN_show_punycode", true)
