@@ -26,6 +26,7 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+colorscheme torte
 
 set autoread
 set autowrite
