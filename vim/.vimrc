@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-PLug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 
