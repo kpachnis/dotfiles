@@ -232,7 +232,7 @@ call mkdir(&directory, 'p')
 
 " Key bindings {{{
 
-let mapleader='\<space>'
+let mapleader=' '
 
 " Remove trailing white space http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent><leader>c :call StripTrailingWhitespace()<CR>
@@ -240,7 +240,7 @@ nnoremap <silent><leader>c :call StripTrailingWhitespace()<CR>
 nnoremap <leader>l :setlocal list!<CR>
 nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>s :setlocal spell!<CR>
-nnoremap <leader>t :setlocal NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 " }}}
 
