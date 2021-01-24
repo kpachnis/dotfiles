@@ -26,7 +26,6 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
-colorscheme torte
 
 set autoread
 set autowrite
@@ -69,7 +68,6 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
-set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -294,6 +292,7 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
+    set background=light
     set cursorline
     set lines=25
     set columns=80
