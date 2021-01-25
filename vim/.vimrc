@@ -34,7 +34,6 @@ set clipboard+=unnamed
 set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
-set cmdheight=2
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos
