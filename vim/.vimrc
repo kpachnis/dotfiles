@@ -8,7 +8,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'ledger/vim-ledger'
-Plug 'vimwiki/vimwiki'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'fatih/vim-go', { 'tag': '*' }
