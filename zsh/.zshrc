@@ -141,6 +141,9 @@ case "$(uname -s)" in
         alias ls='ls -F'
 esac
 
+# Fix for non standard terminal emulators (Alacritty, Kitty, etc...)
+[[ ! $TERM =~ xterm ]] && alias ssh='TERM=xterm-256color ssh'
+
 alias l='ls -chlt'
 alias cp='cp -i'
 alias ctmp='find $TMP -ctime +10 -delete'
