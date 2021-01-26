@@ -4,6 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+font pango:Monospace 9
+
 xwayland disable
 
 ### Variables
@@ -19,7 +21,7 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu bemenu-run --fn "Monospace 11" | xargs swaymsg exec --
+set $menu bemenu-run --fn "Monospace 9" | xargs swaymsg exec --
 
 ### Output configuration
 #
