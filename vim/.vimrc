@@ -16,6 +16,8 @@ Plug 'ziglang/zig.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
 " }}}
@@ -25,6 +27,8 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme base16-tomorrow-night
 
 set autoread
 set autowrite
@@ -66,6 +70,7 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
+set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
