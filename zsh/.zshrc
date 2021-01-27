@@ -45,7 +45,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
-    ~/.pyenv/bin
+    ~/homebrew/{bin,sbin}
     /usr/local/{bin,sbin}
     /bin
     /sbin
