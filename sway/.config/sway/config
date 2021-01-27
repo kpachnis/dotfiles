@@ -237,4 +237,7 @@ bar {
     }
 }
 
+# Windows
+for_window [app_id="pavucontrol"] floating toggle
+
 include /etc/sway/config.d/*
