@@ -119,7 +119,7 @@ fi
 # Hooks {{{
 
 autoload -U add-zsh-hook
-[[ $TERM =~ xterm* ]] && add-zsh-hook precmd xterm_title
+[[ $TERM =~ (xterm*|alacritty) ]] && add-zsh-hook precmd xterm_title
 
 # }}}
 
