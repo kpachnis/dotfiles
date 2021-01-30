@@ -180,7 +180,11 @@ __prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then
         print "${vcs_info_msg_0_}"
     else
-        print "%{$fg[green]%}%n@%m:%{$fg[blue]%}%3~%{$reset_color%}"
+        if [[ $UID == 0 ]]; then
+            print "%{$fg[red]%}%n@%m:%{$fg[blue]%}%3~%{$reset_color%}"
+        else
+            print "%{$fg[green]%}%n@%m:%{$fg[blue]%}%3~%{$reset_color%}"
+        fi
     fi
 
 }
