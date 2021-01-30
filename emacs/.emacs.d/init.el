@@ -79,6 +79,11 @@
 (require 'use-package)
 (setq use-package-verbose t)
 
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn t))
+
 (use-package exec-path-from-shell
   :ensure t
   :config
@@ -91,8 +96,12 @@
     (add-hook hook #'whitespace-mode))
   (add-hook 'before-save-hook #'whitespace-cleanup)
   :config
-  (setq whitespace-line-column 80) ;; limit line length
+  (setq whitespace-line-column 120) ;; limit line length
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
+
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
 
 (use-package yaml-mode
   :ensure t)
