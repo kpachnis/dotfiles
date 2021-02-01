@@ -1,0 +1,10 @@
+[Unit]
+Description=Update RSS Feeds
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=6h
+Unit=newsboat.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Update RSS Feeds
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/newsboat -x reload
