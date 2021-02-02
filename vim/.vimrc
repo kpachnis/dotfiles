@@ -17,8 +17,6 @@ Plug 'ziglang/zig.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 
-Plug 'chriskempson/base16-vim'
-
 call plug#end()
 
 " }}}
@@ -29,10 +27,9 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
-colorscheme base16-tomorrow-night
-
 set autoread
 set autowrite
+set background=light
 set backspace=2
 set belloff=all
 set clipboard+=unnamed

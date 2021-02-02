@@ -23,8 +23,3 @@
     path = ~/.config/git/local
 [fetch]
 	fsckobjects = false
-[tig "color"]
-    cursor = default red bold
-    title-blur = black yellow
-    title-focus = black yellow bold
-
