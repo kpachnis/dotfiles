@@ -142,7 +142,7 @@ case "$(uname -s)" in
 esac
 
 # Fix for non standard terminal emulators (Alacritty, Kitty, etc...)
-[[ ! $TERM =~ xterm ]] && alias ssh='TERM=xterm-256color ssh'
+[[ ! $TERM =~ xterm || $TERM =~ kitty ]] && alias ssh='TERM=xterm-256color ssh'
 
 alias l='ls -chlt'
 alias cp='cp -i'
