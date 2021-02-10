@@ -255,6 +255,9 @@ let g:vim_markdown_frontmatter=1
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeHijackNetrw=1
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 " }}}
 
 " Printing {{{
