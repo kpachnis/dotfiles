@@ -84,7 +84,7 @@ set wildignore+=*.orig
 set wildignore+=tags
 set wildignore+=*.zip,*.rpm
 set wildignore+=*.egg-info
-set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache
+set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache,venv
 set wildignore+=vendor
 set wildmenu
 set wildmode=longest:full,full
