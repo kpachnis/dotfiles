@@ -36,6 +36,7 @@ set clipboard+=unnamed
 set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
+set cursorline
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos
@@ -94,6 +95,10 @@ set wildmode=longest:full,full
 
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
+
+" Only use cursorline for current window
+autocmd WinEnter,FocusGained * setlocal cursorline
+autocmd WinLeave,FocusLost   * setlocal nocursorline
 
 " Jump to the last position when reopening a file
 autocmd BufReadPost *
@@ -298,14 +303,9 @@ command! Today :call Today()
 
 if has('gui_running')
     set background=light
-    set cursorline
     set lines=25
     set columns=80
     set guioptions=egmt
-
-    " Only use cursorline for current window
-    autocmd WinEnter,FocusGained * setlocal cursorline
-    autocmd WinLeave,FocusLost   * setlocal nocursorline
 
     if has('gui_macvim')
         set guifont=JuliaMono:h12
