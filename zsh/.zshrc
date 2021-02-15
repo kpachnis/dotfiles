@@ -255,6 +255,10 @@ bindkey -e
 
 [[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
+if [[ -o interactive && -x $(command -v fortune) ]]; then
+    fortune
+fi
+
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # }}}
