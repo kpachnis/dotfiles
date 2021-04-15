@@ -152,6 +152,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias reload='source ~/.zshrc'
 alias tree='tree -C'
+alias bc='bc -q -l'
 
 # }}}
 
@@ -160,6 +161,7 @@ alias tree='tree -C'
 today() { date +%Y%m%d }
 timestamp() { date +%Y%m%d_%H%M%S }
 xterm_title() { print -Pn "\e]0; %n@%m:%~ \a" }
+calc() { print $@ | bc -l }
 
 path() {
     for dir in $path; do
