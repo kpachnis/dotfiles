@@ -68,6 +68,10 @@ export LESS="-r"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP=~/.pythonrc
 
+if [[ -n $DISPLAY ]]; then
+    export NO_AT_BRIDGE=1
+fi
+
 # }}}
 
 # Prompt {{{
