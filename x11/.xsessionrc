@@ -9,6 +9,7 @@ trap cleanup INT TERM QUIT
 
 # export MOZ_WEBRENDER=1
 export MOZ_ACCELERATED=1
+export NO_AT_BRIDGE=1
 
 
 xrdb ~/.Xresources
