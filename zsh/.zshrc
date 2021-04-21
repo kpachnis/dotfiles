@@ -153,6 +153,7 @@ alias rm='rm -i'
 alias reload='source ~/.zshrc'
 alias tree='tree -C'
 alias bc='bc -q -l'
+alias webserver='python3 -m http.server 8000 --bind 127.0.0.1'
 
 # }}}
 
