@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse
 from random import choice
-from string import digits, letters
+from string import digits, ascii_letters, punctuation
 
 parser = argparse.ArgumentParser(
     description='Generate <n> length random string')
@@ -10,9 +10,8 @@ parser.add_argument('-l', '--length', dest='length', type=int)
 
 
 def generate_key(length):
-    punctuation = '@$&*()'
     key = ''.join(
-        [choice(digits + letters + punctuation) for i in xrange(length)])
+        [choice(digits + ascii_letters + punctuation) for i in range(length)])
 
     return key
 
