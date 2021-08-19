@@ -70,8 +70,11 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-; (add-to-list 'default-frame-alist
-;              '(font . "Cascadia Code 10"))
+(add-to-list 'default-frame-alist
+             '(font . "Monospace 10"))
+
+;; M-SPC is used to change the OS input source
+(global-unset-key (kbd "M-SPC"))
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
