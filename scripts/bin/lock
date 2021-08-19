@@ -3,4 +3,4 @@
 sudo -K
 ssh-add -D
 
-xsecurelock
+i3lock -c 000000 -e -f
