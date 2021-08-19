@@ -3,7 +3,7 @@
 .xterm*internalBorder        :4
 
 .xterm*faceName              :monospace
-.xterm*faceSize              :11
+.xterm*faceSize              :10
 
 .xterm*saveLines             :10000
 
