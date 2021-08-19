@@ -7,16 +7,16 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = false
+        colors = true
         interval = 5
 }
 
 order += "ipv6"
 order += "disk /"
-order += "disk /u1"
+# order += "disk /u1"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
+# order += "battery all"
 order += "load"
 order += "volume master"
 order += "tztime local"
@@ -32,9 +32,9 @@ ethernet _first_ {
         format_down = "E: down"
 }
 
-battery all {
-        format = "%status %percentage %remaining"
-}
+# battery all {
+#         format = "%status %percentage %remaining"
+# }
 
 tztime local {
         format = "%Y-%m-%d %H:%M"
@@ -48,9 +48,9 @@ disk "/" {
         format = "%avail"
 }
 
-disk "/u1" {
-        format = "%avail"
-}
+# disk "/u1" {
+#         format = "%avail"
+# }
 
 volume master {
         format = "♪: %volume"
