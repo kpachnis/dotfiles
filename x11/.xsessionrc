@@ -29,5 +29,5 @@ xsetroot -solid black
 
 xidle -timeout 600 -ne -program ~/bin/lock &
 redshift -t 6500:3250 -l 37.98:23.72 -m randr &
-dunst -fn "Monospace 9" &
+dunst -fn "Monospace 11" &
 
