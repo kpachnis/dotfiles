@@ -33,7 +33,6 @@ set background=light
 set backspace=2
 set belloff=all
 set clipboard+=unnamed
-set colorcolumn=+1
 set complete+=kspell
 set conceallevel=2
 set encoding=utf-8
@@ -93,10 +92,6 @@ set wildmode=longest:full,full
 
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
-
-" Only use cursorline for current window
-autocmd WinEnter,FocusGained * setlocal cursorline
-autocmd WinLeave,FocusLost   * setlocal nocursorline
 
 " Jump to the last position when reopening a file
 autocmd BufReadPost *
@@ -310,7 +305,7 @@ if has('gui_running')
     elseif has('gui_win32')
         set guifont=Consolas:h12
     else
-        set guifont=JuliaMono\ 12
+        set guifont=Monospace\ 11
     endif
 endif
 
