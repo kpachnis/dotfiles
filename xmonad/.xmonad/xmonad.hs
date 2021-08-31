@@ -71,7 +71,7 @@ myKeymap XConfig {XMonad.modMask = modm} = M.fromList $
     , ((modm .|. shiftMask,   xK_v                   ), selectWorkspace myXPConfig)
     , ((modm,                 xK_m                   ), withWorkspace myXPConfig (windows . W.shift))
 
-    , ((modm .|. controlMask, xK_BackSpace           ), unsafeSpawn "~/bin/lock; systemctl hibernate")
+    , ((modm .|. controlMask, xK_BackSpace           ), unsafeSpawn "~/bin/lock; systemctl suspend")
 
     -- multimedia keys
     , ((0,                    xF86XK_AudioPrev        ), safeSpawn "mpc" ["-q", "prev"])
@@ -208,7 +208,7 @@ scratchpads = [ NS "ghci" (myTerminal ++ " -title ghci -e ghci") (title =? "ghci
               , NS "top" (myTerminal ++ " -title htop -e htop") (title =? "htop") scratchpadFloat
               , NS "nmtui" (myTerminal ++ " -title nmtui -e nmtui") (title =? "nmtui") scratchpadFloat
               , NS "notes" "gvim ~/notes.md" (title =? "notes") nonFloating
-              , NS "mixer" (myTerminal ++ " -title mixer -e alsamixer") (title =? "mixer") scratchpadFloat
+              , NS "mixer" "pavucontrol" (title =? "mixer") scratchpadFloat
               ]
 
 myConfig = withUrgencyHook NoUrgencyHook
