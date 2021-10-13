@@ -171,7 +171,7 @@ path() {
 }
 
 t() {
-    local todo_cli=$(command -v todo-txt || command -v toso.sh)
+    local todo_cli=$(command -v todo-txt || command -v todo.sh)
     $todo_cli "$@"
 }
 
