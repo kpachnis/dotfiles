@@ -257,6 +257,8 @@ let g:NERDTreeHijackNetrw=1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
+let g:ctrlp_extensions=['tag', 'buffertag']
+
 " }}}
 
 " Printing {{{
