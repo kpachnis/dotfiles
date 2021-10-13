@@ -16,6 +16,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'ziglang/zig.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
+Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
