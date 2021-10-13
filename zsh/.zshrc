@@ -170,6 +170,11 @@ path() {
     done
 }
 
+t() {
+    local todo_cli=$(command -v todo-txt || command -v toso.sh)
+    $todo_cli "$@"
+}
+
 enc() {
     openssl aes-256-cbc -salt -a -e -in $1 -out $1.enc
 }
