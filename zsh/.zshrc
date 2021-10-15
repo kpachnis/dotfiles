@@ -45,6 +45,7 @@ DIRSTACKSIZE=10
 path=(
     ~/bin
     ~/.local/bin
+    ~/.cargo/bin
     /usr/local/{bin,sbin}
     /bin
     /sbin
