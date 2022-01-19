@@ -172,6 +172,11 @@ augroup ft_html
     autocmd FileType html setlocal et sts=2 sw=2 ts=2
 augroup END
 
+augroup ft_ledger
+    autocmd!
+    autocmd FileType ledger setlocal spell cc=53
+augroup END
+
 augroup ft_local_config
     autocmd BufRead,BufNewFile .zshrc.local set filetype=zsh
     autocmd BufRead,BufNewFile .gitconfig.local set filetype=gitconfig
