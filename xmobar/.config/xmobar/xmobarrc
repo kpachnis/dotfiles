@@ -3,7 +3,7 @@ Config { font             = "xft:Monospace:size=11"
        , fgColor          = "#d3d7cf"
        , border           = FullB
        , borderColor      = "#222222"
-       , position         = TopSize L 95 20
+       , position         = TopSize L 97 20
        , lowerOnStart     = True
        , pickBroadest     = True
        , persistent       = False
