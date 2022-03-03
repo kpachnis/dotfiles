@@ -293,7 +293,7 @@ function! StripTrailingWhitespace()
 endfunction
 
 function! Today()
-    let today = strftime("%A %d\/%m\/%Y")
+    let today = strftime("%Y\/%m\/%d")
     exe "normal a". today
 endfunction
 command! Today :call Today()
