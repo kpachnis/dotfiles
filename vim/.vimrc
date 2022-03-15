@@ -1,12 +1,9 @@
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
@@ -254,16 +251,10 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 let python_highlight_all=1
 let ruby_space_errors=1
 
-let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
-
-let g:NERDTreeRespectWildIgnore=1
-let g:NERDTreeHijackNetrw=1
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
-let g:ctrlp_extensions=['tag', 'buffertag']
 
 " }}}
 
