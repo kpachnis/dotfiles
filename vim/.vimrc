@@ -16,6 +16,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'freitass/todo.txt-vim'
 
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
 call plug#end()
 
 " }}}
@@ -28,7 +30,6 @@ filetype plugin indent on
 
 set autoread
 set autowrite
-set background=light
 set backspace=2
 set belloff=all
 set clipboard+=unnamedplus
@@ -66,6 +67,7 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
+set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
@@ -308,6 +310,12 @@ if has('gui_running')
         set guifont=JuliaMono\ 9
     endif
 endif
+
+" }}}
+
+" {{{ Colors
+
+color onehalfdark
 
 " }}}
 
