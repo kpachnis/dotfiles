@@ -9,3 +9,4 @@
 !/emacs/.emacs.d/init.el
 .uuid
 /systemd/.config/systemd/user/*.wants
+!/systemd/.config/systemd/user/default.target.wants/.keep
