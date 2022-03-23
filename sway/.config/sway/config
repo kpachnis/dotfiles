@@ -25,8 +25,7 @@ set $menu bemenu-run --fn "JuliaMono 9" | xargs swaymsg exec --
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Wallpapers/cars_tardis_vector_delorean_back_to_the_future_time_travel_doctor_who_hq_wallpapers.jpg fill
 #
 # Example configuration:
 #
