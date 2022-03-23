@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:Source Code Pro 10
+font pango:JuliaMono 9
 
 xwayland disable
 
@@ -21,7 +21,7 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu bemenu-run --fn "Source Code Pro 10" | xargs swaymsg exec --
+set $menu bemenu-run --fn "JuliaMono 9" | xargs swaymsg exec --
 
 ### Output configuration
 #
