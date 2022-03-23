@@ -1,4 +1,5 @@
 " Plugins {{{
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
@@ -30,7 +31,7 @@ set autowrite
 set background=light
 set backspace=2
 set belloff=all
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set complete+=kspell
 set conceallevel=2
 set encoding=utf-8
@@ -304,7 +305,7 @@ if has('gui_running')
     elseif has('gui_win32')
         set guifont=Consolas:h12
     else
-        set guifont=Monospace\ 11
+        set guifont=JuliaMono\ 9
     endif
 endif
 
