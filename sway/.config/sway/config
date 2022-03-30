@@ -242,6 +242,8 @@ seat * hide_cursor 5000
 
 # Windows
 for_window [app_id="pavucontrol"] floating toggle
+for_window [app_id="gnuplot"] floating toggle
+for_window [app_id="firefox" title="Library"] floating toggle
 
 # GTK 3
 
