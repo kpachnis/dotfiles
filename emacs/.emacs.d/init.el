@@ -71,7 +71,7 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (add-to-list 'default-frame-alist
-             '(font . "Monospace 10"))
+             '(font . "Monospace 11"))
 
 ;; M-SPC is used to change the OS input source
 (global-unset-key (kbd "M-SPC"))
