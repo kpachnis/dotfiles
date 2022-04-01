@@ -82,11 +82,6 @@
 (require 'use-package)
 (setq use-package-verbose t)
 
-(use-package zenburn-theme
-  :ensure t
-  :config
-  (load-theme 'zenburn t))
-
 (use-package exec-path-from-shell
   :ensure t
   :config
