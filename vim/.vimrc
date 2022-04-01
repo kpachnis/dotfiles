@@ -16,8 +16,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'freitass/todo.txt-vim'
 
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-
 call plug#end()
 
 " }}}
@@ -310,12 +308,6 @@ if has('gui_running')
         set guifont=JuliaMono\ 9
     endif
 endif
-
-" }}}
-
-" {{{ Colors
-
-color onehalfdark
 
 " }}}
 
