@@ -50,7 +50,7 @@ myKeymap :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeymap XConfig {XMonad.modMask = modm} = M.fromList $
     [ ((modm,                 xK_q                   ), unsafeSpawn "if type xmonad; then for pid in $(pgrep xmobar); do kill -TERM \"$pid\"; done && xmonad --recompile && xmonad --restart; else xmessage xmonad in int \\$PATH: \"$PATH\"; fi")
     , ((modm,                 xK_p                   ), runOrRaisePrompt myXPConfig)
-    , ((modm,                 xK_slash               ), windowPromptGoto myXPConfig)
+    , ((modm,                 xK_slash               ), windowMultiPrompt myXPConfig [(Goto, allWindows)])
     , ((modm,                 xK_u                   ), focusUrgent)
 
     , ((modm,                 xK_bracketleft         ), sendMessage MirrorShrink)
@@ -116,7 +116,7 @@ myKeymap XConfig {XMonad.modMask = modm} = M.fromList $
     ++
     zip (zip (repeat (modm .|. shiftMask)) [xK_1..xK_9]) (map (withNthWorkspace W.shift) [0..])
 
-myKeys = myKeymap <+> keys defaultConfig
+myKeys = myKeymap <+> keys def
 
 myLayoutHook = avoidStruts
                $ windowNavigation
@@ -149,7 +149,7 @@ windowsManageHook = composeAll . concat
 
 myManageHook :: ManageHook
 myManageHook = manageDocks <+> namedScratchpadManageHook scratchpads
-               <+> windowsManageHook <+> manageHook defaultConfig
+               <+> windowsManageHook <+> manageHook def
 
 myStartupHook :: X()
 myStartupHook = do
@@ -163,7 +163,7 @@ myLogHook = do
   updatePointer (0.5, 0.5)(1, 1)
 
 myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig
+myXPConfig = def
              { font = myFont
              , bgColor           = "#222222"
              , fgColor           = "#d3d7cf"
@@ -176,7 +176,7 @@ myXPConfig = defaultXPConfig
              }
 
 myTheme :: Theme
-myTheme = defaultTheme
+myTheme = def
           { activeColor         = "#3465a4"
           , inactiveColor       = "#555753"
           , urgentColor         = "#cc0000"
@@ -212,7 +212,7 @@ scratchpads = [ NS "ghci" (myTerminal ++ " -title ghci -e ghci") (title =? "ghci
               ]
 
 myConfig = withUrgencyHook NoUrgencyHook
-           $ defaultConfig
+           $ def
            { modMask            = myModMask
            , keys               = myKeys
            , terminal           = myTerminal
