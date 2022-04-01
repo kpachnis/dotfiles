@@ -34,7 +34,7 @@
 .dark*borderColor           :#000000
 .dark*internalBorder        :4
 
-.dark*faceName              :monospace
+.dark*faceName              :Cascadia Mono
 .dark*faceSize              :10
 
 .dark*saveLines             :10000
