@@ -10,7 +10,7 @@
 .xterm*borderColor           :#000000
 .xterm*internalBorder        :4
 
-.xterm*faceName              :monospace
+.xterm*faceName              :Cascadia Mono
 .xterm*faceSize              :10
 
 .xterm*saveLines             :10000
