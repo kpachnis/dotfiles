@@ -31,8 +31,33 @@
 .xterm*metaSendsEscape       :true
 
 
-.xterm*background            :white
-.xterm*foreground            :black
+.dark*borderColor           :#000000
+.dark*internalBorder        :4
+
+.dark*faceName              :monospace
+.dark*faceSize              :10
+
+.dark*saveLines             :10000
+
+.dark*selectToClipboard     :true
+.dark*utmpInhibit           :true
+.dark*pointerMode           :2
+
+.dark*title                 :xterm
+.dark*termName              :xterm-256color
+
+.dark*visualBell            :false
+
+.dark*Translations          :#override \
+        Ctrl Shift <Key>V    :insert-selection(CLIPBOARD) \n\
+        Ctrl Shift <Key>C    :copy-selection(CLIPBOARD)
+
+.dark*metaSendsEscape       :true
+
+
+.dark*background            :black
+.dark*foreground            :gray80
+
 
 ! XScreenSaver
 xscreensaver.splash          :false
