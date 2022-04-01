@@ -1,13 +1,5 @@
 # vim: fdm=marker
 
-
-# Colors {{{
-
-autoload -zU colors
-colors
-
-# }}}
-
 # Options {{{
 
 setopt no_global_rcs
@@ -105,11 +97,11 @@ if [[ -x $(command -v git) ]]; then
   autoload -Uz vcs_info
 
   zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' actionformats "%{$fg[blue]%}%r %{$fg[green]%}%b|%{$fg[magenta]%}%a% %S%{$reset_color%}"
-  zstyle ':vcs_info:*' formats "%{$fg[blue]%}%r %{$fg[green]%}%b%{$fg[magenta]%}%c%u %S%{$reset_color%}"
+  zstyle ':vcs_info:*' actionformats "%r %b|%a% %S"
+  zstyle ':vcs_info:*' formats "%r %b%c%u %S"
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr "%{$fg[red]%}+%{$reset_color%}"
-  zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}+%{$reset_color%}"
+  zstyle ':vcs_info:*' stagedstr "%F{1}+%f"
+  zstyle ':vcs_info:*' unstagedstr "%F{1}-%f"
 
   precmd() { vcs_info }
 fi
@@ -188,11 +180,7 @@ __prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then
         print "${vcs_info_msg_0_}"
     else
-        if [[ $UID == 0 ]]; then
-            print "%{$fg[red]%}%n@%m:%{$fg[blue]%}%3~%{$reset_color%}"
-        else
-            print "%{$fg[green]%}%n@%m:%{$fg[blue]%}%3~%{$reset_color%}"
-        fi
+        print "%n@%m:%3~"
     fi
 
 }
