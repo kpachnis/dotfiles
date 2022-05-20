@@ -10,8 +10,8 @@
 .xterm*borderColor           :#000000
 .xterm*internalBorder        :4
 
-.xterm*faceName              :Cascadia Mono
-.xterm*faceSize              :10
+.xterm*faceName              :Ubuntu Mono
+.xterm*faceSize              :12
 
 .xterm*saveLines             :10000
 
@@ -34,8 +34,8 @@
 .dark*borderColor           :#000000
 .dark*internalBorder        :4
 
-.dark*faceName              :Cascadia Mono
-.dark*faceSize              :10
+.dark*faceName              :Ubuntu Mono
+.dark*faceSize              :12
 
 .dark*saveLines             :10000
 

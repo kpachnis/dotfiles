@@ -27,6 +27,6 @@ xset s off
 
 xidle -timeout 600 -ne -program ~/bin/lock &
 redshift -t 6500:3250 -l 37.9869:23.8554  -m randr &
-dunst -fn "Monospace 9" &
+dunst -fn "Ubuntu Mono 12" &
 
 exec /usr/bin/i3
