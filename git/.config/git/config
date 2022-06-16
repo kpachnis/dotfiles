@@ -24,3 +24,5 @@
     path = ~/.config/git/local
 [fetch]
 	fsckobjects = false
+[pull]
+	rebase = false
