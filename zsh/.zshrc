@@ -34,16 +34,13 @@ HISTFILE=~/.zhistory
 
 DIRSTACKSIZE=10
 
+[[ $OSTYPE =~ darwin ]] && eval "$(/usr/libexec/path_helper)"
+
 path=(
     ~/bin
     ~/.local/bin
     ~/.cargo/bin
-    /usr/local/{bin,sbin}
-    /bin
-    /sbin
-    /usr/{bin,sbin}
-    /usr/games
-    /usr/X11R6/bin
+    $path
 )
 
 path=(${(u)^path:A}(N-/))
