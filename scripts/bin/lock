@@ -3,4 +3,4 @@
 sudo -K
 ssh-add -D
 
-xsecurelock
+XSECURELOCK_SAVER=saver_xscreensaver XSECURELOCK_XSCREENSAVER_PATH=/usr/libexec/xscreensaver xsecurelock
