@@ -142,13 +142,13 @@ alias bc='bc -q -l'
 
 # Functions {{{
 
-xterm_title() { print -Pn "\e]0; %n@%m:%~ \a" }
+xterm_title() { print -Pn "\e]0; %m \a" }
 
 __prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then
         print "${vcs_info_msg_0_}"
     else
-        print "%n@%m:%3~"
+        print "%m:%3~"
     fi
 
 }
