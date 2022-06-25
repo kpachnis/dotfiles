@@ -1,0 +1,7 @@
+#!/bin/sh
+
+todo_cli=$(command -v todo-txt || command -v todo.sh)
+
+[ -z $todo_cli ] && echo "todo-txt is not installed"; exit 1
+
+$todo_cli "$@"

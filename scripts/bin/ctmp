@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find $TMP -ctime +10 -delete

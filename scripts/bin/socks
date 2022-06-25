@@ -6,9 +6,12 @@ if [ "$SH_DEBUG" ]; then
 fi
 
 PATH="$(getconf PATH)"
+LOG_DIR="$HOME/log"
+
+[[ ! -d $LOG_DIR ]] && mkdir $LOG_DIR
 
 command() {
-    SSH_COMMAND="ssh -fN $SSH_PROFILE -E $HOME/Library/Logs/socks.log"
+    SSH_COMMAND="ssh -fN $SSH_PROFILE -E $LOG_DIR"
 }
 
 status() {
@@ -55,7 +58,7 @@ Examples:
         socks -p preprod -c
 
 END
-    
+
     exit 0
 }
 

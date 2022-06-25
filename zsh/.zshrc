@@ -84,8 +84,6 @@ compinit
 compdef '_files -g "*.(asciidoc|md|mkd|markdown)"' pandoc
 compdef '_files -g "*.yml"' ansible-playbook
 
-compdef gpg2=gpg
-
 # }}}
 
 # VCS {{{
@@ -130,12 +128,8 @@ case "$(uname -s)" in
         alias ls='ls -F'
 esac
 
-# Fix for non standard terminal emulators (Alacritty, Kitty, etc...)
-[[ ! $TERM =~ xterm || $TERM =~ kitty ]] && alias ssh='TERM=xterm-256color ssh'
-
 alias l='ls -chlt'
 alias cp='cp -i'
-alias ctmp='find $TMP -ctime +10 -delete'
 alias dot='ls -d .*(/,.)'
 alias du1='du -h -d 1'
 alias mv='mv -i'
@@ -143,35 +137,12 @@ alias rm='rm -i'
 alias reload='source ~/.zshrc'
 alias tree='tree -C'
 alias bc='bc -q -l'
-alias webserver='python3 -m http.server 8000 --bind 127.0.0.1'
 
 # }}}
 
 # Functions {{{
 
-today() { date +%Y%m%d }
-timestamp() { date +%Y%m%d_%H%M%S }
 xterm_title() { print -Pn "\e]0; %n@%m:%~ \a" }
-calc() { print $@ | bc -l }
-
-path() {
-    for dir in $path; do
-        print $dir
-    done
-}
-
-t() {
-    local todo_cli=$(command -v todo-txt || command -v todo.sh)
-    $todo_cli "$@"
-}
-
-enc() {
-    openssl aes-256-cbc -salt -a -e -in $1 -out $1.enc
-}
-
-dec() {
-    openssl aes-256-cbc -a -d -in $1 -out ${1:r}
-}
 
 __prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then

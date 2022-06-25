@@ -1,0 +1,25 @@
+#!/bin/sh
+
+PATH="$(getconf PATH)"
+
+while getopts f:ed opt; do
+    case $opt in
+        f)
+            file="$OPTARG"
+            ;;
+        e)
+            openssl aes-256-cbc -pbkdf2 -a -e -in $file -out $file.enc
+            ;;
+        d)
+            openssl aes-256-cbc -pbkdf2 -a -d -in $file -out ${file%.enc}
+            ;;
+        '?')
+            echo "Usage: kcrypt [-f file] [-e] [-d]"
+            exit 1
+            ;;
+
+    esac
+done
+
+shift $(( OPTIND - 1 ))
+
