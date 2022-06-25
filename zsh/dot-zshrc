@@ -215,7 +215,7 @@ proxy() {
 watch=(notme)
 PERIOD=3600
 periodic() { rehash }
-bindkey -e
+bindkey -v
 
 [[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
