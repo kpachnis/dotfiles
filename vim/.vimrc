@@ -16,6 +16,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'freitass/todo.txt-vim'
 
+Plug 'sainnhe/everforest'
+Plug 'joshdick/onedark.vim'
+
 call plug#end()
 
 " }}}
@@ -295,7 +298,8 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
-    set background=light
+    set background=dark
+    colorscheme everforest
     set lines=25
     set columns=80
     set guioptions=egmt
