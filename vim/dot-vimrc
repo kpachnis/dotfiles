@@ -1,6 +1,10 @@
 " Plugins {{{
 
-call plug#begin('~/.vim/plugged')
+if has('win32')
+    call plug#begin('~/vimfiles/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -64,7 +68,11 @@ set showmatch
 set smartcase
 set smarttab
 set softtabstop=4
-set spellfile=~/.vim/spell/dict.utf-8.add
+if has('win32')
+    set spellfile=~/vimfiles/spell/dict.utf-8.add
+else
+    set spellfile=~/.vim/spell/dict.utf-8.add
+endif
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
@@ -226,9 +234,15 @@ set backup
 set undofile
 set undoreload=10000
 
-setglobal undodir=~/.cache/vim/undo
-setglobal backupdir=~/.cache/vim/backup
-setglobal directory=~/.cache/vim/swap
+if has('win32')
+    setglobal undodir=~/AppData/Local/vim/undo
+    setglobal backupdir=~/AppData/Local/vim/backup
+    setglobal directory=~/AppData/Local/vim/swap
+else
+    setglobal undodir=~/.cache/vim/undo
+    setglobal backupdir=~/.cache/vim/backup
+    setglobal directory=~/.cache/vim/swap
+endif
 
 call mkdir(&undodir, 'p')
 call mkdir(&backupdir, 'p')
@@ -307,7 +321,7 @@ if has('gui_running')
     if has('gui_macvim')
         set guifont=Ubuntu\ Mono:h14
     elseif has('gui_win32')
-        set guifont=Consolas:h12
+        set guifont=Cascadia\ Code:h10
     else
         set guifont=Ubuntu\ Mono\ 12
     endif
