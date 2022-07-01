@@ -20,9 +20,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'freitass/todo.txt-vim'
 
-Plug 'sainnhe/everforest'
-Plug 'joshdick/onedark.vim'
-
 call plug#end()
 
 " }}}
@@ -95,6 +92,7 @@ set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache,
 set wildignore+=vendor
 set wildmenu
 set wildmode=longest:full,full
+set wildoptions=pum
 
 " }}}
 
@@ -312,14 +310,12 @@ command! Today :call Today()
 " GUI {{{
 
 if has('gui_running')
-    set background=dark
-    colorscheme everforest
     set lines=25
     set columns=80
     set guioptions=egmt
 
     if has('gui_macvim')
-        set guifont=Ubuntu\ Mono:h14
+        set guifont=Cascadia\ Code:h12
     elseif has('gui_win32')
         set guifont=Cascadia\ Code:h10
     else
@@ -331,7 +327,9 @@ endif
 
 " Misc {{{
 
-if filereadable($HOME . "/.vimrc.local")
+if has('win32' && $HOME . "/_vimrc.local")
+  source ~/_vimrc.local
+elseif filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 
