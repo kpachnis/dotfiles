@@ -2,7 +2,7 @@
 /.vim/pack
 /.vim/spell
 /.vim/.netrwhist
-/.git/local
+/git/local
 /x11./xmonad/*
 !/x11/.xmonad/xmonad.hs
 /.emacs.d/*
