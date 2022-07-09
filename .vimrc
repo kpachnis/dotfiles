@@ -1,10 +1,6 @@
 " Plugins {{{
 
-if has('win32')
-    call plug#begin('~/vimfiles/plugged')
-else
-    call plug#begin('~/.vim/plugged')
-endif
+call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -29,6 +25,8 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme torte
 
 set autoread
 set autowrite
@@ -65,11 +63,7 @@ set showmatch
 set smartcase
 set smarttab
 set softtabstop=4
-if has('win32')
-    set spellfile=~/vimfiles/spell/dict.utf-8.add
-else
-    set spellfile=~/.vim/spell/dict.utf-8.add
-endif
+set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
@@ -92,7 +86,9 @@ set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache,
 set wildignore+=vendor
 set wildmenu
 set wildmode=longest:full,full
-set wildoptions=pum
+if v:version >= 900
+    set wildoptions=pum
+endif
 
 " }}}
 
@@ -232,15 +228,9 @@ set backup
 set undofile
 set undoreload=10000
 
-if has('win32')
-    setglobal undodir=~/AppData/Local/vim/undo
-    setglobal backupdir=~/AppData/Local/vim/backup
-    setglobal directory=~/AppData/Local/vim/swap
-else
-    setglobal undodir=~/.cache/vim/undo
-    setglobal backupdir=~/.cache/vim/backup
-    setglobal directory=~/.cache/vim/swap
-endif
+setglobal undodir=~/.cache/vim/undo
+setglobal backupdir=~/.cache/vim/backup
+setglobal directory=~/.cache/vim/swap
 
 call mkdir(&undodir, 'p')
 call mkdir(&backupdir, 'p')
@@ -316,10 +306,8 @@ if has('gui_running')
 
     if has('gui_macvim')
         set guifont=Cascadia\ Code:h12
-    elseif has('gui_win32')
-        set guifont=Cascadia\ Code:h10
     else
-        set guifont=Ubuntu\ Mono\ 12
+        set guifont=Monospace\ 10
     endif
 endif
 
@@ -327,9 +315,7 @@ endif
 
 " Misc {{{
 
-if has('win32' && $HOME . "/_vimrc.local")
-  source ~/_vimrc.local
-elseif filereadable($HOME . "/.vimrc.local")
+if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 
