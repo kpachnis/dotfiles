@@ -2,11 +2,11 @@
 /.vim/pack
 /.vim/spell
 /.vim/.netrwhist
-/git/local
+/.config/git/local
 /x11./xmonad/*
 !/x11/.xmonad/xmonad.hs
 /.emacs.d/*
 !/.emacs.d/init.el
 .uuid
-/linux/systemd/user/*.wants/*
-!/linux/systemd/user/default.target.wants/.keep
+/.config/systemd/user/*.wants/*
+!/.config/systemd/user/default.target.wants/.keep
