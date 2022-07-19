@@ -2,10 +2,11 @@
 
 datetime="$(date +'%Y-%m-%d %H:%M')"
 keyboard_layout="$(swaymsg -t get_inputs | jq -r '.[2].xkb_active_layout_name')"
+wifi_network="$(nmcli --fields NAME connection show --active | tail -1)"
 
 if [[ -x $(command -v acpi) ]]; then
     battery_level="$(acpi -b | awk -F ', ' '{print $2}')"
     printf '\u2328 %s | \U1F50B%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
 else
-    printf '\u2328 %s | %s' "$keyboard_layout" "$datetime"
+    printf '%s| \u2328 %s | %s' "$wifi_network" "$keyboard_layout" "$datetime"
 fi

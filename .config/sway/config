@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:JuliaMono 9
+font pango:JetBrainsMono 10
 
 xwayland disable
 
@@ -21,11 +21,11 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu bemenu-run --fn "JuliaMono 9" | xargs swaymsg exec --
+set $menu bemenu-run --fn "JetBrainsMono 10" | xargs swaymsg exec --
 
 ### Output configuration
 #
-output * bg ~/Wallpapers/cars_tardis_vector_delorean_back_to_the_future_time_travel_doctor_who_hq_wallpapers.jpg fill
+output * bg #000000 solid_color
 #
 # Example configuration:
 #
@@ -70,7 +70,7 @@ exec /usr/bin/mako
     input * repeat_delay 250
     input * repeat_rate 50
     input * xkb_layout "us,gr"
-    input * xkb_options "grp:alt_shift_toggle"
+    input * xkb_options "grp:alt_space_toggle"
     input "AT Translated Set 2 keyboard" xkb_model "pc101"
 
 ### Key bindings
@@ -222,7 +222,7 @@ bindsym XF86MonBrightnessUp exec light -A 5
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -231,8 +231,8 @@ bar {
 
     colors {
         statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        background #000000
+        inactive_workspace #000000 #000000 #8e8e8e
     }
 }
 
@@ -250,7 +250,7 @@ for_window [app_id="firefox" title="Library"] floating toggle
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema font-name 'Sans 9'
+    gsettings set $gnome-schema font-name 'Sans 10'
 }
 
 include /etc/sway/config.d/*
