@@ -9,12 +9,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
-Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'rust-lang/rust.vim'
-Plug 'ziglang/zig.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
-Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
@@ -29,6 +26,7 @@ filetype plugin indent on
 set autoread
 set autowrite
 set backspace=2
+set background=light
 set belloff=all
 set clipboard+=unnamedplus
 set complete+=kspell
@@ -65,6 +63,7 @@ set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
+set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set ttyfast
