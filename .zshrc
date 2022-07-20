@@ -38,8 +38,6 @@ DIRSTACKSIZE=10
 
 path=(
     ~/bin
-    ~/.local/bin
-    ~/.cargo/bin
     $path
 )
 
