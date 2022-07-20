@@ -3,8 +3,8 @@
 /.vim/spell
 /.vim/.netrwhist
 /.config/git/local
-/x11./xmonad/*
-!/x11/.xmonad/xmonad.hs
+/.xmonad/*
+!/.xmonad/xmonad.hs
 /.emacs.d/*
 !/.emacs.d/init.el
 .uuid
