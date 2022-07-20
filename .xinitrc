@@ -1,4 +1,6 @@
 #!/bin/sh
+XSECURELOCK_SAVER=saver_xscreensaver
+XSECURELOCK_XSCREENSAVER_PATH=/usr/lib/xscreensaver
 
 cleanup() {
     pkill -TERM dunst
@@ -21,12 +23,11 @@ setxkbmap -layout 'us,gr' \
 xset b 0 0 0
 xset r rate 350 35
 xset dpms 0 0 0
-xset s off
 
-# xsetroot -solid black
+xset s 300 5
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- env XSECURELOCK_SAVER=saver_xscreensaver xsecurelock &
 
-xidle -timeout 600 -ne -program ~/bin/lock &
 redshift -t 6500:3250 -l 37.9869:23.8554  -m randr &
-dunst -fn "Ubuntu Mono 12" &
+dunst -fn "JetBrains Mono 10" &
 
-exec /usr/bin/i3
+exec /usr/bin/xmonad
