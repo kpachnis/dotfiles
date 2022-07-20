@@ -10,8 +10,8 @@
 .xterm*borderColor           :#000000
 .xterm*internalBorder        :4
 
-.xterm*faceName              :Ubuntu Mono
-.xterm*faceSize              :12
+.xterm*faceName              :JetBrains Mono
+.xterm*faceSize              :10
 
 .xterm*saveLines             :10000
 
@@ -30,34 +30,50 @@
 
 .xterm*metaSendsEscape       :true
 
-
-.dark*borderColor           :#000000
-.dark*internalBorder        :4
-
-.dark*faceName              :Ubuntu Mono
-.dark*faceSize              :12
-
-.dark*saveLines             :10000
-
-.dark*selectToClipboard     :true
-.dark*utmpInhibit           :true
-.dark*pointerMode           :2
-
-.dark*title                 :xterm
-.dark*termName              :xterm-256color
-
-.dark*visualBell            :false
-
-.dark*Translations          :#override \
-        Ctrl Shift <Key>V    :insert-selection(CLIPBOARD) \n\
-        Ctrl Shift <Key>C    :copy-selection(CLIPBOARD)
-
-.dark*metaSendsEscape       :true
-
-
-.dark*background            :black
-.dark*foreground            :gray80
-
+!
+! Generated with :
+! XRDB2Xreources.py
+!
+*.foreground:  #000000
+*.background:  #ffffff
+*.cursorColor: #000000
+!
+! Black
+*.color0:      #000000
+*.color8:      #555753
+!
+! Red
+*.color1:      #cc0000
+*.color9:      #ef2929
+!
+! Green
+*.color2:      #4e9a06
+*.color10:     #8ae234
+!
+! Yellow
+*.color3:      #c4a000
+*.color11:     #fce94f
+!
+! Blue
+*.color4:      #3465a4
+*.color12:     #729fcf
+!
+! Magenta
+*.color5:      #75507b
+*.color13:     #ad7fa8
+!
+! Cyan
+*.color6:      #06989a
+*.color14:     #34e2e2
+!
+! White
+*.color7:      #d3d7cf
+*.color15:     #eeeeec
+!
+! Bold, Italic, Underline
+*.colorBD:     #000000
+!*.colorIT:
+!*.colorUL:
 
 ! XScreenSaver
 xscreensaver.splash          :false
