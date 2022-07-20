@@ -37,10 +37,10 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myTerminal :: String
-myTerminal = "x-terminal-emulator"
+myTerminal = "uxterm"
 
 myFont :: String
-myFont = "xft:Ubuntu Mono:size=12"
+myFont = "xft:JetBrains Mono:size=10"
 
 myFocusedBorderColor, myNormalBorderColor :: String
 myFocusedBorderColor = "#3465a4"
@@ -222,9 +222,8 @@ myConfig = withUrgencyHook NoUrgencyHook
            , manageHook         = myManageHook
            , layoutHook         = myLayoutHook
            , logHook            = myLogHook
-           , handleEventHook    = fullscreenEventHook <+> docksEventHook
            , startupHook        = myStartupHook
            }
 
 main :: IO ()
-main = xmonad myConfig
+main = xmonad $ ewmhFullscreen . ewmh $ docks $ myConfig
