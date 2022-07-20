@@ -1,4 +1,4 @@
-Config { font             = "xft:Ubuntu Mono:size=12"
+Config { font             = "xft:JetBrains Mono:size=10"
        , bgColor          = "#222222"
        , fgColor          = "#d3d7cf"
        , border           = FullB
