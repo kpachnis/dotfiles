@@ -38,7 +38,7 @@ DIRSTACKSIZE=10
 
 path=(
     ~/bin
-    /usr/local/opt/{coreutils,findutils}/libexec/gnubin
+    /usr/local/opt/{coreutils,findutils,gnu-tar}/libexec/gnubin
     $path
 )
 
