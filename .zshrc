@@ -116,17 +116,7 @@ if [[ $EDITOR =~ vi ]]; then
     alias view="$EDITOR -R"
 fi
 
-case "$(uname -s)" in
-    Linux)
-        alias ls='ls --color=auto'
-        ;;
-    Darwin)
-        alias ls='ls -G'
-        ;;
-    *)
-        alias ls='ls -F'
-esac
-
+alias ls='ls --color=auto'
 alias l='ls -chlt'
 alias cp='cp -i'
 alias dot='ls -d .*(/,.)'
