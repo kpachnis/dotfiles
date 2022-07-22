@@ -38,6 +38,7 @@ DIRSTACKSIZE=10
 
 path=(
     ~/bin
+    /usr/local/opt/{coreutils,findutils}/libexec/gnubin
     $path
 )
 
@@ -213,13 +214,10 @@ proxy() {
 watch=(notme)
 PERIOD=3600
 periodic() { rehash }
+
 bindkey -v
 
 [[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
-
-if [[ -o interactive && -x $(command -v fortune) ]]; then
-    fortune
-fi
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
