@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'mg979/vim-visual-multi'
 
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
@@ -12,7 +13,10 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
+Plug 'othree/html5.vim'
 Plug 'fladson/vim-kitty'
+
+Plug 'jonathanfilip/vim-lucius'
 
 call plug#end()
 
@@ -23,6 +27,9 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme lucius
+LuciusLight
 
 set autoread
 set autowrite
