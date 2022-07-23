@@ -34,11 +34,19 @@ HISTFILE=~/.zhistory
 
 DIRSTACKSIZE=10
 
-[[ $OSTYPE =~ darwin ]] && eval "$(/usr/libexec/path_helper)"
+case "$(uname -s)" in
+    Linux)
+        export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket
+        export NO_AT_BRIDGE=1
+        ;;
+    Darwin)
+        eval "$(/usr/libexec/path_helper)"
+        ;;
+esac
+
 
 path=(
     ~/bin
-    /usr/local/opt/{coreutils,findutils,gnu-tar}/libexec/gnubin
     $path
 )
 
@@ -116,7 +124,18 @@ if [[ $EDITOR =~ vi ]]; then
     alias view="$EDITOR -R"
 fi
 
-alias ls='ls --color=auto'
+case "$(uname -s)" in
+    Linux)
+        alias ls='ls --color=auto'
+        ;;
+    Darwin|FreeBSD)
+        alias ls='ls -G'
+        ;;
+    *)
+        alias ls='ls -G'
+        ;;
+esac
+
 alias l='ls -chlt'
 alias cp='cp -i'
 alias dot='ls -d .*(/,.)'
@@ -207,7 +226,7 @@ periodic() { rehash }
 
 bindkey -v
 
-[[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
+[[ -x $(command -v dircolors) ]] && eval "$(dircolors)"
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
