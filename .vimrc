@@ -12,8 +12,7 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
-
-Plug 'gruvbox-community/gruvbox'
+Plug 'fladson/vim-kitty'
 
 call plug#end()
 
@@ -28,7 +27,6 @@ filetype plugin indent on
 set autoread
 set autowrite
 set backspace=2
-set background=light
 set belloff=all
 set clipboard+=unnamedplus
 set complete+=kspell
