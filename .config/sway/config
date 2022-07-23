@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:JetBrainsMono 10
+font pango:JetBrainsMono 11
 
 xwayland disable
 
@@ -18,10 +18,11 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu bemenu-run --fn "JetBrainsMono 10" | xargs swaymsg exec --
+# set $menu bemenu-run --fn "JetBrainsMono 10" | xargs swaymsg exec --
+set $menu wofi --show run -G
 
 ### Output configuration
 #
@@ -250,7 +251,7 @@ for_window [app_id="firefox" title="Library"] floating toggle
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema font-name 'Sans 10'
+    gsettings set $gnome-schema font-name 'Sans 11'
 }
 
 include /etc/sway/config.d/*
