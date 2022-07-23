@@ -13,6 +13,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 
+Plug 'gruvbox-community/gruvbox'
+
 call plug#end()
 
 " }}}
