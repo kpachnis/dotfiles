@@ -1,6 +1,10 @@
 " Plugins {{{
 
-call plug#begin('~/.vim/plugged')
+if has('win32')
+    call plug#begin('~/vimfiles/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -14,9 +18,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
-Plug 'fladson/vim-kitty'
 
-Plug 'jonathanfilip/vim-lucius'
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
@@ -28,14 +31,13 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
-colorscheme lucius
-LuciusLight
+colorscheme gruvbox
 
 set autoread
 set autowrite
 set backspace=2
 set belloff=all
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 set complete+=kspell
 set conceallevel=2
 set encoding=utf-8
@@ -66,7 +68,11 @@ set showmatch
 set smartcase
 set smarttab
 set softtabstop=4
-set spellfile=~/.vim/spell/dict.utf-8.add
+if has('win32')
+    set spellfile=~/vimfiles/spell/dict.utf-8.add
+else
+    set spellfile=~/.vim/spell/dict.utf-8.add
+endif
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
 set tabstop=4
@@ -228,9 +234,15 @@ set backup
 set undofile
 set undoreload=10000
 
-setglobal undodir=~/.cache/vim/undo
-setglobal backupdir=~/.cache/vim/backup
-setglobal directory=~/.cache/vim/swap
+if has('win32')
+    setglobal undodir=~/AppData/Local/vim/undo
+    setglobal backupdir=~/AppData/Local/vim/backup
+    setglobal directory=~/AppData/Local/vim/swap
+else
+    setglobal undodir=~/.cache/vim/undo
+    setglobal backupdir=~/.cache/vim/backup
+    setglobal directory=~/.cache/vim/swap
+endif
 
 call mkdir(&undodir, 'p')
 call mkdir(&backupdir, 'p')
@@ -306,6 +318,8 @@ if has('gui_running')
 
     if has('gui_macvim')
         set guifont=Cascadia\ Code:h12
+    elseif has('gui_win32')
+        set guifont=Cascadia\ Code:h10
     else
         set guifont=Monospace\ 10
     endif
