@@ -19,8 +19,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
 
-Plug 'gruvbox-community/gruvbox'
-
 call plug#end()
 
 " }}}
