@@ -315,11 +315,11 @@ if has('gui_running')
     set guioptions=egmt
 
     if has('gui_macvim')
-        set guifont=Cascadia\ Code:h12
+        set guifont=JetBrains\ Mono:h12
     elseif has('gui_win32')
         set guifont=Cascadia\ Code:h10
     else
-        set guifont=Monospace\ 10
+        set guifont=JetBrains\ Mono\ 10
     endif
 endif
 
