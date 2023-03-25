@@ -1,7 +1,7 @@
 #!/bin/sh
 
 datetime="$(date +'%Y-%m-%d %H:%M')"
-keyboard_layout="$(swaymsg -t get_inputs | jq -r '.[3].xkb_active_layout_name')"
+keyboard_layout="$(swaymsg -t get_inputs | jq -r '.[] | select(.identifier == "2131:256:Topre_Corporation_HHKB_Professional") | .xkb_active_layout_name')"
 
 if [[ -x $(command -v acpi) ]]; then
     battery_level="$(acpi -b | awk -F ', ' '{print $2}')"
