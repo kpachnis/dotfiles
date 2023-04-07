@@ -47,6 +47,7 @@ esac
 
 path=(
     ~/bin
+    ~/homebrew/{sbin,bin}
     $path
 )
 
