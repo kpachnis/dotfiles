@@ -277,19 +277,6 @@ let g:go_info_mode='gopls'
 
 " }}}
 
-" Printing {{{
-
-set printexpr=PrintFile(v:fname_in)
-set printoptions=syntax:n,paper:A4
-
-function! PrintFile(fname)
-    call system("lp " . a:fname)
-    call delete(a:fname)
-    return v:shell_error
-endfunc
-
-" }}}
-
 " Functions {{{
 
 function! StripTrailingWhitespace()
