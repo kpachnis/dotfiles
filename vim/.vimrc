@@ -22,8 +22,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
 
-Plug 'jonathanfilip/vim-lucius'
-
 call plug#end()
 
 " }}}
@@ -312,13 +310,6 @@ if has('gui_running')
         set guifont=JetBrains\ Mono\ 10
     endif
 endif
-
-" }}}
-
-" Color {{{
-
-colorscheme lucius
-LuciusLight
 
 " }}}
 
