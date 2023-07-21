@@ -130,7 +130,7 @@ case "$(uname -s)" in
         alias ls='ls -G'
         ;;
     *)
-        alias ls='ls -G'
+        alias ls='ls -F'
         ;;
 esac
 
