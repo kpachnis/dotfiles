@@ -89,9 +89,6 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER"
 autoload -U compinit
 compinit
 
-compdef '_files -g "*.(asciidoc|md|mkd|markdown)"' pandoc
-compdef '_files -g "*.yml"' ansible-playbook
-
 # }}}
 
 # VCS {{{
