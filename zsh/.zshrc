@@ -48,7 +48,7 @@ esac
 path=(
     ~/bin
     ~/.local/nvim-linux64/bin
-    ~/homebrew/{sbin,bin}
+    /usr/local/go/bin
     $path
 )
 
