@@ -1,11 +1,11 @@
 #!/bin/sh
 
 datetime="$(date +'%Y-%m-%d %H:%M')"
-keyboard_layout="$(swaymsg -t get_inputs | jq -r '.[] | select(.identifier == "3690:780:TrulyErgonomic.com_Truly_Ergonomic_Computer_Keyboard") | .xkb_active_layout_name')"
+keyboard_layout="$(swaymsg -t get_inputs | jq -r '.[] | select(.identifier == "1:1:AT_Translated_Set_2_keyboard") | .xkb_active_layout_name')"
 
-if [[ -x $(command -v acpi) ]]; then
-    battery_level="$(acpi -b | awk -F ', ' '{print $2}')"
-    printf '\u2328 %s | \U1F50B%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
+if [ -x $(command -v upower) ]; then
+    battery_level="$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}')"
+    printf '⌨️ %s |🔋%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
 else
     printf '%s | %s' "$keyboard_layout" "$datetime"
 fi
