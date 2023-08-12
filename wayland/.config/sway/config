@@ -18,7 +18,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term foot
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu bemenu-run --fn "JetBrainsMono 10" | xargs swaymsg exec --
@@ -27,6 +27,7 @@ set $menu wofi --show run -G
 ### Output configuration
 #
 output * bg #000000 solid_color
+output eDP-1 scale 1.5
 #
 # Example configuration:
 #
@@ -63,7 +64,9 @@ exec /usr/bin/mako
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-    input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
+
+# ThinkPad X1
+    input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
         natural_scroll enabled
     }
 
@@ -243,7 +246,10 @@ seat * hide_cursor 5000
 # Windows
 for_window [app_id="pavucontrol"] floating toggle
 for_window [app_id="gnuplot"] floating toggle
-for_window [app_id="firefox" title="Library"] floating toggle
+for_window [app_id="Firefox-esr" title="Library"] floating toggle
+for_window [app_id="Firefox-esr" title="Pinboard - Save a Bookmark — Mozilla Firefox"] floating toggle
+for_window [app_id="Firefox-esr" title="About Mozilla Firefox"] floating toggle
+for_window [app_id="Firefox-esr" title="Extension:"] floating toggle
 
 # GTK 3
 
