@@ -11,7 +11,6 @@ Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdtree'
 
 Plug 'ledger/vim-ledger'
