@@ -34,9 +34,18 @@ HISTFILE=~/.zhistory
 
 DIRSTACKSIZE=10
 
+case $(uname -s) in
+    Linux)
+        export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket
+        export NO_AT_BRIDGE=1
+        ;;
+    Darwin)
+        eval "$(/usr/libexec/path_helper)"
+        ;;
+esac
+
 path=(
     ~/bin
-    ~/.local/nvim-linux64/bin
     /usr/local/go/bin
     $path
 )
@@ -110,6 +119,10 @@ autoload -U add-zsh-hook
 if [[ $EDITOR =~ vi ]]; then
     alias vi=$EDITOR
     alias view="$EDITOR -R"
+fi
+
+if [[ $TERM != xterm* ]]; then
+    alias ssh='TERM=xterm-256color ssh'
 fi
 
 case "$(uname -s)" in
