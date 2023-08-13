@@ -22,7 +22,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu bemenu-run --fn "JetBrainsMono 10" | xargs swaymsg exec --
-set $menu wofi --show run -G
+set $menu wofi
 
 ### Output configuration
 #
@@ -42,7 +42,7 @@ output eDP-1 scale 1.5
  exec swayidle -w \
         timeout 1200 'swaylock -f -c 000000' \
         timeout 1205 'swaymsg "output * dpms off"' \
-        resume 'swaymsg "output * dpms on"' 
+        resume 'swaymsg "output * dpms on"'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -243,7 +243,7 @@ bar {
 }
 
 # Hide cursor
-seat * hide_cursor 5000 
+seat * hide_cursor 5000
 
 
 # Windows
