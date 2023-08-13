@@ -1,0 +1,4 @@
+ui.key.menuAccessKeyFocuses: false - Stop random Alt presses from bringing up the 
+mousewheel.with_meta.action: 0 - Disable scroll zooming.
+extensions.pocket.enabled: false- Disable Pocket.
+dom.event.clipboardevents.enabled: false - Don’t allow websites to prevent copy and paste, stop 
