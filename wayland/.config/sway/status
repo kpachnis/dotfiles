@@ -1,11 +1,19 @@
 #!/bin/sh
 
-datetime="$(date +'%c')"
+datetime="$(date +%c)"
 keyboard_layout="$(swaymsg -t get_inputs | jq -r '.[] | select(.identifier == "1:1:AT_Translated_Set_2_keyboard") | .xkb_active_layout_name')"
 
 if [ -x "$(command -v upower)" ] && [ -e "/sys/class/power_supply/BAT0" ]; then
     battery_level="$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}')"
-    printf '⌨️ %s |🔋%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
+    battery_state="$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | awk '{print $2}')"
+
+    if [ "$battery_state" = "discharging" ]; then
+        printf '⌨️ %s |🔋%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
+    elif [ "$battery_state" = "charging" ]; then
+        printf '⌨️ %s |⚡%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
+    else
+        printf '⌨️ %s |💩| %s' "$keyboard_layout" "$datetime"
+    fi
 else
     printf '%s | %s' "$keyboard_layout" "$datetime"
 fi
