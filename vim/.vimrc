@@ -8,6 +8,7 @@ endif
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ludovicchabant/vim-gutentags'
