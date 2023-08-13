@@ -221,6 +221,8 @@ proxy() {
 
 # Misc {{{
 
+autoload zcalc
+
 watch=(notme)
 PERIOD=3600
 periodic() { rehash }
