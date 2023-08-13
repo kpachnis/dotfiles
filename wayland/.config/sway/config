@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:NotoSansMono 11
+font pango:NotoSansMono 10
 
 xwayland disable
 
