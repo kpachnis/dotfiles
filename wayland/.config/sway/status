@@ -9,8 +9,8 @@ if [ -x "$(command -v upower)" ] && [ -e "/sys/class/power_supply/BAT0" ]; then
 
     if [ "$battery_state" = "discharging" ]; then
         printf '⌨️ %s |🔋%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
-    elif [ "$battery_state" = "charging" ]; then
-        printf '⌨️ %s |⚡%s | %s' "$keyboard_layout" "$battery_level" "$datetime"
+    elif [ "$battery_state" = "charging" ] || [ "$battery_state" = "fully-charged" ]; then
+        printf '⌨️ %s |🔋%s 🔌| %s' "$keyboard_layout" "$battery_level" "$datetime"
     else
         printf '⌨️ %s |💩| %s' "$keyboard_layout" "$datetime"
     fi
