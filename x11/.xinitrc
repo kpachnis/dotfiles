@@ -30,4 +30,4 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- env XSECURELOCK_SAVER=saver_xscree
 redshift -t 6500:3250 -l 37.9869:23.8554  -m randr &
 dunst -fn "JetBrains Mono 10" &
 
-exec /usr/bin/xmonad
+exec /usr/bin/x-window-manager
