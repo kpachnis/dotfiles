@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,drun,ssh";
+	modi: "window,run,drun,ssh";
 	font: "JetBrains Mono 10";
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -145,4 +145,3 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "Pop-Dark"
