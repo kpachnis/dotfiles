@@ -1,3 +1,23 @@
-Xft.dpi                      :144
+Xft.dpi:                144
 
-xscreensaver.splash          :false
+Xcursor.theme:          dmz
+Xcursor.size:           48
+
+XTerm*loginShell:       true
+XTerm*faceName:         monospace:size=11
+
+*.termName:             xterm-256color
+*.saveLines:            20000
+*.scrollBar:            false
+
+XTerm.vt100.translations:   #override\
+    Meta <KeyPress> V: insert-selection(CLIPBOARD, PRIMARY, CUT_BUFFER0)\n\
+    Super <KeyPress> V: insert-selection(CLIPBOARD, PRIMARY, CUT_BUFFER0)
+
+XClock*.update:         1
+XClock*.analog:         False
+XClock*.render:         True
+XClock*.padding:        20
+XClock*.face:           Microsoft Sans Serif:size=16
+XClock*.strftime:       %a %b %d  %H:%M
+XClock*.background:     #c0c7c8
