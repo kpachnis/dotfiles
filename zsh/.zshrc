@@ -227,7 +227,7 @@ watch=(notme)
 PERIOD=3600
 periodic() { rehash }
 
-bindkey -v
+bindkey -e
 
 [[ -x $(command -v dircolors) ]] && eval "$(dircolors)"
 
