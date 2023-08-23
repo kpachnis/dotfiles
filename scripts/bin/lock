@@ -1,6 +1,10 @@
 #!/bin/sh
 
-sudo -K
-ssh-add -D
+if [ `uname -s` = "OpenBSD" ]; then
+    doas -L
+else
+    sudo -K
+fi
 
-XSECURELOCK_SAVER=saver_xscreensaver XSECURELOCK_XSCREENSAVER_PATH=/usr/libexec/xscreensaver xsecurelock
+ssh-add -Dq
+i3lock -n -c 000000 -e -f
