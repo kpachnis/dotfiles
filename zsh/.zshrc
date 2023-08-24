@@ -64,6 +64,8 @@ export LESS="-r"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP=~/.pythonrc
 
+export NO_COLOR=1
+
 # }}}
 
 # Prompt {{{

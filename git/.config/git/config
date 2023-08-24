@@ -11,7 +11,7 @@
     gpgSign = true
     template = ~/.config/git/message
 [color]
-    ui = auto
+    ui = false
 [log]
     decorate = auto
 [push]
