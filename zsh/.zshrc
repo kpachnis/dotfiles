@@ -101,8 +101,8 @@ if [[ -x $(command -v git) ]]; then
   zstyle ':vcs_info:*' actionformats "%r %b|%a% %S"
   zstyle ':vcs_info:*' formats "%r %b%c%u %S"
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr "%F{1}+%f"
-  zstyle ':vcs_info:*' unstagedstr "%F{1}-%f"
+  zstyle ':vcs_info:*' stagedstr "+"
+  zstyle ':vcs_info:*' unstagedstr "-"
 
   precmd() { vcs_info }
 fi
@@ -123,22 +123,7 @@ if [[ $EDITOR =~ vi ]]; then
     alias view="$EDITOR -R"
 fi
 
-if [[ $TERM != xterm* ]]; then
-    alias ssh='TERM=xterm-256color ssh'
-fi
-
-case "$(uname -s)" in
-    Linux)
-        alias ls='ls --color=auto'
-        ;;
-    Darwin|FreeBSD)
-        alias ls='ls -G'
-        ;;
-    *)
-        alias ls='ls -F'
-        ;;
-esac
-
+alias ls='ls -F'
 alias l='ls -chlt'
 alias cp='cp -i'
 alias dot='ls -d .*(/,.)'
