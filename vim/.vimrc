@@ -33,6 +33,7 @@ syntax on
 filetype plugin indent on
 
 set background=light
+colorscheme kp
 
 set autoread
 set autowrite
@@ -313,7 +314,7 @@ if has('gui_running')
     elseif has('gui_win32')
         set guifont=Cascadia\ Code:h10
     else
-        set guifont=JetBrains\ Mono\ 10
+        set guifont=Monospace\ 11
     endif
 endif
 
