@@ -2,3 +2,4 @@
 --price-db ~/finance/price.db
 --strict
 --price
+--no-color
