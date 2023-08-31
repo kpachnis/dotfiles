@@ -1,2 +1,2 @@
 set selection-clipboard clipboard
-set font "Noto Sans Mono 10"
+set font "monospace 9"
