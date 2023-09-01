@@ -32,9 +32,6 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
-set background=light
-colorscheme kp
-
 set autoread
 set autowrite
 set backspace=2
