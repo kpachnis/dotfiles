@@ -45,6 +45,7 @@ esac
 
 path=(
     ~/bin
+    ~/.local/bin
     /usr/local/go/bin
     $path
 )
