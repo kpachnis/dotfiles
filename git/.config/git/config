@@ -12,6 +12,8 @@
     template = ~/.config/git/message
 [color]
     ui = auto
+[instaweb]
+    httpd = webrick
 [log]
     decorate = auto
 [push]
