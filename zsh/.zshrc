@@ -225,7 +225,7 @@ periodic() { rehash }
 
 bindkey -e
 
-[[ -x $(command -v dircolors) ]] && eval "$(dircolors)"
+eval "$(dircolors ~/.dir_colors)"
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
