@@ -116,23 +116,12 @@ autoload -U add-zsh-hook
 
 # Aliases {{{
 
-case $(uname -s) in
-    Linux)
-        alias ls='ls --color=auto'
-        ;;
-    Darwin|FreeBSD)
-        alias ls='ls -G'
-        ;;
-    *)
-        alias ls='ls -F'
-esac
-
-
 if [[ $EDITOR =~ vi ]]; then
     alias vi=$EDITOR
     alias view="$EDITOR -R"
 fi
 
+alias ls='ls --color=auto'
 alias l='ls -chlt'
 alias cp='cp -i'
 alias dot='ls -d .*(/,.)'
