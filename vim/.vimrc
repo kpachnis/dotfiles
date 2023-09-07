@@ -18,6 +18,7 @@ Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
