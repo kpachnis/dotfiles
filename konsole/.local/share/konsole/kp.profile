@@ -4,6 +4,9 @@ ColorScheme=nord
 [General]
 Name=kp
 Parent=FALLBACK/
+StartInCurrentSessionDir=false
+TerminalColumns=80
+TerminalRows=50
 
 [Interaction Options]
 MiddleClickPasteMode=0
