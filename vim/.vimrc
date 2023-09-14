@@ -41,7 +41,7 @@ set autoread
 set autowrite
 set backspace=2
 set belloff=all
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 set complete+=kspell
 set conceallevel=2
 set encoding=utf-8
@@ -312,11 +312,11 @@ if has('gui_running')
     set guioptions=egmt
 
     if has('gui_macvim')
-        set guifont=JetBrains\ Mono:h12
+        set guifont=Hack:h11
     elseif has('gui_win32')
         set guifont=Cascadia\ Code:h10
     else
-        set guifont=Monospace\ 11
+        set guifont=Hack\ 11
     endif
 endif
 
