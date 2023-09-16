@@ -1,4 +1,4 @@
---file ~/finance/journal.ledger
---price-db ~/finance/price.db
+--file ~/fin/journal.ledger
+--price-db ~/fin/price.db
 --strict
 --price
