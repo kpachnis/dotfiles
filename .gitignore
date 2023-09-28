@@ -5,5 +5,6 @@
 /git/.config/git/local
 .uuid
 /systemd/.config/systemd/user/*.wants/*
+/systemd/.config/systemd/user/resticprofile-*
 !/systemd/.config/systemd/user/default.target.wants/.keep
 /tags*
