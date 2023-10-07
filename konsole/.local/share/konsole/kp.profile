@@ -8,7 +8,7 @@ Name=kp
 Parent=FALLBACK/
 StartInCurrentSessionDir=false
 TerminalColumns=80
-TerminalRows=50
+TerminalRows=45
 
 [Interaction Options]
 MiddleClickPasteMode=0
