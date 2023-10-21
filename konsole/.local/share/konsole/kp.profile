@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=nord
+ColorScheme=BlackOnWhite
 Font=JetBrains Mono,10,-1,5,50,0,0,0,0,0
 UseFontLineChararacters=true
 
