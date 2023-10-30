@@ -37,7 +37,7 @@ set autoread
 set autowrite
 set backspace=2
 set belloff=all
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set complete+=kspell
 set conceallevel=2
 set encoding=utf-8
