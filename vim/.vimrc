@@ -13,6 +13,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdtree'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'SirVer/ultisnips'
 
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
