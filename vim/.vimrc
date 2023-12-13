@@ -25,6 +25,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
 
+Plug 'phanviet/vim-monokai-pro'
+
 call plug#end()
 
 " }}}
@@ -34,6 +36,8 @@ call plug#end()
 set nocompatible
 syntax on
 filetype plugin indent on
+
+colorscheme monokai_pro
 
 set autoread
 set autowrite
