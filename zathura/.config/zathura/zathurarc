@@ -1,2 +1,3 @@
 set selection-clipboard clipboard
-set font "monospace 9"
+set font "monospace 10"
+set database sqlite
