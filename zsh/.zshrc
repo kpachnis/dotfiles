@@ -9,7 +9,6 @@ setopt pushd_ignore_dups
 setopt complete_aliases
 setopt hash_list_all
 setopt extended_glob
-setopt hist_ignore_dups
 setopt clobber
 setopt correct
 setopt prompt_subst
@@ -18,6 +17,12 @@ setopt auto_pushd
 setopt pushd_minus
 setopt pushd_silent
 setopt pushd_to_home
+
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
+setopt share_history
+
 
 # }}}
 
@@ -28,9 +33,10 @@ export LANG=en_US.UTF-8
 
 export WORDCHARS=${WORDCHARS//[&.;\/]}
 
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.zhistory
+HISTORY_IGNORE="(ls|cd|pwd|exit|cd)*"
 
 DIRSTACKSIZE=10
 
@@ -47,7 +53,6 @@ esac
 path=(
     ~/bin
     ~/.local/bin
-    /usr/local/go/bin
     /opt/homebrew/{bin,sbin}
     /opt/homebrew/opt/{coreutils,findutils}/libexec/gnubin
     $path
