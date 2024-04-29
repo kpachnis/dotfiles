@@ -20,8 +20,9 @@ vim.opt.number = true
 vim.opt.report = 0
 vim.opt.smartcase = true
 vim.opt.title = true
-vim.opt.backup = true
+
 vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
 vim.opt.expandtab = true
 vim.opt.shiftround = true
