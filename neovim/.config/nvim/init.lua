@@ -17,7 +17,7 @@ vim.opt.belloff = all
 vim.opt.clipboard:append('unnamedplus')
 vim.opt.fileformats = unix
 vim.opt.number = true
-vim.opt.report = 0 
+vim.opt.report = 0
 vim.opt.smartcase = true
 vim.opt.title = true
 vim.opt.backup = true
@@ -35,6 +35,9 @@ vim.opt.wildignore = {
     '.DS_STore'
 }
 vim.opt.wildmode = { 'longest:full', 'full' }
+
+vim.keymap.set("n", "<c-P>",
+  "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
 
 require('Comment').setup()
 
