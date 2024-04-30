@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -37,7 +39,10 @@ vim.opt.wildignore = {
 }
 vim.opt.wildmode = { 'longest:full', 'full' }
 
-vim.keymap.set("n", "<c-P>",
-  "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-
 vim.cmd.colorscheme 'catppuccin-mocha'
+
+local tb = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', tb.find_files, {})
+vim.keymap.set('n', '<leader>fg', tb.live_grep, {})
+vim.keymap.set('n', '<leader>fb', tb.buffers, {})
+vim.keymap.set('n', '<leader>fh', tb.help_tags, {})

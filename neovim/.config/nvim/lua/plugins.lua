@@ -44,9 +44,10 @@ return {
     },
 
     {
-        "ibhagwan/fzf-lua",
+        'nvim-telescope/telescope.nvim', tag = '0.1.6',
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
-            require("fzf-lua").setup({})
+            require("telescope").setup({})
         end
     },
 
