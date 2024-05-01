@@ -29,6 +29,8 @@ call plug#end()
 
 " Options {{{
 
+colorscheme catppuccin_mocha
+
 set autoindent
 set autoread
 set autowrite
