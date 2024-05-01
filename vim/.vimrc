@@ -114,26 +114,9 @@ augroup ft_prog
                 \ autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
 augroup END
 
-augroup ft_golang
-    autocmd!
-    autocmd BufNewFile,BufRead *.mod set ft=go
-    autocmd FileType go setlocal noet ts=8 sw=8 sts=8
-augroup END
-
-augroup ft_ruby
-    autocmd!
-    autocmd BufNewFile,BufRead Capfile,Rakefile,Vagrantfile setlocal ft=ruby
-    autocmd FileType ruby setlocal et sts=2 sw=2 ts=2
-augroup END
-
 augroup ft_vim
     autocmd!
     autocmd FileType vim setlocal fdm=marker
-augroup END
-
-augroup ft_make
-    autocmd!
-    autocmd FileType make setlocal noet nolist sw=8 ts=8
 augroup END
 
 " http://vim.wikia.com/wiki/Encryption#GPG
@@ -171,7 +154,7 @@ augroup END
 
 " }}}
 
-" Backup/swap/undo {{{
+" Swap/undo {{{
 
 set undofile
 set undoreload=10000
@@ -224,24 +207,6 @@ function! Today()
     exe "normal a". today
 endfunction
 command! Today :call Today()
-
-" }}}
-
-" GUI {{{
-
-if has('gui_running')
-    set lines=25
-    set columns=80
-    set guioptions=egmt
-
-    if has('gui_macvim')
-        set guifont=-monospace-:h12
-    elseif has('gui_win32')
-        set guifont=Cascadia\ Code:h10
-    else
-        set guifont=Fira\ Code\ 10
-    endif
-endif
 
 " }}}
 
