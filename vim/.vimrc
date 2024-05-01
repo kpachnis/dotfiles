@@ -1,10 +1,6 @@
 " Plugins {{{
 
-if has('win32')
-    call plug#begin('~/vimfiles/plugged')
-else
-    call plug#begin('~/.vim/plugged')
-endif
+call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -25,16 +21,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
 
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
 call plug#end()
 
 " }}}
 
 " Options {{{
 
-set nocompatible
-syntax on
-filetype plugin indent on
-
+set autoindent
 set autoread
 set autowrite
 set backspace=2
@@ -49,7 +44,6 @@ set history=1000
 set hlsearch
 set incsearch
 set laststatus=2
-set lazyredraw
 set listchars = "space:\u00b7,tab:\u21e5\u00b7,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
 set fillchars = "vert:\u259a,fold:\u00b7"
 set modelines=5
@@ -69,32 +63,19 @@ set showmode
 set showmatch
 set smartcase
 set smarttab
-set softtabstop=4
-if has('win32')
-    set spellfile=~/vimfiles/spell/dict.utf-8.add
-else
-    set spellfile=~/.vim/spell/dict.utf-8.add
-endif
+set softtabstop=-1
+set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
-set tabstop=4
 set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
-set ttyfast
-set updatetime=100
 set viminfo='100,\"1000
 set wildignore+=.git,.hg,.svn,
-set wildignore+=*/tmp/*,*/log/*
 set wildignore+=*.o,*.pyc,*.pyo,*.so
-set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=.DS_Store
-set wildignore+=*.orig
-set wildignore+=tags
-set wildignore+=*.zip,*.rpm
 set wildignore+=*.egg-info
 set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache,venv
-set wildignore+=vendor
 set wildmenu
 set wildmode=longest:full,full
 
@@ -127,12 +108,6 @@ augroup ft_mail
 augroup END
 
 augroup ft_prog
-    autocmd!
-    autocmd FileType ruby setlocal cc=80
-    autocmd FileType python setlocal cc=88
-    autocmd FileType c,cpp,java,go setlocal cc=120
-    autocmd FileType javascript,python,ruby,sh,zsh,go setlocal ai
-    autocmd FileType c,cpp,java setlocal ci
     autocmd FileType c,cpp,java,javascript,python,ruby,sh,zsh
                 \ autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
 augroup END
@@ -141,13 +116,6 @@ augroup ft_golang
     autocmd!
     autocmd BufNewFile,BufRead *.mod set ft=go
     autocmd FileType go setlocal noet ts=8 sw=8 sts=8
-augroup END
-
-augroup ft_python
-    autocmd!
-    autocmd FileType python setlocal makeprg=prospector\ %:S
-    autocmd BufNewFile,BufRead *requirements.txt,**/requirements/*.txt
-                \ setlocal nospell tw=200
 augroup END
 
 augroup ft_ruby
@@ -161,38 +129,9 @@ augroup ft_vim
     autocmd FileType vim setlocal fdm=marker
 augroup END
 
-augroup ft_markdown
-    autocmd!
-    autocmd BufNewFile,BufRead *.md,*.mkd setlocal ft=markdown
-    autocmd FileType markdown setlocal spell tw=78
-augroup END
-
 augroup ft_make
     autocmd!
     autocmd FileType make setlocal noet nolist sw=8 ts=8
-augroup END
-
-augroup ft_yaml
-    autocmd!
-    autocmd BufNewFile,BufRead *.yml.sample setlocal ft=yaml
-    autocmd FileType yaml setlocal et sts=2 sw=2 ts=2
-augroup END
-
-augroup ft_html
-    autocmd!
-    autocmd FileType html setlocal et sts=2 sw=2 ts=2
-augroup END
-
-augroup ft_ledger
-    autocmd!
-    autocmd FileType ledger setlocal spell cc=53
-augroup END
-
-augroup ft_local_config
-    autocmd BufRead,BufNewFile .zshrc.local set filetype=zsh
-    autocmd BufRead,BufNewFile .gitconfig.local set filetype=gitconfig
-    autocmd BufRead,BufNewFile .tmux.conf.local set filetype=tmux
-    autocmd BufRead,BufNewFile .vimrc.local set filetype=vim
 augroup END
 
 " http://vim.wikia.com/wiki/Encryption#GPG
@@ -232,22 +171,13 @@ augroup END
 
 " Backup/swap/undo {{{
 
-set backup
 set undofile
 set undoreload=10000
 
-if has('win32')
-    setglobal undodir=~/AppData/Local/vim/undo
-    setglobal backupdir=~/AppData/Local/vim/backup
-    setglobal directory=~/AppData/Local/vim/swap
-else
-    setglobal undodir=~/.cache/vim/undo
-    setglobal backupdir=~/.cache/vim/backup
-    setglobal directory=~/.cache/vim/swap
-endif
+setglobal undodir=~/.cache/vim/undo
+setglobal directory=~/.cache/vim/swap
 
 call mkdir(&undodir, 'p')
-call mkdir(&backupdir, 'p')
 call mkdir(&directory, 'p')
 
 " }}}
@@ -268,17 +198,10 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 
 " Runtime {{{
 
-let python_highlight_all=1
-let ruby_space_errors=1
-
 let g:vim_markdown_frontmatter=1
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
-if has("bsd")
-    let g:gutentags_ctags_executable="uctags"
-endif
 
 " }}}
 
@@ -320,10 +243,3 @@ endif
 
 " }}}
 
-" Misc {{{
-
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
-
-" }}}
