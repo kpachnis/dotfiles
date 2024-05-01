@@ -11,6 +11,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdtree'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
+Plug 'itchyny/lightline.vim'
 
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
@@ -41,7 +42,7 @@ set complete+=kspell
 set conceallevel=2
 set encoding=utf-8
 set expandtab
-set fileformats=unix,dos
+set fileformats=unix
 set history=1000
 set hlsearch
 set incsearch
@@ -73,11 +74,10 @@ set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set viminfo='100,\"1000
-set wildignore+=.git,.hg,.svn,
 set wildignore+=*.o,*.pyc,*.pyo,*.so
 set wildignore+=.DS_Store
 set wildignore+=*.egg-info
-set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache,venv
+set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache
 set wildmenu
 set wildmode=longest:full,full
 
@@ -187,6 +187,8 @@ let g:vim_markdown_frontmatter=1
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
 " }}}
 
