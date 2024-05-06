@@ -51,7 +51,6 @@ output eDP-1 scale 1.5
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec /usr/bin/gammastep
-exec /usr/bin/mako
 
 ### Input configuration
 #
