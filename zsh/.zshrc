@@ -228,7 +228,12 @@ if [[ -x $(command -v fzf) ]]; then
         --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
         --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-    eval "$(fzf --zsh)"
+    if [[ -f /etc/debian_version ]]; then
+        source /usr/share/doc/fzf/examples/key-bindings.zsh
+        source /usr/share/doc/fzf/examples/completion.zsh
+    else
+        eval "$(fzf --zsh)"
+    fi
 fi
 
 bindkey -e
