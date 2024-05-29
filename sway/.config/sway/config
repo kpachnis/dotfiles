@@ -76,11 +76,6 @@ exec /usr/bin/gammastep
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-# ThinkPad X1
-input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
-    natural_scroll enabled
-}
-
 input * repeat_delay 250
 input * repeat_rate 50
 input * xkb_layout "us,gr"
@@ -270,7 +265,6 @@ for_window [app_id="Firefox" title="Extension:"] floating toggle
 bindswitch --reload --locked lid:on exec $lock
 
 # GTK 3
-
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
