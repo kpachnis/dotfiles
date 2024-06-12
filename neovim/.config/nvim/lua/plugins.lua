@@ -30,20 +30,6 @@ return {
     },
 
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        config = function()
-            require("catppuccin").setup({
-                integrations = {
-                    treesitter = true
-                }
-            })
-
-        end
-    },
-
-    {
         'nvim-telescope/telescope.nvim', tag = '0.1.6',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()

@@ -39,8 +39,6 @@ vim.opt.wildignore = {
 }
 vim.opt.wildmode = { 'longest:full', 'full' }
 
-vim.cmd.colorscheme 'catppuccin-frappe'
-
 local tb = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', tb.find_files, {})
 vim.keymap.set('n', '<leader>fg', tb.live_grep, {})
