@@ -22,15 +22,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
 
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-
 call plug#end()
 
 " }}}
 
 " Options {{{
-
-colorscheme catppuccin_mocha
 
 set autoindent
 set autoread
@@ -187,8 +183,6 @@ let g:vim_markdown_frontmatter=1
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
 " }}}
 
