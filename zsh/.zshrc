@@ -61,7 +61,7 @@ path=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=$(command -v nvim || command -v vim || command -v vi)
+EDITOR=$(command -v helix || command -v hx || command -v nvim || command -v vim || command -v vi)
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
@@ -123,11 +123,6 @@ autoload -U add-zsh-hook
 # }}}
 
 # Aliases {{{
-
-if [[ $EDITOR =~ vi ]]; then
-    alias vi=$EDITOR
-    alias view="$EDITOR -R"
-fi
 
 [[ $TERM != xterm* ]] && alias ssh='TERM=xterm-256color ssh'
 
