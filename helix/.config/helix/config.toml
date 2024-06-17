@@ -1,0 +1,5 @@
+theme = "github_light"
+
+[editor]
+cursorline = true
+true-color = true
