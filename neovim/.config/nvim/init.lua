@@ -21,6 +21,7 @@ vim.opt.fileformats = unix
 vim.opt.number = true
 vim.opt.report = 0
 vim.opt.smartcase = true
+vim.opt.termguicolors = true
 vim.opt.title = true
 
 vim.opt.undofile = true
