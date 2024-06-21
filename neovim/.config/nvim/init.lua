@@ -46,6 +46,3 @@ vim.keymap.set('n', '<leader>fg', tb.live_grep, {})
 vim.keymap.set('n', '<leader>fb', tb.buffers, {})
 vim.keymap.set('n', '<leader>fh', tb.help_tags, {})
 
-require'lspconfig'.elixirls.setup{
-    cmd = { vim.fn.expand("~") .. "/opt/elixir-ls/language_server.sh" };
-}
