@@ -50,6 +50,11 @@ case $(uname -s) in
         ;;
 esac
 
+if [[ -d ~/.asdf ]]; then
+    . ~/.asdf/asdf.sh
+    fpath=(${ASDF_DIR}/completions $fpath)
+fi
+
 path=(
     ~/bin
     ~/.local/bin
