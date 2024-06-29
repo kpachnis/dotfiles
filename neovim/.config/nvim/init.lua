@@ -47,3 +47,12 @@ vim.keymap.set('n', '<leader>fb', tb.buffers, {})
 vim.keymap.set('n', '<leader>fh', tb.help_tags, {})
 
 vim.keymap.set('n', '<leader>t', "<cmd>Neotree toggle<cr>")
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = {"*"},
+    callback = function()
+      local save_cursor = vim.fn.getpos(".")
+      pcall(function() vim.cmd [[%s/\s\+$//e]] end)
+      vim.fn.setpos(".", save_cursor)
+    end,
+}) 
