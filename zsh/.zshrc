@@ -63,6 +63,11 @@ path=(
     $path
 )
 
+fpath=(
+    /opt/homebrew/share/zsh/site-functions
+    $fpath
+)
+
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
