@@ -16,13 +16,16 @@ require("lazy").setup("plugins")
 
 vim.opt.autowrite = true
 vim.opt.belloff = all
-vim.opt.clipboard:append('unnamedplus')
+vim.opt.clipboard:append("unnamedplus")
 vim.opt.fileformats = unix
 vim.opt.number = true
 vim.opt.report = 0
-vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.title = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.infercase = true
 
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
@@ -33,12 +36,11 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1
 vim.opt.wrap = false
 
-vim.opt.wildignore = {
-    '*.o', '*.pyc', '*.pyo', '*.so',
-    'build', 'dist', '__pycache__', '.pytest_cache',
-    '.DS_STore'
-}
-vim.opt.wildmode = { 'longest:full', 'full' }
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wildignore:append(".git,.hg")
+vim.opt.wildignore:append("*.o,*.so")
+vim.opt.wildignore:append("*.pyc,*.pyo,build,dist,__pycache__,.pytest_cache")
+vim.opt.wildignore:append(".DS_STore,._*")
 
 local tb = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', tb.find_files, {})
@@ -55,4 +57,4 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       pcall(function() vim.cmd [[%s/\s\+$//e]] end)
       vim.fn.setpos(".", save_cursor)
     end,
-}) 
+})
