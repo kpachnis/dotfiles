@@ -60,6 +60,7 @@ path=(
     ~/.local/bin
     /opt/homebrew/{bin,sbin}
     /opt/homebrew/opt/{coreutils,findutils}/libexec/gnubin
+    /opt/homebrew/opt/postgresql@16/bin
     $path
 )
 
