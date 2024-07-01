@@ -16,10 +16,12 @@ return {
                 credo = {enable = false},
                 elixirls = {
                     enable = true,
-                    cmd = { vim.fn.expand("~") .. "/opt/elixir-ls/language_server.sh" };
+                    repo = "elixir-lsp/elixir-ls",
+                    tag = "v0.22.0",
                     settings = elixirls.settings {
                         dialyzerEnabled = true,
                         enableTestLenses = true,
+                        suggestSpecs = true,
                     },
                 }
             }
