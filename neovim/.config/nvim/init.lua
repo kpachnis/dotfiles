@@ -28,7 +28,6 @@ vim.opt.smartcase = true
 vim.opt.infercase = true
 
 vim.opt.undofile = true
-vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
 vim.opt.expandtab = true
 vim.opt.shiftround = true
@@ -58,3 +57,4 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       vim.fn.setpos(".", save_cursor)
     end,
 })
+
