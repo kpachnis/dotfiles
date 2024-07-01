@@ -230,6 +230,8 @@ periodic() { rehash }
 
 bindkey -e
 
+[[ -x $(command -v fzf) ]] && source <(fzf --zsh)
+
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # }}}
