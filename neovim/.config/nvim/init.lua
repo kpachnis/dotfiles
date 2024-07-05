@@ -58,3 +58,4 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end,
 })
 
+require('telescope').load_extension('fzf')
