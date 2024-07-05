@@ -4,33 +4,6 @@ return {
     },
 
     {
-        "elixir-tools/elixir-tools.nvim",
-        version = "*",
-        event = { "BufReadPre", "BufNewFile" },
-        config = function()
-            local elixir = require("elixir")
-            local elixirls = require("elixir.elixirls")
-
-            elixir.setup {
-                nextls = {enable = false},
-                credo = {enable = false},
-                elixirls = {
-                    enable = true,
-                    repo = "elixir-lsp/elixir-ls",
-                    tag = "v0.22.0",
-                    settings = elixirls.settings {
-                        dialyzerEnabled = true,
-                        enableTestLenses = true,
-                        suggestSpecs = true,
-                    },
-                }
-            }
-        end,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require('nvim-treesitter.configs').setup({
@@ -93,8 +66,6 @@ return {
             -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         }
     },
-
-    { "tpope/vim-projectionist" },
 
     {
         'nvim-lualine/lualine.nvim',

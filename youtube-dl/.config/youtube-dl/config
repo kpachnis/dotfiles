@@ -1,3 +1,0 @@
--f best
---prefer-free-formats
--o ~/Inbox/%(title)s.%(ext)s

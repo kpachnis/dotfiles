@@ -228,10 +228,5 @@ bindkey -e
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-if [[ -d ~/.sdkman ]]; then
-    export SDKMAN_DIR=~/.sdkman
-    source "$SDKMAN_DIR/bin/sdkman-init.sh"
-fi
-
 # }}}
 
