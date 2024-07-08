@@ -52,6 +52,7 @@ esac
 
 path=(
     ~/bin
+    ~/.cargo/bin
     ~/.local/bin
     /opt/homebrew/{bin,sbin}
     /opt/homebrew/opt/{coreutils,findutils}/libexec/gnubin
