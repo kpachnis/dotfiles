@@ -4,6 +4,10 @@ return {
     },
 
     {
+        "mfussenegger/nvim-dap"
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require('nvim-treesitter.configs').setup({
