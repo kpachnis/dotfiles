@@ -14,6 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
+vim.cmd("colorscheme tokyonight")
+
 vim.opt.autowrite = true
 vim.opt.belloff = all
 vim.opt.clipboard:append("unnamedplus")
