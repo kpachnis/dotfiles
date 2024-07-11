@@ -8,6 +8,10 @@ return {
     },
 
     {
+        "mfussenegger/nvim-jdtls"
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require('nvim-treesitter.configs').setup({
