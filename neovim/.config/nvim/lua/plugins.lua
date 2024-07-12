@@ -82,6 +82,18 @@ return {
     },
 
     {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lsp-signature-help',
+            'hrsh7th/cmp-vsnip',
+            'hrsh7th/vim-vsnip',
+        },
+
+        config = function() require('nvim-cmp') end
+    },
+
+    {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
