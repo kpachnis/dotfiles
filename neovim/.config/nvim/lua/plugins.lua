@@ -100,4 +100,15 @@ return {
             require("lualine").setup({})
         end
     },
+
+    {
+        'miikanissi/modus-themes.nvim',
+        priority = 1000,
+        config = function()
+            require('modus-themes').setup({
+                style = 'auto',
+                variant = 'tinted'
+            })
+        end
+    }
 }

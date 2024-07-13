@@ -43,6 +43,8 @@ vim.opt.wildignore:append(".DS_STore,._*")
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
+vim.cmd.colorscheme("modus")
+
 local tb = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', tb.find_files, {})
 vim.keymap.set('n', '<leader>fg', tb.live_grep, {})
