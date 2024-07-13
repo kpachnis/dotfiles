@@ -14,8 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-vim.cmd.colorscheme "catppuccin-frappe"
-
 vim.opt.autowrite = true
 vim.opt.belloff = all
 vim.opt.clipboard:append("unnamedplus")
@@ -43,7 +41,7 @@ vim.opt.wildignore:append("*.o,*.so")
 vim.opt.wildignore:append("*.pyc,*.pyo,build,dist,__pycache__,.pytest_cache")
 vim.opt.wildignore:append(".DS_STore,._*")
 
-vim.opt.completeopt=menu,menuone,noselect
+vim.opt.completeopt = "menu,menuone,noselect"
 
 local tb = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', tb.find_files, {})

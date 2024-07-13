@@ -100,10 +100,4 @@ return {
             require("lualine").setup({})
         end
     },
-
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000
-    }
 }
