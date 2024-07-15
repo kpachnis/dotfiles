@@ -4,23 +4,16 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdtree'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'SirVer/ultisnips'
-Plug 'itchyny/lightline.vim'
 
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
-Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'pangloss/vim-javascript'
-Plug 'vim-python/python-syntax'
-Plug 'othree/html5.vim'
 
 call plug#end()
 
