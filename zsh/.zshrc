@@ -55,13 +55,11 @@ path=(
     ~/.cargo/bin
     ~/.local/bin
     /opt/homebrew/{bin,sbin}
-    /opt/homebrew/opt/{coreutils,findutils}/libexec/gnubin
     $path
 )
 
 fpath=(
     /opt/homebrew/share/zsh/site-functions
-    ~/.zsh/site-functions
     $fpath
 )
 
