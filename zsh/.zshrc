@@ -61,6 +61,7 @@ path=(
 
 fpath=(
     /opt/homebrew/share/zsh/site-functions
+    ~/.zsh/site-functions
     $fpath
 )
 
