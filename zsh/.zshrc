@@ -133,7 +133,7 @@ autoload -U add-zsh-hook
 
 [[ $TERM != xterm* ]] && alias ssh='TERM=xterm-256color ssh'
 
-alias ls='ls --color=auto'
+alias ls='ls --color=always'
 alias l='ls -chlt'
 alias cp='cp -i'
 alias dot='ls -d .*(/,.)'
