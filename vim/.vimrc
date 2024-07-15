@@ -21,6 +21,8 @@ call plug#end()
 
 " Options {{{
 
+color lunaperche
+
 set autoindent
 set autoread
 set autowrite
