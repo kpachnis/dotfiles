@@ -67,8 +67,8 @@ set title
 set viminfo='100,\"1000
 set wildignore+=*.o,*.pyc,*.pyo,*.so
 set wildignore+=.DS_Store
-set wildignore+=*.egg-info
-set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache
+set wildignore+=tags
+set wildignore+=build,dist,__pycache__,.pytest_cache,.tox,.coverage,.mypy_cache,*.egg_info
 set wildignore+=target
 set wildmenu
 set wildmode=longest:full,full
@@ -181,6 +181,8 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 let g:gutentags_ctags_exclude_wildignore=1
+
+let g:NERDTreeRespectWildIgnore=1
 
 " }}}
 
