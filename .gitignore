@@ -9,4 +9,4 @@
 /systemd/.config/systemd/user/resticprofile-*
 !/systemd/.config/systemd/user/default.target.wants/.keep
 /tags*
-/neovim/.config/nvim/lazy-lock.json
+*.old
