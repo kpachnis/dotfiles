@@ -92,4 +92,6 @@ return {
 
         config = function() require('nvim-cmp') end
     },
+
+    { "EdenEast/nightfox.nvim" },
 }
