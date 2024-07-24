@@ -1,0 +1,4 @@
+theme = "Jellybeans"
+
+[editor]
+auto-save = true
