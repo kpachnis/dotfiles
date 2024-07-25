@@ -10,3 +10,4 @@
 !/systemd/.config/systemd/user/default.target.wants/.keep
 /tags*
 *.old
+*lock*
