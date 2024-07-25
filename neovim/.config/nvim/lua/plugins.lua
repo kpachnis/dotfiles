@@ -107,6 +107,4 @@ return {
 
         config = function() require('lualine').setup() end
     },
-
-    { "EdenEast/nightfox.nvim" },
 }
