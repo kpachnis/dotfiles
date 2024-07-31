@@ -6,22 +6,17 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mg979/vim-visual-multi'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdtree'
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'ledger/vim-ledger'
 Plug 'plasticboy/vim-markdown'
-Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
 " }}}
 
 " Options {{{
-
-color lunaperche
 
 set autoindent
 set autoread
@@ -61,7 +56,6 @@ set softtabstop=-1
 set spellfile=~/.vim/spell/dict.utf-8.add
 set spelllang=en,el
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%*%=%-14.(%l,%c%V%)\ %P
-set termguicolors
 set timeout timeoutlen=1000 ttimeoutlen=100 " Fix slow O inserts
 set title
 set viminfo='100,\"1000
