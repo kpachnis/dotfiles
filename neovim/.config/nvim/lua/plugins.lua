@@ -1,15 +1,7 @@
 return {
-    {
-        "neovim/nvim-lspconfig"
-    },
+    { "neovim/nvim-lspconfig" },
 
-    {
-        "mfussenegger/nvim-dap"
-    },
-
-    {
-        "mfussenegger/nvim-jdtls"
-    },
+    { "mfussenegger/nvim-dap" },
 
     {
         "nvim-treesitter/nvim-treesitter",
@@ -76,24 +68,6 @@ return {
     },
 
     {
-        'mrcjkb/rustaceanvim',
-        version = '^4', -- Recommended
-        lazy = false, -- This plugin is already lazy
-    },
-
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lsp-signature-help',
-            'hrsh7th/cmp-vsnip',
-            'hrsh7th/vim-vsnip',
-        },
-
-        config = function() require('nvim-cmp') end
-    },
-
-    {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
@@ -107,4 +81,6 @@ return {
 
         config = function() require('lualine').setup() end
     },
+
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 }
