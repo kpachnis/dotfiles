@@ -67,7 +67,7 @@ fpath=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=vi
+EDITOR=nvim
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
