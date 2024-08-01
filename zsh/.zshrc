@@ -67,7 +67,7 @@ fpath=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=nvim
+EDITOR=hx
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
@@ -223,7 +223,7 @@ watch=(notme)
 PERIOD=3600
 periodic() { rehash }
 
-bindkey -v
+bindkey -e
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
