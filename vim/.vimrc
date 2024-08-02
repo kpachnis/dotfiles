@@ -178,6 +178,25 @@ let g:NERDTreeRespectWildIgnore=1
 
 " }}}
 
+" GUI {{{
+
+if has('gui_running')
+    set lines=25
+    set columns=80
+    set guioptions=egmt
+    colorscheme habamax
+
+    if has('gui_macvim')
+        set guifont=-monospace-:h11
+    elseif has('gui_win32')
+        set guifont=Cascadia\ Code:h10
+    else
+        set guifont=Monospace\ 10
+    endif
+endif
+
+" }}}
+
 " Functions {{{
 
 function! StripTrailingWhitespace()
