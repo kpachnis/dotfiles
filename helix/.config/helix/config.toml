@@ -1,2 +1,4 @@
+theme = "tokyonight"
+
 [editor]
 auto-save = true
