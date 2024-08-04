@@ -225,6 +225,8 @@ periodic() { rehash }
 
 bindkey -e
 
+[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
+
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # }}}
