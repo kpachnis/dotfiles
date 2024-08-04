@@ -43,14 +43,6 @@ vim.opt.wildignore:append("*.o,*.so")
 vim.opt.wildignore:append("*.pyc,*.pyo,build,dist,__pycache__,.pytest_cache")
 vim.opt.wildignore:append(".DS_STore,._*")
 
-local tb = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', tb.find_files, {})
-vim.keymap.set('n', '<leader>fg', tb.live_grep, {})
-vim.keymap.set('n', '<leader>fb', tb.buffers, {})
-vim.keymap.set('n', '<leader>fh', tb.help_tags, {})
-
-vim.keymap.set('n', '<leader>t', "<cmd>Neotree toggle<cr>")
-
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = {"*"},
     callback = function()
@@ -59,6 +51,4 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       vim.fn.setpos(".", save_cursor)
     end,
 })
-
-require('telescope').load_extension('fzf')
 

@@ -46,8 +46,20 @@ return {
                         case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                         -- the default case_mode is "smart_case"
                     }
-                }
+                },
+
             })
+
+            require('telescope').load_extension('fzf')
+
+            local builtin = require "telescope.builtin"
+
+            vim.keymap.set("n", "<leader>fd", builtin.find_files)
+            vim.keymap.set("n", "<leader>ft", builtin.git_files)
+            vim.keymap.set("n", "<leader>fh", builtin.help_tags)
+            vim.keymap.set("n", "<leader>fg", builtin.live_grep)
+            vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find)
+
         end
     },
 
@@ -64,7 +76,11 @@ return {
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
             -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-        }
+        },
+
+        config = function()
+            vim.keymap.set('n', '<leader>t', "<cmd>Neotree toggle<cr>")
+        end
     },
 
     {
