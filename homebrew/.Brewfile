@@ -8,6 +8,8 @@ brew "tmux"
 brew "universal-ctags"
 brew "bat"
 brew "fzf"
+brew "jq"
+brew "fd"
 
 cask "1password"
 cask "iterm2"
