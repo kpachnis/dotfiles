@@ -14,6 +14,8 @@ brew "rsync"
 brew "git"
 brew "diff-so-fancy"
 brew "yt-dlp"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
 
 cask "1password"
 cask "iterm2"
