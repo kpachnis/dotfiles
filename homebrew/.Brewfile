@@ -10,6 +10,7 @@ brew "bat"
 brew "fzf"
 brew "jq"
 brew "fd"
+brew "rsync"
 
 cask "1password"
 cask "iterm2"
