@@ -60,7 +60,7 @@ path=(
 
 fpath=(
     ~/.zsh/site-functions
-    /opt/homebrew/share/zsh/site-functions
+    /opt/homebrew/share/{zsh/site-functions,zsh-completions}
     $fpath
 )
 
@@ -250,6 +250,12 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 "
 
 source <(fzf --zsh)
+
+if [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
