@@ -7,6 +7,7 @@
 [core]
     excludesfile = ~/.config/git/ignore_global
     autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RF
 [commit]
     gpgSign = true
     template = ~/.config/git/message
@@ -28,3 +29,5 @@
 	fsckobjects = false
 [pull]
 	rebase = false
+[interactive]
+	diffFilter = diff-so-fancy --patch
