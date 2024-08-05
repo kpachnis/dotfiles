@@ -33,3 +33,5 @@
 	rebase = false
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[rebase]
+	updateRefs = true
