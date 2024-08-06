@@ -2,8 +2,9 @@
     templatedir = ~/.config/git/template
     defaultBranch = main
 [alias]
-    pl = log --oneline --graph --decorate
     l = log --stat --graph --decorate --abbrev-commit --date=relative
+    pl = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold red)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit
+    rl = reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'
 [core]
     excludesfile = ~/.config/git/ignore_global
     autocrlf = input
