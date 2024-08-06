@@ -40,11 +40,10 @@
     useConfigOnly = true
 [delta]
     navigate = true
-[delta]
-    navigate = true
     theme = tokyonight_night
     side-by-side = true
     line-numbers = true
+    diff-so-fancy = true
     minus-style                   = syntax "#37222c"
     minus-non-emph-style          = syntax "#37222c"
     minus-emph-style              = syntax "#713137"
