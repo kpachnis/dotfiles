@@ -35,3 +35,5 @@
 	diffFilter = diff-so-fancy --patch
 [rebase]
 	updateRefs = true
+[user]
+	useConfigOnly = true
