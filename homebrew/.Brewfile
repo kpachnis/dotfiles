@@ -16,6 +16,7 @@ brew "diff-so-fancy"
 brew "yt-dlp"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
+brew "rename"
 
 cask "1password"
 cask "iterm2"
