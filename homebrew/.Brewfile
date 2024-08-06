@@ -17,6 +17,7 @@ brew "yt-dlp"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "rename"
+brew "gitui"
 
 cask "1password"
 cask "iterm2"
