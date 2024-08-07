@@ -142,7 +142,6 @@ alias du1='du -h -d 1'
 alias mv='mv -i'
 alias rm='rm -i'
 alias reload='source ~/.zshrc'
-alias tree='tree -C'
 alias bc='bc -l'
 
 # }}}
