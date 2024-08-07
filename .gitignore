@@ -1,8 +1,11 @@
 *~
+/emacs/.emacs.d/*
+!/emacs/.emacs.d/init.el
 /vim/.vim/plugged
 /vim/.vim/pack
 /vim/.vim/spell
 /vim/.vim/.netrwhist
+/neovim/.config/nvim/spell
 /git/.config/git/local
 .uuid
 /systemd/.config/systemd/user/*.wants/*
