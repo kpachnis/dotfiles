@@ -40,6 +40,8 @@ HISTORY_IGNORE="(ls|cd|pwd|exit|cd)*"
 
 DIRSTACKSIZE=10
 
+export NO_COLOR=1
+
 case $(uname -s) in
     Linux)
         export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
@@ -67,7 +69,7 @@ fpath=(
 path=(${(u)^path:A}(N-/))
 fpath=(${(u)^fpath:A}(N-/))
 
-EDITOR=nvim
+export EDITOR=nvim
 export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
@@ -223,30 +225,6 @@ PERIOD=3600
 periodic() { rehash }
 
 bindkey -e
-
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --highlight-line \
-  --info=inline-right \
-  --ansi \
-  --layout=reverse \
-  --border=none
-  --color=bg+:#283457 \
-  --color=bg:#16161e \
-  --color=border:#27a1b9 \
-  --color=fg:#c0caf5 \
-  --color=gutter:#16161e \
-  --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#2ac3de \
-  --color=query:#c0caf5:regular \
-  --color=scrollbar:#27a1b9 \
-  --color=separator:#ff9e64 \
-  --color=spinner:#ff007c \
-"
 
 source <(fzf --zsh)
 

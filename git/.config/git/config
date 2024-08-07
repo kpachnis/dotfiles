@@ -3,8 +3,8 @@
     defaultBranch = main
 [alias]
     l = log --stat --graph --decorate --abbrev-commit --date=relative
-    pl = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold red)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit
-    rl = reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'
+    pl = log --graph --pretty=format:'%h - %d %s (%cr) <%an>' --abbrev-commit
+    rl = reflog --format='%h %<|(20)%gd %cr %gs (%s)'
 [core]
     excludesfile = ~/.config/git/ignore_global
     autocrlf = input
@@ -14,7 +14,7 @@
     gpgSign = true
     template = ~/.config/git/message
 [color]
-    ui = auto
+    ui = false
 [instaweb]
     httpd = webrick
 [log]
@@ -40,21 +40,8 @@
     useConfigOnly = true
 [delta]
     navigate = true
-    theme = tokyonight_night
     side-by-side = true
     line-numbers = true
-    diff-so-fancy = true
-    minus-style                   = syntax "#37222c"
-    minus-non-emph-style          = syntax "#37222c"
-    minus-emph-style              = syntax "#713137"
-    minus-empty-line-marker-style = syntax "#37222c"
-    line-numbers-minus-style      = "#914c54"
-    plus-style                    = syntax "#20303b"
-    plus-non-emph-style           = syntax "#20303b"
-    plus-emph-style               = syntax "#2c5a66"
-    plus-empty-line-marker-style  = syntax "#20303b"
-    line-numbers-plus-style       = "#449dab"
-    line-numbers-zero-style       = "#3b4261"
 [merge]
     conflictstyle = diff3
 [diff]
