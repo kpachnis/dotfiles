@@ -111,11 +111,11 @@ if [[ -x $(command -v git) ]]; then
   autoload -Uz vcs_info
 
   zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' actionformats "%r %F{3}%b%f|%a% %S"
-  zstyle ':vcs_info:*' formats "%r %F{3}%b%f%c%u %S"
+  zstyle ':vcs_info:*' actionformats "%r %b|%a% %S"
+  zstyle ':vcs_info:*' formats "%r %b%c%u %S"
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr "%F{1}+%f"
-  zstyle ':vcs_info:*' unstagedstr "%F{1}-%f"
+  zstyle ':vcs_info:*' stagedstr "+"
+  zstyle ':vcs_info:*' unstagedstr "-"
 
   precmd() { vcs_info }
 fi
@@ -133,7 +133,7 @@ autoload -U add-zsh-hook
 
 [[ $TERM != xterm* ]] && alias ssh='TERM=xterm-256color ssh'
 
-alias ls='ls --color=always'
+alias ls='ls -F'
 alias l='ls -chlt'
 alias cp='cp -i'
 alias dot='ls -d .*(/,.)'
@@ -154,7 +154,7 @@ __prompt() {
     if [[ -n ${vcs_info_msg_0_} ]]; then
         print "${vcs_info_msg_0_}"
     else
-        print "%m:%F{2}%3~%f"
+        print "%m:%3~"
     fi
 
 }
@@ -163,7 +163,7 @@ proxy() {
     if [[ -f ~/.proxy ]]; then
         source ~/.proxy
     else
-        print "$fg[red]Proxy settings not found$reset_color"
+        print "Proxy settings not found"
         return
     fi
 
