@@ -14,6 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
+vim.cmd.colorscheme "lunaperche"
+
 vim.opt.autowrite = true
 vim.opt.belloff = all
 vim.opt.clipboard:append("unnamedplus")
@@ -34,6 +36,8 @@ vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1
 vim.opt.wrap = false
+
+vim.o.statusline = [[[%n] %<%f %h%m%r %y%=%{v:register} %-14.(%l,%c%V%) %P]]
 
 vim.opt.wildmode = "longest:full,full"
 vim.opt.wildignore:append(".git,.hg")
