@@ -74,7 +74,8 @@ export VISUAL=$EDITOR
 
 export GPG_TTY=$(tty)
 
-export PAGER="bat"
+export PAGER="less"
+export LESS="-r"
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP=~/.pythonrc

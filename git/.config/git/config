@@ -8,7 +8,6 @@
 [core]
     excludesfile = ~/.config/git/ignore_global
     autocrlf = input
-    pager = delta
     symlinks = true
 [commit]
     gpgSign = true
@@ -32,17 +31,10 @@
     fsckobjects = false
 [pull]
     rebase = false
-[interactive]
-    diffFilter = delta --color-only
 [rebase]
     updateRefs = true
 [user]
     useConfigOnly = true
-[delta]
-    navigate = true
-    side-by-side = true
-    line-numbers = true
 [merge]
     conflictstyle = diff3
-[diff]
-    colorMoved = default
+
