@@ -14,7 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-vim.cmd.colorscheme "lunaperche"
+vim.cmd.colorscheme "wildcharm"
 
 vim.opt.autowrite = true
 vim.opt.belloff = all
