@@ -13,6 +13,7 @@ brew "yt-dlp"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "tree"
+brew "aspell"
 
 cask "1password"
 cask "iterm2"
