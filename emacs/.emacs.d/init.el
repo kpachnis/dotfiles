@@ -46,6 +46,8 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
+(setq org-hide-emphasis-markers t)
+
 (setq lpr-command "lp"
       lpr-printer-switch "-d "
       lpr-add-switches nil
@@ -110,12 +112,28 @@
 (use-package markdown-mode
   :ensure t)
 
+(use-package rust-mode
+  :ensure t)
+
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (rust-mode . lsp)
+  :commands lsp)
+
 (use-package flyspell
   :config
   (setq ispell-program-name "aspell" ; use aspell instead of ispell
         ispell-extra-args '("--sug-mode=ultra"))
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
+
+(use-package zenburn-theme
+  :ensure t)
+
+(setq zenburn-scale-org-headlines t)
+(load-theme 'zenburn t)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
