@@ -37,4 +37,5 @@
     useConfigOnly = true
 [merge]
     conflictstyle = diff3
-
+[pager]
+    branch = false
