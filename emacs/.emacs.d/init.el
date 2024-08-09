@@ -129,10 +129,16 @@
   (add-hook 'text-mode-hook #'flyspell-mode)
   (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
-(use-package zenburn-theme
-  :ensure t)
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
 
-(setq zenburn-scale-org-headlines t)
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (setq zenburn-scale-org-headlines t))
 (load-theme 'zenburn t)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
